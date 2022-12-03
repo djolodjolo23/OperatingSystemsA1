@@ -17,6 +17,10 @@ public class Block {
     allocatedBytes.add(b);
   }
 
+  public boolean isAllocated() {
+    return allocated;
+  }
+
   public void setAllocated(boolean value) {
     this.allocated = value;
   }

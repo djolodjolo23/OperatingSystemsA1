@@ -1,5 +1,9 @@
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.nio.charset.Charset;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -54,6 +58,11 @@ public class RegistryReader {
         allCommands.add(command);
       }
     }
+  }
+
+  public void saveFile() throws IOException {
+    new FileOutputStream(getOutputPath()).close();
+    PrintWriter printWriter = new PrintWriter(new FileWriter(getOutputPath(), Charset.defaultCharset()));
   }
 
   public boolean checkIfInteger(String num) {

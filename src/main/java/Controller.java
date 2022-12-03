@@ -18,6 +18,16 @@ public class Controller {
   public void run() throws IOException {
     registryReader.loadFile();
     interpretCommands();
+    printTest();
+  }
+
+  void printTest() {
+    System.out.println("Allocated blocks:");
+    for (Block b : allBlocks) {
+      if (b.isAllocated()) {
+        System.out.println(b.getBlockId() + ";" + b.getAllocatedBytes().get(0).getAddress() + ";" + b.getAllocatedBytes().get(b.getAllocatedBytes().size()-1).getAddress());
+      }
+    }
   }
 
 
