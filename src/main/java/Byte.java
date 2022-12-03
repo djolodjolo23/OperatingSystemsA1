@@ -1,6 +1,6 @@
 public class Byte {
 
-  private int address = 0;
+  private int address;
   private boolean allocated;
 
   public Byte(int address) {
@@ -8,8 +8,12 @@ public class Byte {
     this.allocated = false;
   }
 
-  public void setAllocated() {
-    this.allocated = true;
+  public void setAllocated(boolean value) {
+    this.allocated = value;
+  }
+
+  public boolean isAllocated() {
+    return allocated;
   }
 
   public void setAddress(int address){

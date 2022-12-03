@@ -11,12 +11,11 @@ public class Main {
     }
      **/
 
-    RegistryReader registryReader = new RegistryReader();
-    registryReader.loadFile();
+    var regReader = new RegistryReader();
 
-    for (Command c : registryReader.getAllCommands()) {
-      System.out.println(c.getCommandIdentifier() + ";" +  c.getBlockId() + ";" + c.getAmountOfMemory());
-    }
+    var controller = new Controller(regReader);
+
+    controller.run();
 
   }
 }

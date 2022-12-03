@@ -8,19 +8,19 @@ import java.util.Scanner;
 public class Command {
 
   private String commandIdentifier;
-  private String blockId;
-  private String amountOfMemory;
+  private int blockId;
+  private int amountOfMemory;
 
   public Command(String command, String blockId, String amountOfMemory) {
     this.commandIdentifier = command;
-    this.blockId = blockId;
-    this.amountOfMemory = amountOfMemory;
+    this.blockId = Integer.parseInt(blockId);
+    this.amountOfMemory = Integer.parseInt(amountOfMemory);
 
   }
 
   public Command(String command, String blockId) {
     this.commandIdentifier = command;
-    this.blockId = blockId;
+    this.blockId = Integer.parseInt(blockId);
   }
 
   public Command(String command) {
@@ -31,11 +31,11 @@ public class Command {
     return commandIdentifier;
   }
 
-  public String getBlockId() {
+  public int getBlockId() {
     return blockId;
   }
 
-  public String getAmountOfMemory() {
+  public int getAmountOfMemory() {
     return amountOfMemory;
   }
 }
