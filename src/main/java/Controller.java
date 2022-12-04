@@ -57,27 +57,27 @@ public class Controller {
     }
   }
   void innerMethod(ArrayList<Integer> list) {
-      int counter = list.get(0);
-      int counter2 = list.get(0);
-      Block b = new Block();
-      b.setAllocated(false);
-      allBlocks.add(b);
-      while (list.contains(counter2)) {
-        counter2++;
+    int counter = list.get(0);
+    int counter2 = list.get(0);
+    Block b = new Block();
+    b.setAllocated(false);
+    allBlocks.add(b);
+    while (list.contains(counter2)) {
+      counter2++;
+    }
+    int finalValue = counter2;
+    for (int i = list.get(0); i < finalValue; i++) {
+      while (counter == i) {
+        b.addToAllocatedBytes(getSpecificByte(i));
+        counter++;
       }
-      int finalValue = counter2;
-      for (int i = list.get(0); i < finalValue; i++) {
-          while (counter == i) {
-            b.addToAllocatedBytes(getSpecificByte(i));
-            counter++;
-          }
-      }
-      ArrayList<Integer> updatedList = new ArrayList<>();
-      for (Byte byteInBlock : b.getAllocatedBytes()) {
-        updatedList.add(byteInBlock.getAddress());
-      }
-      list.removeAll(updatedList);
-      updatedList.clear();
+    }
+    ArrayList<Integer> updatedList = new ArrayList<>();
+    for (Byte byteInBlock : b.getAllocatedBytes()) {
+      updatedList.add(byteInBlock.getAddress());
+    }
+    list.removeAll(updatedList);
+    updatedList.clear();
   }
 
   public Byte getSpecificByte(int address) {
@@ -113,16 +113,13 @@ public class Controller {
         for (int i = 0; i < c.getAmountOfMemory(); i++) {
           block.addToAllocatedBytes(allBytes.get(i));
           allBytes.get(i).setAllocated(true);
-          //block.setAllocated(true);
-          //allBytes.remove(i);
-          //System.out.println(block.getAllocatedBytes().get(i).getAddress());
           }
         for (Byte b : block.getAllocatedBytes()) {
           if (b.isAllocated()) {
             allBytes.remove(b);
           }
         }
-        }
+      }
       if (c.getCommandIdentifier().equals("D")) {
         for (Block b : allBlocks) {
           if (b.getBlockId() == c.getBlockId()) {
@@ -135,6 +132,7 @@ public class Controller {
           }
         }
       }
-      }
     }
   }
+
+}

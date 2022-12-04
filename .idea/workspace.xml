@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9669cbba-49a3-4f69-9816-ed9873540e63" name="Changes" comment="more updates inside the controller.">
+    <list default="true" id="9669cbba-49a3-4f69-9816-ed9873540e63" name="Changes" comment="first fit working fine.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/AbstractStrategyFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/strategy/BestFit.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/strategy/FirstFit.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Block.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +24,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -83,7 +85,7 @@
       <updated>1669915633170</updated>
       <workItem from="1669915634705" duration="435000" />
       <workItem from="1669916242727" duration="15557000" />
-      <workItem from="1670092390084" duration="12087000" />
+      <workItem from="1670092390084" duration="12640000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit.">
       <created>1669915667848</created>
@@ -113,7 +115,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670081265532</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="first fit working fine.">
+      <created>1670165475461</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1670165475461</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -136,7 +145,8 @@
     <MESSAGE value="Added couple of classes to support the assignment requirements, added a command class that reads the txt. file." />
     <MESSAGE value="A controller class added." />
     <MESSAGE value="more updates inside the controller." />
-    <option name="LAST_COMMIT_MESSAGE" value="more updates inside the controller." />
+    <MESSAGE value="first fit working fine." />
+    <option name="LAST_COMMIT_MESSAGE" value="first fit working fine." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
