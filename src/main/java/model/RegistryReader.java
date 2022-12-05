@@ -1,4 +1,5 @@
-import java.io.FileNotFoundException;
+package model;
+
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -39,11 +40,6 @@ public class RegistryReader {
       if (line[0].equals("A")) {
         var command = new Command(line[0], line[1], line[2]);
         allCommands.add(command);
-        //var block = new Block(line[0]);
-        //for (int i = 0; i <= Integer.parseInt(line[2]); i++) {
-          //var b = new Byte(i);
-          //block.addToAllocatedBytes(b);
-         // }
       }
       if (line[0].equals("D")) {
         var command = new Command(line[0], line[1]);

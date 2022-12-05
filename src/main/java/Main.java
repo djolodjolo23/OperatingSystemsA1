@@ -1,4 +1,6 @@
 import java.io.IOException;
+import controller.Controller;
+import model.RegistryReader;
 
 public class Main {
 

@@ -1,6 +1,15 @@
+package controller;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
+import model.Block;
+import model.Byte;
+import model.Command;
+import model.RegistryReader;
+import strategy.BestFit;
+import strategy.FitStrategy;
+import strategy.StrategyFactory;
 
 public class Controller {
 
@@ -10,10 +19,15 @@ public class Controller {
 
   private ArrayList<Block> allBlocks;
 
+  private FitStrategy bestFit;
+
+
+
 
 
   public Controller(RegistryReader registryReader) {
     this.registryReader = registryReader;
+    //bestFit = strategyFactory.getBestFitRule();
     allBytes = new ArrayList<>();
     allBlocks = new ArrayList<>();
   }
@@ -52,11 +66,8 @@ public class Controller {
     ArrayList<Integer> listOfFreeByteAddresses = new ArrayList<>(getFreeByteAddresses());
     Collections.sort(listOfFreeByteAddresses);
     innerMethod(listOfFreeByteAddresses);
-    while (!listOfFreeByteAddresses.isEmpty()) {
-      innerMethod(listOfFreeByteAddresses);
-    }
   }
-  void innerMethod(ArrayList<Integer> list) {
+  private void innerMethod(ArrayList<Integer> list) {
     int counter = list.get(0);
     int counter2 = list.get(0);
     Block b = new Block();
@@ -78,6 +89,9 @@ public class Controller {
     }
     list.removeAll(updatedList);
     updatedList.clear();
+    while (!list.isEmpty()) {
+      innerMethod(list);
+    }
   }
 
   public Byte getSpecificByte(int address) {

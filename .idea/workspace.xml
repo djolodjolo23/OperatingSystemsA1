@@ -4,12 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9669cbba-49a3-4f69-9816-ed9873540e63" name="Changes" comment="first fit working fine.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/AbstractStrategyFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/strategy/BestFit.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/strategy/FirstFit.java" afterDir="false" />
+    <list default="true" id="9669cbba-49a3-4f69-9816-ed9873540e63" name="Changes" comment="Added interfaces for the code refactoring.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/Interperter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/strategy/AbstractStrategyFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/strategy/StrategyFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AbstractStrategyFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Block.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Byte.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Byte.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Command.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/RegistryReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/RegistryReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/strategy/BestFit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/strategy/BestFit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/strategy/FirstFit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/strategy/FirstFit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/strategy/FitStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/strategy/FitStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/strategy/WorstFit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/strategy/WorstFit.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +95,8 @@
       <updated>1669915633170</updated>
       <workItem from="1669915634705" duration="435000" />
       <workItem from="1669916242727" duration="15557000" />
-      <workItem from="1670092390084" duration="12640000" />
+      <workItem from="1670092390084" duration="15611000" />
+      <workItem from="1670228882568" duration="743000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit.">
       <created>1669915667848</created>
@@ -122,7 +133,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670165475461</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Added interfaces for the code refactoring.">
+      <created>1670166276179</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1670166276179</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -146,7 +164,8 @@
     <MESSAGE value="A controller class added." />
     <MESSAGE value="more updates inside the controller." />
     <MESSAGE value="first fit working fine." />
-    <option name="LAST_COMMIT_MESSAGE" value="first fit working fine." />
+    <MESSAGE value="Added interfaces for the code refactoring." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added interfaces for the code refactoring." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

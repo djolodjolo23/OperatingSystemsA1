@@ -1,11 +1,12 @@
+package model;
+
 import java.util.ArrayList;
+import model.Byte;
 
 public class Block {
 
   private int blockId;
   private ArrayList<Byte> allocatedBytes;
-
-
 
   private boolean allocated;
 
