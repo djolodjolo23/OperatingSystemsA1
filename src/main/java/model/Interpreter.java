@@ -1,8 +1,10 @@
 package model;
 
 import java.util.ArrayList;
+import strategy.AbstractStrategyFactory;
+import strategy.FitStrategy;
 
-public class Interperter {
+public class Interpreter {
 
   private RegistryReader registryReader;
 
@@ -10,11 +12,21 @@ public class Interperter {
 
   private ArrayList<Block> allBlocks;
 
+  private FitStrategy firstFit;
 
-  public Interperter(RegistryReader registryReader) {
+  private FitStrategy bestFit;
+
+  private FitStrategy worstFit;
+
+
+  public Interpreter(RegistryReader registryReader) {
     this.registryReader = registryReader;
     allBytes = new ArrayList<>();
     allBlocks = new ArrayList<>();
+  }
+
+  public void go(AbstractStrategyFactory strategyFactory) {
+    firstFit = strategyFactory.getFirstFitRule(this, registryReader);
   }
 
   public void addToAllBytes(Byte b) {
@@ -43,6 +55,25 @@ public class Interperter {
 
   public ArrayList<Block> getAllBlocks() {
     return allBlocks;
+  }
+
+  public Byte getSpecificByte(int address) {
+    for (Byte b : allBytes) {
+      if (b.getAddress() == address) {
+        return b;
+      }
+    }
+    return null;
+  }
+
+
+
+  public ArrayList<Integer> getFreeByteAddresses() {
+    ArrayList<Integer> freeAddresses = new ArrayList<>();
+    for (Byte b : allBytes) {
+      freeAddresses.add(b.getAddress());
+    }
+    return freeAddresses;
   }
 
 

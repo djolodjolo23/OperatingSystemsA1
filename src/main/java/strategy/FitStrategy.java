@@ -1,10 +1,10 @@
 package strategy;
 
-import model.Interperter;
+import model.Interpreter;
 import model.RegistryReader;
 
 public interface FitStrategy {
 
-  void run(Interperter interperter, RegistryReader registryReader);
+  void run(Interpreter interpreter, RegistryReader registryReader);
 
 }

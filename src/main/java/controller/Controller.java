@@ -6,10 +6,9 @@ import java.util.Collections;
 import model.Block;
 import model.Byte;
 import model.Command;
+import model.Interpreter;
 import model.RegistryReader;
-import strategy.BestFit;
-import strategy.FitStrategy;
-import strategy.StrategyFactory;
+import strategy.AbstractStrategyFactory;
 
 public class Controller {
 
@@ -19,35 +18,36 @@ public class Controller {
 
   private ArrayList<Block> allBlocks;
 
-  private FitStrategy bestFit;
+  private Interpreter interpreter;
 
 
 
 
 
-  public Controller(RegistryReader registryReader) {
+  public Controller(RegistryReader registryReader, Interpreter interpreter) {
     this.registryReader = registryReader;
+    //this.interpreter = interpreter;
     //bestFit = strategyFactory.getBestFitRule();
     allBytes = new ArrayList<>();
     allBlocks = new ArrayList<>();
   }
 
-  public void run() throws IOException {
+  public void run(AbstractStrategyFactory strategyFactory, Interpreter interpreter) throws IOException {
     registryReader.loadFile();
-    interpretCommands();
-    addToEmptyBlocks();
-    printTest();
+    interpreter.go(strategyFactory);
+    //addToEmptyBlocks();
+    printTest(interpreter);
   }
 
-  void printTest() {
+  void printTest(Interpreter interpreter) {
     System.out.println("Allocated blocks:");
-    for (Block b : allBlocks) {
+    for (Block b : interpreter.getAllBlocks()) {
       if (b.isAllocated()) {
         System.out.println(b.getBlockId() + ";" + b.getAllocatedBytes().get(0).getAddress() + ";" + b.getAllocatedBytes().get(b.getAllocatedBytes().size()-1).getAddress());
       }
     }
     System.out.println("Free blocks: ");
-    for (Block bl : allBlocks) {
+    for (Block bl : interpreter.getAllBlocks()) {
       if (!bl.isAllocated()) {
         if (!bl.getAllocatedBytes().isEmpty()) {
         System.out.println(bl.getAllocatedBytes().get(0).getAddress() + ";" + bl.getAllocatedBytes().get(bl.getAllocatedBytes().size()-1).getAddress());

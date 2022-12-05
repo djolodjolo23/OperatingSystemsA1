@@ -1,17 +1,17 @@
 package strategy;
 
-import model.Interperter;
+import model.Interpreter;
 import model.RegistryReader;
 
 public class BestFit implements FitStrategy{
 
-  public BestFit(Interperter interperter, RegistryReader registryReader) {
-    run(interperter, registryReader);
+  public BestFit(Interpreter interpreter, RegistryReader registryReader) {
+    run(interpreter, registryReader);
   }
 
 
   @Override
-  public void run(Interperter interperter, RegistryReader registryReader) {
+  public void run(Interpreter interpreter, RegistryReader registryReader) {
 
   }
 }

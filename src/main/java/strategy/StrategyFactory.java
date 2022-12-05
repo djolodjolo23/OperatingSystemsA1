@@ -1,22 +1,22 @@
 package strategy;
 
-import model.Interperter;
+import model.Interpreter;
 import model.RegistryReader;
 
 public class StrategyFactory implements AbstractStrategyFactory {
 
   @Override
-  public FitStrategy getBestFitRule(Interperter interperter, RegistryReader registryReader) {
-    return new BestFit(interperter, registryReader);
+  public FitStrategy getBestFitRule(Interpreter interpreter, RegistryReader registryReader) {
+    return new BestFit(interpreter, registryReader);
   }
 
   @Override
-  public FitStrategy getFirstFitRule(Interperter interperter, RegistryReader registryReader) {
-    return new FirstFit(interperter, registryReader);
+  public FitStrategy getFirstFitRule(Interpreter interpreter, RegistryReader registryReader) {
+    return new FirstFit(interpreter, registryReader);
   }
 
   @Override
-  public FitStrategy getWorstFitRule(Interperter interperter, RegistryReader registryReader) {
-    return new WorstFit(interperter, registryReader);
+  public FitStrategy getWorstFitRule(Interpreter interpreter, RegistryReader registryReader) {
+    return new WorstFit(interpreter, registryReader);
   }
 }
