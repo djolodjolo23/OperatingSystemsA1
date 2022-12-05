@@ -37,6 +37,7 @@ public class Controller {
     interpreter.go(strategyFactory);
     //addToEmptyBlocks();
     printTest(interpreter);
+    registryReader.saveFile(interpreter);
   }
 
   void printTest(Interpreter interpreter) {
@@ -55,11 +56,11 @@ public class Controller {
       }
     }
     System.out.println("Fragmentation:");
-    System.out.println(calculateFragmentation());
+    System.out.println(calculateFragmentation(interpreter));
   }
 
-  private double calculateFragmentation() {
-    return 1 - (599.0 / 699);
+  private double calculateFragmentation(Interpreter interpreter) {
+    return 1 - (interpreter.getBiggestFreeBlock() / interpreter.getTotalFreeMemory());
   }
 
   void addToEmptyBlocks() {

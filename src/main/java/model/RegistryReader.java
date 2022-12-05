@@ -11,7 +11,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class RegistryReader {
+public class RegistryReader extends FragmentationCalculator {
 
   private ArrayList<Command> allCommands;
 
@@ -56,9 +56,31 @@ public class RegistryReader {
     }
   }
 
-  public void saveFile() throws IOException {
+  public void saveFile(Interpreter interpreter) throws IOException {
     new FileOutputStream(getOutputPath()).close();
     PrintWriter printWriter = new PrintWriter(new FileWriter(getOutputPath(), Charset.defaultCharset()));
+    printWriter.printf("Allocated blocks:");
+    for (Block b : interpreter.getAllBlocks()) {
+      if (b.isAllocated()) {
+        printWriter.printf("%n%s;%s;%s",
+            b.getBlockId(),
+            b.getAllocatedBytes().get(0).getAddress(),
+            b.getAllocatedBytes().get(b.getAllocatedBytes().size()-1).getAddress());
+      }
+    }
+    printWriter.printf("%nFree blocks:");
+    for (Block fb : interpreter.getAllBlocks()) {
+      if (!fb.isAllocated()) {
+        if (!fb.getAllocatedBytes().isEmpty()) {
+          printWriter.printf("%n%s;%s",
+              fb.getAllocatedBytes().get(0).getAddress(),
+              fb.getAllocatedBytes().get(fb.getAllocatedBytes().size()-1).getAddress());
+        }
+      }
+    }
+    printWriter.printf("%nFragmentation:%n");
+    printWriter.printf(String.valueOf(super.calculate(interpreter.getBiggestFreeBlock(), interpreter.getTotalFreeMemory())));
+    printWriter.close();
   }
 
   public boolean checkIfInteger(String num) {

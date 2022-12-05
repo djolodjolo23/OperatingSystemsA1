@@ -4,8 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9669cbba-49a3-4f69-9816-ed9873540e63" name="Changes" comment="Code refactoring with interfaces.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/View.java" afterDir="false" />
+    <list default="true" id="9669cbba-49a3-4f69-9816-ed9873540e63" name="Changes" comment="Added a view package and class.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/FragmentationCalculator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenario1_out.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Scenario1_out.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Interpreter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Interpreter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/RegistryReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/RegistryReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/View.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,7 +88,8 @@
       <workItem from="1669915634705" duration="435000" />
       <workItem from="1669916242727" duration="15557000" />
       <workItem from="1670092390084" duration="15611000" />
-      <workItem from="1670228882568" duration="4582000" />
+      <workItem from="1670228882568" duration="5190000" />
+      <workItem from="1670251263036" duration="5433000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit.">
       <created>1669915667848</created>
@@ -140,7 +147,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670233670652</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Added a view package and class.">
+      <created>1670233753042</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1670233753042</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -167,7 +181,8 @@
     <MESSAGE value="Added interfaces for the code refactoring." />
     <MESSAGE value="Added new strategy factory interface, added a new class so defragmentation logic can be moved to a model class." />
     <MESSAGE value="Code refactoring with interfaces." />
-    <option name="LAST_COMMIT_MESSAGE" value="Code refactoring with interfaces." />
+    <MESSAGE value="Added a view package and class." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added a view package and class." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -176,20 +191,6 @@
           <properties class="java.util.ConcurrentModificationException" package="java.util" />
           <option name="timeStamp" value="1" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/strategy/EmptyBlocks.java</url>
-          <line>15</line>
-          <properties class="strategy.EmptyBlocks" method="innerMethod">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/strategy/EmptyBlocks.java</url>
-          <line>11</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
