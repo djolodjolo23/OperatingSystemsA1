@@ -4,18 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9669cbba-49a3-4f69-9816-ed9873540e63" name="Changes" comment="Added new strategy factory interface, added a new class so defragmentation logic can be moved to a model class.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/strategy/EmptyBlocks.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Interperter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Interpreter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/strategy/AbstractStrategyFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/strategy/AbstractStrategyFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/strategy/BestFit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/strategy/BestFit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/strategy/FirstFit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/strategy/FirstFit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/strategy/FitStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/strategy/FitStrategy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/strategy/StrategyFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/strategy/StrategyFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/strategy/WorstFit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/strategy/WorstFit.java" afterDir="false" />
+    <list default="true" id="9669cbba-49a3-4f69-9816-ed9873540e63" name="Changes" comment="Code refactoring with interfaces.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/View.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,7 +82,7 @@
       <workItem from="1669915634705" duration="435000" />
       <workItem from="1669916242727" duration="15557000" />
       <workItem from="1670092390084" duration="15611000" />
-      <workItem from="1670228882568" duration="4256000" />
+      <workItem from="1670228882568" duration="4582000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit.">
       <created>1669915667848</created>
@@ -143,7 +133,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670229842842</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Code refactoring with interfaces.">
+      <created>1670233670652</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1670233670652</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -169,7 +166,8 @@
     <MESSAGE value="first fit working fine." />
     <MESSAGE value="Added interfaces for the code refactoring." />
     <MESSAGE value="Added new strategy factory interface, added a new class so defragmentation logic can be moved to a model class." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added new strategy factory interface, added a new class so defragmentation logic can be moved to a model class." />
+    <MESSAGE value="Code refactoring with interfaces." />
+    <option name="LAST_COMMIT_MESSAGE" value="Code refactoring with interfaces." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
