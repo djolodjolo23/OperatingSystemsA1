@@ -3,6 +3,21 @@ package model;
 
 public class Command {
 
+  public enum CommandIdentifiers {
+
+    ALLOCATE("A"), DEALLOCATE("D"), COMPACT("C"), OUTPUT("O");
+
+    private final String value;
+
+    public String getValue() {
+      return value;
+    }
+
+    CommandIdentifiers(String value) {
+      this.value = value;
+    }
+  }
+
   private String commandIdentifier;
   private int blockId;
   private int amountOfMemory;

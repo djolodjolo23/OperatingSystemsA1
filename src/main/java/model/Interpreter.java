@@ -1,9 +1,6 @@
 package model;
 
-import java.text.DecimalFormat;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 import strategy.AbstractStrategyFactory;
 import strategy.FitStrategy;
 
@@ -15,21 +12,18 @@ public class Interpreter {
 
   private ArrayList<Block> allBlocks;
 
-  private FitStrategy firstFit;
-
-  private FitStrategy bestFit;
-
-  private FitStrategy worstFit;
+  private ArrayList<Error> allErrors;
 
 
   public Interpreter(RegistryReader registryReader) {
     this.registryReader = registryReader;
     allBytes = new ArrayList<>();
     allBlocks = new ArrayList<>();
+    allErrors = new ArrayList<>();
   }
 
   public void go(AbstractStrategyFactory strategyFactory) {
-    firstFit = strategyFactory.getFirstFitRule(this, registryReader);
+    FitStrategy firstFit = strategyFactory.getFirstFitRule(this, registryReader);
   }
 
   public void addToAllBytes(Byte b) {

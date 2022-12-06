@@ -3,6 +3,7 @@ package strategy;
 import model.Block;
 import model.Byte;
 import model.Command;
+import model.Command.CommandIdentifiers;
 import model.Interpreter;
 import model.RegistryReader;
 
@@ -22,7 +23,7 @@ public class FirstFit extends EmptyBlocks implements FitStrategy{
           interpreter.addToAllBytes(b);
         }
       }
-      if (c.getCommandIdentifier().equals("A")) {
+      if (c.getCommandIdentifier().equals(CommandIdentifiers.ALLOCATE.getValue())) {
         var block = new Block(c.getBlockId());
         interpreter.addToAllBlocks(block);
         for (int i = 0; i < c.getAmountOfMemory(); i++) {
@@ -35,7 +36,7 @@ public class FirstFit extends EmptyBlocks implements FitStrategy{
           }
         }
       }
-      if (c.getCommandIdentifier().equals("D")) {
+      if (c.getCommandIdentifier().equals(CommandIdentifiers.DEALLOCATE.getValue())) {
         for (Block b : interpreter.getAllBlocks()) {
           if (b.getBlockId() == c.getBlockId()) {
             for (Byte bt : b.getAllocatedBytes()) {

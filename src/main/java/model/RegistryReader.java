@@ -10,6 +10,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Scanner;
+import model.Command.CommandIdentifiers;
 
 public class RegistryReader extends FragmentationCalculator {
 
@@ -37,19 +38,17 @@ public class RegistryReader extends FragmentationCalculator {
     Scanner scanner = new Scanner(new FileReader(getInputPath(), Charset.defaultCharset()));
     while (scanner.hasNextLine()) {
       String[] line = scanner.nextLine().split(";");
-      if (line[0].equals("A")) {
+      if (line[0].equals(CommandIdentifiers.ALLOCATE.getValue())) {
         var command = new Command(line[0], line[1], line[2]);
         allCommands.add(command);
       }
-      if (line[0].equals("D")) {
+      if (line[0].equals(CommandIdentifiers.DEALLOCATE.getValue())) {
         var command = new Command(line[0], line[1]);
         allCommands.add(command);
       }
-      if (line[0].equals("C")) {
-        var command = new Command(line[0]);
-        allCommands.add(command);
-      }
-      if (checkIfInteger(line[0])) {
+      if (line[0].equals(CommandIdentifiers.COMPACT.getValue()) ||
+          line[0].equals(CommandIdentifiers.OUTPUT.getValue()) ||
+          checkIfInteger(line[0])) {
         var command = new Command(line[0]);
         allCommands.add(command);
       }
@@ -59,6 +58,10 @@ public class RegistryReader extends FragmentationCalculator {
   public void saveFile(Interpreter interpreter) throws IOException {
     new FileOutputStream(getOutputPath()).close();
     PrintWriter printWriter = new PrintWriter(new FileWriter(getOutputPath(), Charset.defaultCharset()));
+    printAndFormat(printWriter, interpreter);
+  }
+
+  private void printAndFormat(PrintWriter printWriter, Interpreter interpreter) {
     printWriter.printf("Allocated blocks:");
     for (Block b : interpreter.getAllBlocks()) {
       if (b.isAllocated()) {
@@ -80,6 +83,7 @@ public class RegistryReader extends FragmentationCalculator {
     }
     printWriter.printf("%nFragmentation:%n");
     printWriter.printf(String.valueOf(super.calculate(interpreter.getBiggestFreeBlock(), interpreter.getTotalFreeMemory())));
+    // TODO: More to be added.
     printWriter.close();
   }
 
