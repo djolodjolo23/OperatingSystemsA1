@@ -1,5 +1,6 @@
 package strategy;
 
+import java.io.IOException;
 import model.Block;
 import model.Byte;
 import model.Command;
@@ -9,13 +10,16 @@ import model.RegistryReader;
 
 public class FirstFit extends EmptyBlocks implements FitStrategy{
 
-  public FirstFit(Interpreter interpreter, RegistryReader registryReader) {
-    run(interpreter, registryReader);
+  private RegistryReader registryReader;
+
+  public FirstFit(Interpreter interpreter, RegistryReader registryReader) throws IOException {
+    this.registryReader = registryReader;
+    run(interpreter);
     super.addToEmptyBlocks(interpreter);
   }
 
   @Override
-  public void run(Interpreter interpreter, RegistryReader registryReader) {
+  public void run(Interpreter interpreter) throws IOException {
     for (Command c : registryReader.getAllCommands()) {
       if (registryReader.checkIfInteger(c.getCommandIdentifier())) {
         for (int i = 0; i < Integer.parseInt(c.getCommandIdentifier()); i++) {
@@ -32,23 +36,27 @@ public class FirstFit extends EmptyBlocks implements FitStrategy{
         }
         for (Byte b : block.getAllocatedBytes()) {
           if (b.isAllocated()) {
+            //removes the allocated bytes from the all bytes arraylist
             interpreter.removeFromAllBytes(b);
           }
         }
       }
       if (c.getCommandIdentifier().equals(CommandIdentifiers.DEALLOCATE.getValue())) {
-        for (Block b : interpreter.getAllBlocks()) {
-          if (b.getBlockId() == c.getBlockId()) {
-            for (Byte bt : b.getAllocatedBytes()) {
+        for (Block block : interpreter.getAllBlocks()) {
+          if (block.getBlockId() == c.getBlockId()) {
+            for (Byte bt : block.getAllocatedBytes()) {
               bt.setAllocated(false);
             }
-            interpreter.addListToALlBytes(b.getAllocatedBytes());
-            b.getAllocatedBytes().clear();
-            b.setAllocated(false);
+            interpreter.addListToALlBytes(block.getAllocatedBytes());
+            block.getAllocatedBytes().clear();
+            block.setAllocated(false);
           }
         }
       }
+      if (c.getCommandIdentifier().equals(CommandIdentifiers.OUTPUT.getValue())) {
+        //registryReader.saveFile(interpreter);
+        //TODO: Crashing
+      }
     }
-
   }
 }

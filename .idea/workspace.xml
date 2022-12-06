@@ -4,13 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9669cbba-49a3-4f69-9816-ed9873540e63" name="Changes" comment="Updates inside the Interpreter, added an abstract class to calculate the fragmentation.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/Errors.java" afterDir="false" />
+    <list default="true" id="9669cbba-49a3-4f69-9816-ed9873540e63" name="Changes" comment="Added a new Error class, added enums so the hard-coded strings can be removed.">
+      <change afterPath="$PROJECT_DIR$/Scenario1_out1.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Command.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenario1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Scenario1.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenario1_out.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Scenario1_out.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/Interpreter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Interpreter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/RegistryReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/RegistryReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/strategy/AbstractStrategyFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/strategy/AbstractStrategyFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/strategy/BestFit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/strategy/BestFit.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/strategy/FirstFit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/strategy/FirstFit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/strategy/FitStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/strategy/FitStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/strategy/StrategyFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/strategy/StrategyFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/strategy/WorstFit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/strategy/WorstFit.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,7 +95,7 @@
       <workItem from="1670092390084" duration="15611000" />
       <workItem from="1670228882568" duration="5190000" />
       <workItem from="1670251263036" duration="5555000" />
-      <workItem from="1670325178494" duration="1720000" />
+      <workItem from="1670325178494" duration="7283000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit.">
       <created>1669915667848</created>
@@ -161,7 +167,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670280210080</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Added a new Error class, added enums so the hard-coded strings can be removed.">
+      <created>1670327358143</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1670327358143</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -190,7 +203,8 @@
     <MESSAGE value="Code refactoring with interfaces." />
     <MESSAGE value="Added a view package and class." />
     <MESSAGE value="Updates inside the Interpreter, added an abstract class to calculate the fragmentation." />
-    <option name="LAST_COMMIT_MESSAGE" value="Updates inside the Interpreter, added an abstract class to calculate the fragmentation." />
+    <MESSAGE value="Added a new Error class, added enums so the hard-coded strings can be removed." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added a new Error class, added enums so the hard-coded strings can be removed." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -198,6 +212,10 @@
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.util.ConcurrentModificationException" package="java.util" />
           <option name="timeStamp" value="1" />
+        </breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.IndexOutOfBoundsException" package="java.lang" />
+          <option name="timeStamp" value="19" />
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>

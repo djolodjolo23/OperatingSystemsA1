@@ -6,12 +6,12 @@ import model.RegistryReader;
 public class BestFit implements FitStrategy{
 
   public BestFit(Interpreter interpreter, RegistryReader registryReader) {
-    run(interpreter, registryReader);
+    run(interpreter);
   }
 
 
   @Override
-  public void run(Interpreter interpreter, RegistryReader registryReader) {
+  public void run(Interpreter interpreter) {
 
   }
 }

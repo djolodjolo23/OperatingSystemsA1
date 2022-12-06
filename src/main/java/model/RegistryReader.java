@@ -30,6 +30,11 @@ public class RegistryReader extends FragmentationCalculator {
     return path.toAbsolutePath().toString();
   }
 
+  private String getOutputPath1() {
+    Path path = Paths.get("Scenario1_out1.txt");
+    return path.toAbsolutePath().toString();
+  }
+
   public ArrayList<Command> getAllCommands() {
     return allCommands;
   }
@@ -83,7 +88,7 @@ public class RegistryReader extends FragmentationCalculator {
     }
     printWriter.printf("%nFragmentation:%n");
     printWriter.printf(String.valueOf(super.calculate(interpreter.getBiggestFreeBlock(), interpreter.getTotalFreeMemory())));
-    // TODO: More to be added.
+    printWriter.printf("%nErrors%nNone");
     printWriter.close();
   }
 

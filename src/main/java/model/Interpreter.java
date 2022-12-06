@@ -1,5 +1,6 @@
 package model;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import strategy.AbstractStrategyFactory;
 import strategy.FitStrategy;
@@ -22,7 +23,7 @@ public class Interpreter {
     allErrors = new ArrayList<>();
   }
 
-  public void go(AbstractStrategyFactory strategyFactory) {
+  public void go(AbstractStrategyFactory strategyFactory) throws IOException {
     FitStrategy firstFit = strategyFactory.getFirstFitRule(this, registryReader);
   }
 
