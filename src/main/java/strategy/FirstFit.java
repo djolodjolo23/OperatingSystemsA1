@@ -1,6 +1,7 @@
 package strategy;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import model.Block;
 import model.Byte;
 import model.Command;
@@ -13,15 +14,15 @@ public class FirstFit extends EmptyBlocks implements FitStrategy{
 
   private RegistryReader registryReader;
 
+  private ArrayList<Error> tempErrorList;
+
   private boolean outputAlreadyPrinted = false;
 
   public FirstFit(Interpreter interpreter, RegistryReader registryReader) throws IOException {
+    tempErrorList = new ArrayList<>();
     this.registryReader = registryReader;
-    runTest(interpreter);
-    //runFinal(interpreter);
-    //super.addToEmptyBlocks(interpreter);
+    run(interpreter);
   }
-
 
 
   @Override
@@ -34,75 +35,25 @@ public class FirstFit extends EmptyBlocks implements FitStrategy{
         }
       }
       if (c.getCommandIdentifier().equals(CommandIdentifiers.ALLOCATE.getValue())) {
-        var block = new Block(c.getBlockId());
-        interpreter.addToAllBlocks(block);
-        for (int i = 0; i < c.getAmountOfMemory(); i++) {
-          block.addToAllocatedBytes(interpreter.getAllBytes().get(i));
-          interpreter.getAllBytes().get(i).setAllocated(true);
-        }
-        for (Byte b : block.getAllocatedBytes()) {
-          if (b.isAllocated()) {
-            //removes the allocated bytes from the all bytes arraylist
-            interpreter.removeFromAllBytes(b);
-          }
-        }
-      }
-      if (c.getCommandIdentifier().equals(CommandIdentifiers.DEALLOCATE.getValue())) {
-        for (Block block : interpreter.getAllBlocks()) {
-          if (block.getBlockId() == c.getBlockId()) {
-            for (Byte bt : block.getAllocatedBytes()) {
-              bt.setAllocated(false);
-            }
-            interpreter.addListToALlBytes(block.getAllocatedBytes());
-            block.getAllocatedBytes().clear();
-            block.setAllocated(false);
-          }
-        }
-      }
-      if (c.getCommandIdentifier().equals(CommandIdentifiers.OUTPUT.getValue())) {
-        super.addToEmptyBlocks(interpreter);
-        registryReader.saveFile(interpreter);
-        break;
-      }
-    }
-  }
-
-  public void runTest(Interpreter interpreter) throws IOException {
-    for (Command c : registryReader.getAllCommands()) {
-      if (registryReader.checkIfInteger(c.getCommandIdentifier())) {
-        //Block emptyBlock = new Block();
-        //interpreter.addToAllBlocks(emptyBlock);
-        for (int i = 0; i < Integer.parseInt(c.getCommandIdentifier()); i++) {
-          var b = new Byte(i);
-          interpreter.addToAllBytes(b);
-          //emptyBlock.addToAllocatedBytes(b);
-        }
-      }
-      if (c.getCommandIdentifier().equals(CommandIdentifiers.ALLOCATE.getValue())) {
         if (outputAlreadyPrinted) {
-          for (Block bl : interpreter.getAllBlocks()) {
-            if (!bl.isAllocated() && !bl.getAllocatedBytes().isEmpty()) {
-              // two blocks registered instead of one
-              if (c.getAmountOfMemory() <= bl.getAllocatedBytes().size()) {
-                var block = new Block(c.getBlockId());
-                interpreter.addToAllBlocks(block);
-                for (int i = 0; i < c.getAmountOfMemory(); i++) {
-                  block.addToAllocatedBytes(interpreter.getAllBytes().get(i)); {
-                    interpreter.getAllBytes().get(i).setAllocated(true);
-                  }
-                  for (Byte b : block.getAllocatedBytes()) {
-                    if (b.isAllocated()) {
-                      interpreter.removeFromAllBytes(b);
-                    }
+            if (c.getAmountOfMemory() <= interpreter.getBiggestFreeBlock()) {
+              var block = new Block(c.getBlockId());
+              interpreter.addToAllBlocks(block);
+              for (int i = 0; i < c.getAmountOfMemory(); i++) {
+                block.addToAllocatedBytes(interpreter.getAllBytes().get(i)); {
+                  interpreter.getAllBytes().get(i).setAllocated(true);
+                }
+                for (Byte b : block.getAllocatedBytes()) {
+                  if (b.isAllocated()) {
+                    interpreter.removeFromAllBytes(b);
                   }
                 }
-              } else {
-                Error error = new Error(c.getCommandIdentifier(), registryReader.getAllCommands().indexOf(c), bl.getAllocatedBytes().size(), bl.getBlockId());
-                interpreter.addToAllErrors(error);
-                continue;
               }
+            } else {
+              Error error = new Error(c.getCommandIdentifier(), registryReader.getAllCommands().indexOf(c), (int)interpreter.getBiggestFreeBlock() + 1, c.getBlockId());
+              tempErrorList.add(error);
+              continue;
             }
-          }
         } else {
           var block = new Block(c.getBlockId());
           interpreter.addToAllBlocks(block);
@@ -112,15 +63,14 @@ public class FirstFit extends EmptyBlocks implements FitStrategy{
           }
           for (Byte b : block.getAllocatedBytes()) {
             if (b.isAllocated()) {
-              //removes the allocated bytes from the all bytes arraylist
               interpreter.removeFromAllBytes(b);
             }
           }
         }
       }
       if (c.getCommandIdentifier().equals(CommandIdentifiers.DEALLOCATE.getValue())) {
-        for (Block b : interpreter.getAllBlocks()) {
-          if (b.getBlockId() == c.getBlockId()) {
+          if (interpreter.getSpecificBlock(c.getBlockId()) != null) {
+            Block b = interpreter.getSpecificBlock(c.getBlockId());
             for (Byte bt : b.getAllocatedBytes()) {
               bt.setAllocated(false);
             }
@@ -128,82 +78,29 @@ public class FirstFit extends EmptyBlocks implements FitStrategy{
             b.getAllocatedBytes().clear();
             b.setAllocated(false);
           } else {
-            for (Error e : interpreter.getAllErrors()) {
-              if (e.getBlockId() == c.getBlockId()) {
-                Error error = new Error(c.getCommandIdentifier(), registryReader.getAllCommands().indexOf(c), 1);
-                interpreter.addToAllErrors(error);
+              Error theError;
+              if (interpreter.getAllErrorsIds().contains(c.getBlockId())) {
+                theError = new Error(c.getCommandIdentifier(), registryReader.getAllCommands().indexOf(c), 1);
+              } else {
+                theError = new Error(c.getCommandIdentifier(), registryReader.getAllCommands().indexOf(c), 0);
               }
-                Error error = new Error(c.getCommandIdentifier(), registryReader.getAllCommands().indexOf(c), 0);
-                interpreter.addToAllErrors(error);
-
-            }
+              tempErrorList.add(theError);
           }
-        }
       }
       if (c.getCommandIdentifier().equals(CommandIdentifiers.OUTPUT.getValue())) {
         setOutputPrintedTrue();
         super.addToEmptyBlocks(interpreter);
         registryReader.saveFile(interpreter);
       }
+      interpreter.addListToAllErrors(tempErrorList);
+      tempErrorList.clear();
     }
     super.addToEmptyBlocks(interpreter);
-    registryReader.saveFinalFile(interpreter);
+    //registryReader.saveFinalFile(interpreter);
   }
 
   private void setOutputPrintedTrue() {
     outputAlreadyPrinted = true;
   }
 
-
-
-  public void runFinal(Interpreter interpreter) throws IOException {
-    for (Command c : registryReader.getAllCommands()) {
-      if (registryReader.checkIfInteger(c.getCommandIdentifier())) {
-        for (int i = 0; i < Integer.parseInt(c.getCommandIdentifier()); i++) {
-          var b = new Byte(i);
-          interpreter.addToAllBytes(b);
-        }
-      }
-      if (c.getCommandIdentifier().equals(CommandIdentifiers.ALLOCATE.getValue())) {
-        for (Block bl : interpreter.getAllBlocks()) {
-          if (!bl.isAllocated() && !bl.getAllocatedBytes().isEmpty()) {
-            if (c.getAmountOfMemory() <= bl.getAllocatedBytes().size()) {
-              var block = new Block(c.getBlockId());
-              interpreter.addToAllBlocks(block);
-              for (int i = 0; i < c.getAmountOfMemory(); i++) {
-                block.addToAllocatedBytes(interpreter.getAllBytes().get(i));
-                interpreter.getAllBytes().get(i).setAllocated(true);
-              }
-              for (Byte b : block.getAllocatedBytes()) {
-              if (b.isAllocated()) {
-            //removes the allocated bytes from the all bytes arraylist
-                interpreter.removeFromAllBytes(b);
-                }
-              }
-            } else {
-              Error error = new Error(c.getCommandIdentifier(), registryReader.getAllCommands().indexOf(c), bl.getAllocatedBytes().size());
-              interpreter.addToAllErrors(error);
-            }
-        }
-        }
-      }
-      if (c.getCommandIdentifier().equals(CommandIdentifiers.DEALLOCATE.getValue())) {
-        for (Block block : interpreter.getAllBlocks()) {
-          if (block.getBlockId() == c.getBlockId()) {
-            for (Byte bt : block.getAllocatedBytes()) {
-              bt.setAllocated(false);
-            }
-            interpreter.addListToALlBytes(block.getAllocatedBytes());
-            block.getAllocatedBytes().clear();
-            block.setAllocated(false);
-          }
-        }
-      }
-      if (c.getCommandIdentifier().equals(CommandIdentifiers.OUTPUT.getValue())) {
-        addToEmptyBlocks(interpreter);
-        return;
-      }
-    }
-    registryReader.saveFinalFile(interpreter);
-  }
 }

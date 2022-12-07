@@ -4,15 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9669cbba-49a3-4f69-9816-ed9873540e63" name="Changes" comment="Some more work inside the classes.">
+    <list default="true" id="9669cbba-49a3-4f69-9816-ed9873540e63" name="Changes" comment="Update inside the first fit logic.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scenario1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Scenario1.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scenario1_out.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Scenario1_out.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scenario1_out1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Scenario1_out1.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Error.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Error.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/Interpreter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Interpreter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/RegistryReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/RegistryReader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/strategy/FirstFit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/strategy/FirstFit.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -93,7 +88,7 @@
       <workItem from="1670228882568" duration="5190000" />
       <workItem from="1670251263036" duration="5555000" />
       <workItem from="1670325178494" duration="7308000" />
-      <workItem from="1670422487135" duration="10611000" />
+      <workItem from="1670422487135" duration="15754000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit.">
       <created>1669915667848</created>
@@ -179,7 +174,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670367636528</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Update inside the first fit logic.">
+      <created>1670448961253</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1670448961253</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -210,7 +212,8 @@
     <MESSAGE value="Updates inside the Interpreter, added an abstract class to calculate the fragmentation." />
     <MESSAGE value="Added a new Error class, added enums so the hard-coded strings can be removed." />
     <MESSAGE value="Some more work inside the classes." />
-    <option name="LAST_COMMIT_MESSAGE" value="Some more work inside the classes." />
+    <MESSAGE value="Update inside the first fit logic." />
+    <option name="LAST_COMMIT_MESSAGE" value="Update inside the first fit logic." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -223,11 +226,17 @@
           <properties class="java.lang.IndexOutOfBoundsException" package="java.lang" />
           <option name="timeStamp" value="19" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/controller/Controller.java</url>
+          <line>51</line>
+          <option name="timeStamp" value="81" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="model.Interpreter" memberName="allErrors" />
+        <PinnedItemInfo parentTag="model.Block" memberName="blockId" />
       </pinned-members>
     </pin-to-top-manager>
   </component>

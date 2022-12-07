@@ -47,6 +47,8 @@ public class Interpreter {
     allBlocks.addAll(blocks);
   }
 
+  public void addListToAllErrors(ArrayList<Error> errors) { allErrors.addAll(errors); }
+
   public void addListToALlBytes(ArrayList<Byte> bytes) {
     allBytes.addAll(bytes);
   }
@@ -73,6 +75,14 @@ public class Interpreter {
     return allErrors;
   }
 
+  public ArrayList<Integer> getAllErrorsIds() {
+    ArrayList<Integer> errorIds = new ArrayList<>();
+    for (Error error : allErrors) {
+      errorIds.add(error.getBlockId());
+    }
+    return errorIds;
+  }
+
   public Byte getSpecificByte(int address) {
     for (Byte b : allBytes) {
       if (b.getAddress() == address) {
@@ -81,6 +91,7 @@ public class Interpreter {
     }
     return null;
   }
+
 
   public double getBiggestFreeBlock() {
     ArrayList<ArrayList<Byte>> listOfLists = new ArrayList<>();
@@ -108,6 +119,15 @@ public class Interpreter {
       }
     }
     return bytes.size()-1;
+  }
+
+  public Block getSpecificBlock(int blockId) {
+    for (Block b : allBlocks) {
+      if (b.getBlockId() == blockId) {
+        return b;
+      }
+    }
+    return null;
   }
 
 

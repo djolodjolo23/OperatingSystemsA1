@@ -60,7 +60,7 @@ public class Controller {
     System.out.println(calculateFragmentation(interpreter));
     System.out.println("Errors");
     for (Error error : interpreter.getAllErrors()) {
-      System.out.println(error.getInstructionNumber() + "|" + error.getBlockId());
+      System.out.println(error.getCommandIdentifier() + ";" + error.getInstructionNumber() + ";" + error.getThirdParameter());
     }
   }
 
