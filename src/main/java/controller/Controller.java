@@ -6,6 +6,7 @@ import java.util.Collections;
 import model.Block;
 import model.Byte;
 import model.Command;
+import model.Error;
 import model.Interpreter;
 import model.RegistryReader;
 import strategy.AbstractStrategyFactory;
@@ -37,7 +38,7 @@ public class Controller {
     interpreter.go(strategyFactory);
     //addToEmptyBlocks();
     printTest(interpreter);
-    registryReader.saveFile(interpreter);
+    //registryReader.saveFile(interpreter);
   }
 
   void printTest(Interpreter interpreter) {
@@ -57,6 +58,10 @@ public class Controller {
     }
     System.out.println("Fragmentation:");
     System.out.println(calculateFragmentation(interpreter));
+    System.out.println("Errors");
+    for (Error error : interpreter.getAllErrors()) {
+      System.out.println(error.getInstructionNumber() + "|" + error.getBlockId());
+    }
   }
 
   private double calculateFragmentation(Interpreter interpreter) {

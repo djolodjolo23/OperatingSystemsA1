@@ -61,6 +61,12 @@ public class RegistryReader extends FragmentationCalculator {
   }
 
   public void saveFile(Interpreter interpreter) throws IOException {
+    new FileOutputStream(getOutputPath1()).close();
+    PrintWriter printWriter = new PrintWriter(new FileWriter(getOutputPath(), Charset.defaultCharset()));
+    printAndFormat(printWriter, interpreter);
+  }
+
+  public void saveFinalFile(Interpreter interpreter) throws IOException {
     new FileOutputStream(getOutputPath()).close();
     PrintWriter printWriter = new PrintWriter(new FileWriter(getOutputPath(), Charset.defaultCharset()));
     printAndFormat(printWriter, interpreter);

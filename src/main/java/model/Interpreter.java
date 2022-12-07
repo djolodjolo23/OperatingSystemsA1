@@ -39,6 +39,10 @@ public class Interpreter {
     allBlocks.add(b);
   }
 
+  public void addToAllErrors(Error e) {
+    allErrors.add(e);
+  }
+
   public void addListToAllBlocks(ArrayList<Block> blocks) {
     allBlocks.addAll(blocks);
   }
@@ -53,6 +57,20 @@ public class Interpreter {
 
   public ArrayList<Block> getAllBlocks() {
     return allBlocks;
+  }
+
+  public ArrayList<Block> getAllFreeBlocks() {
+    ArrayList<Block> freeBlocks = new ArrayList<>();
+    for (Block block : allBlocks) {
+      if (!block.isAllocated() && block.getAllocatedBytes().isEmpty()) {
+        freeBlocks.add(block);
+      }
+    }
+    return freeBlocks;
+  }
+
+  public ArrayList<Error> getAllErrors() {
+    return allErrors;
   }
 
   public Byte getSpecificByte(int address) {
