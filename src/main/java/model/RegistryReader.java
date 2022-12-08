@@ -62,7 +62,7 @@ public class RegistryReader extends FragmentationCalculator {
 
   public void saveFile(Interpreter interpreter) throws IOException {
     new FileOutputStream(getOutputPath1()).close();
-    PrintWriter printWriter = new PrintWriter(new FileWriter(getOutputPath(), Charset.defaultCharset()));
+    PrintWriter printWriter = new PrintWriter(new FileWriter(getOutputPath1(), Charset.defaultCharset()));
     printAndFormat(printWriter, interpreter);
   }
 
@@ -94,9 +94,20 @@ public class RegistryReader extends FragmentationCalculator {
     }
     printWriter.printf("%nFragmentation:%n");
     printWriter.printf(String.valueOf(super.calculate(interpreter.getBiggestFreeBlock(), interpreter.getTotalFreeMemory())));
-    printWriter.printf("%nErrors%nNone");
+    if (interpreter.getAllErrors().isEmpty()) {
+      printWriter.printf("%nErrors%nNone");
+    } else {
+      printWriter.printf("%nErrors%n");
+      for (Error e : interpreter.getAllErrors()) {
+        printWriter.printf("%n%s;%s;%s",
+            e.getCommandIdentifier(),
+            e.getInstructionNumber(),
+            e.getThirdParameter());
+      }
+    }
     printWriter.close();
   }
+
 
   public boolean checkIfInteger(String num) {
     try {

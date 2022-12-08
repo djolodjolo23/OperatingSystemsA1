@@ -43,6 +43,10 @@ public class Interpreter {
     allErrors.add(e);
   }
 
+  public void setByteToAllocated(int index) {
+    allBytes.get(index).setAllocated(true);
+  }
+
   public void addListToAllBlocks(ArrayList<Block> blocks) {
     allBlocks.addAll(blocks);
   }

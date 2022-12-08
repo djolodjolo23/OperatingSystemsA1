@@ -7,4 +7,7 @@ Free blocks:
 Fragmentation:
 0.143062
 Errors
-None
+
+A;8;600
+D;9;1
+D;10;0

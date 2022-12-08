@@ -41,17 +41,19 @@ public class FirstFit extends EmptyBlocks implements FitStrategy{
               interpreter.addToAllBlocks(block);
               for (int i = 0; i < c.getAmountOfMemory(); i++) {
                 block.addToAllocatedBytes(interpreter.getAllBytes().get(i)); {
+
                   interpreter.getAllBytes().get(i).setAllocated(true);
                 }
-                for (Byte b : block.getAllocatedBytes()) {
-                  if (b.isAllocated()) {
-                    interpreter.removeFromAllBytes(b);
-                  }
                 }
+                for (Byte b : block.getAllocatedBytes()) {
+                   if (b.isAllocated()) {
+                    interpreter.removeFromAllBytes(b);
+                   }
               }
             } else {
               Error error = new Error(c.getCommandIdentifier(), registryReader.getAllCommands().indexOf(c), (int)interpreter.getBiggestFreeBlock() + 1, c.getBlockId());
-              tempErrorList.add(error);
+              //tempErrorList.add(error);
+              interpreter.addToAllErrors(error);
               continue;
             }
         } else {
@@ -95,8 +97,8 @@ public class FirstFit extends EmptyBlocks implements FitStrategy{
       interpreter.addListToAllErrors(tempErrorList);
       tempErrorList.clear();
     }
-    super.addToEmptyBlocks(interpreter);
-    //registryReader.saveFinalFile(interpreter);
+    //super.addToEmptyBlocks(interpreter);
+    registryReader.saveFinalFile(interpreter);
   }
 
   private void setOutputPrintedTrue() {
