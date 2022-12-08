@@ -36,7 +36,7 @@ public class FirstFit extends EmptyBlocks implements FitStrategy{
           freeBlock.addToAllocatedBytes(b);
         }
         interpreter.addToAllBlocks(freeBlock);
-        //interpreter.removeListFromAllBytes(freeBlock.getAllocatedBytes());
+        interpreter.removeListFromAllBytes(freeBlock.getAllocatedBytes());
       }
       if (c.getCommandIdentifier().equals(CommandIdentifiers.ALLOCATE.getValue())) {
         //if (outputAlreadyPrinted) {
@@ -44,8 +44,8 @@ public class FirstFit extends EmptyBlocks implements FitStrategy{
               var block = new Block(c.getBlockId());
               interpreter.addToAllBlocks(block);
               for (int i = 0; i < c.getAmountOfMemory(); i++) {
-                block.addToAllocatedBytes(interpreter.getAllBytes().get(i)); {
-                  interpreter.getAllBytes().get(i).setAllocated(true);
+                block.addToAllocatedBytes(interpreter.getFreeBlockWithEnoughMemory(c.getAmountOfMemory()).getAllocatedBytes().get(i)); {
+                  interpreter.getFreeBlockWithEnoughMemory(c.getAmountOfMemory()).getAllocatedBytes().get(i).setAllocated(true);
                 }
               }
               for (Byte b : block.getAllocatedBytes()) {

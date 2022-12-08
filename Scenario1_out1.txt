@@ -4,7 +4,6 @@ Allocated blocks:
 Free blocks:
 900;999
 100;699
-900;999
 Fragmentation:
 0.143062
 Errors

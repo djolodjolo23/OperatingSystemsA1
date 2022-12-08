@@ -97,7 +97,7 @@ public class RegistryReader extends FragmentationCalculator {
     if (interpreter.getAllErrors().isEmpty()) {
       printWriter.printf("%nErrors%nNone");
     } else {
-      printWriter.printf("%nErrors%n");
+      printWriter.printf("%nErrors");
       for (Error e : interpreter.getAllErrors()) {
         printWriter.printf("%n%s;%s;%s",
             e.getCommandIdentifier(),

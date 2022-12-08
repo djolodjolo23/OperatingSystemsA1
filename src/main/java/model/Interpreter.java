@@ -117,9 +117,11 @@ public class Interpreter {
 
   public int getTotalFreeMemory() {
     ArrayList<Byte> bytes = new ArrayList<>();
-    for (Byte b : allBytes) {
-      if (!b.isAllocated()) {
-        bytes.add(b);
+    for (Block block : allBlocks) {
+      for (Byte b : block.getAllocatedBytes()) {
+        if (!b.isAllocated()) {
+          bytes.add(b);
+        }
       }
     }
     return bytes.size()-1;
@@ -136,6 +138,17 @@ public class Interpreter {
 
   public void removeListFromAllBytes(ArrayList<Byte> bytes) {
     allBytes.removeAll(bytes);
+  }
+
+  public Block getFreeBlockWithEnoughMemory(int memory) {
+    for (Block b : allBlocks) {
+      if (!b.isAllocated()) {
+        if (b.getAllocatedBytes().size() >= memory) {
+          return b;
+        }
+      }
+    }
+    return null;
   }
 
 

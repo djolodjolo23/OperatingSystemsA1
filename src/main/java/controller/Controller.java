@@ -49,6 +49,7 @@ public class Controller {
       }
     }
     System.out.println("Free blocks: ");
+    Collections.sort(interpreter.getAllBlocks());
     for (Block bl : interpreter.getAllBlocks()) {
       if (!bl.isAllocated()) {
         if (!bl.getAllocatedBytes().isEmpty()) {

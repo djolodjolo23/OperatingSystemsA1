@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9669cbba-49a3-4f69-9816-ed9873540e63" name="Changes" comment="First fit working but needs more tuning.">
+    <list default="true" id="9669cbba-49a3-4f69-9816-ed9873540e63" name="Changes" comment="update.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scenario1_out.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Scenario1_out.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scenario1_out1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Scenario1_out1.txt" afterDir="false" />
@@ -93,7 +93,7 @@
       <workItem from="1670251263036" duration="5555000" />
       <workItem from="1670325178494" duration="7308000" />
       <workItem from="1670422487135" duration="16836000" />
-      <workItem from="1670487736945" duration="7370000" />
+      <workItem from="1670487736945" duration="9505000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit.">
       <created>1669915667848</created>
@@ -200,7 +200,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670492797672</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="update.">
+      <created>1670496897044</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1670496897044</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -234,7 +241,8 @@
     <MESSAGE value="Update inside the first fit logic." />
     <MESSAGE value="First fit almost fully functional." />
     <MESSAGE value="First fit working but needs more tuning." />
-    <option name="LAST_COMMIT_MESSAGE" value="First fit working but needs more tuning." />
+    <MESSAGE value="update." />
+    <option name="LAST_COMMIT_MESSAGE" value="update." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -250,17 +258,7 @@
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/controller/Controller.java</url>
           <line>51</line>
-          <option name="timeStamp" value="92" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/strategy/EmptyBlocks.java</url>
-          <line>17</line>
-          <option name="timeStamp" value="94" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/strategy/FirstFit.java</url>
-          <line>37</line>
-          <option name="timeStamp" value="95" />
+          <option name="timeStamp" value="98" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

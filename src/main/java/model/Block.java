@@ -3,7 +3,7 @@ package model;
 import java.util.ArrayList;
 import model.Byte;
 
-public class Block {
+public class Block implements Comparable<Block>{
 
   private int blockId;
   private ArrayList<Byte> allocatedBytes;
@@ -42,5 +42,11 @@ public class Block {
 
   public ArrayList<Byte> getAllocatedBytes() {
     return allocatedBytes;
+  }
+
+  @Override
+  public int compareTo(Block o) {
+    int compareSize = o.getAllocatedBytes().size();
+    return compareSize - this.getAllocatedBytes().size() ;
   }
 }
