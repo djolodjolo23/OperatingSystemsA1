@@ -14,6 +14,7 @@ public abstract class EmptyBlocks {
     innerMethod(listOfFreeByteAddresses, interpreter);
   }
   private void innerMethod(ArrayList<Integer> list, Interpreter interpreter) {
+    if (!list.isEmpty()) {
     int counter = list.get(0);
     int counter2 = list.get(0);
     Block b = new Block();
@@ -37,6 +38,7 @@ public abstract class EmptyBlocks {
     updatedList.clear();
     while (!list.isEmpty()) {
       innerMethod(list, interpreter);
+    }
     }
   }
 

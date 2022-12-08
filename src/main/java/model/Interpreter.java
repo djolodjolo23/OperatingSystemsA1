@@ -134,6 +134,10 @@ public class Interpreter {
     return null;
   }
 
+  public void removeListFromAllBytes(ArrayList<Byte> bytes) {
+    allBytes.removeAll(bytes);
+  }
+
 
 
   public ArrayList<Integer> getFreeByteAddresses() {

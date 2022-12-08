@@ -29,26 +29,36 @@ public class FirstFit extends EmptyBlocks implements FitStrategy{
   public void run(Interpreter interpreter) throws IOException {
     for (Command c : registryReader.getAllCommands()) {
       if (registryReader.checkIfInteger(c.getCommandIdentifier())) {
+        Block freeBlock = new Block();
         for (int i = 0; i < Integer.parseInt(c.getCommandIdentifier()); i++) {
           var b = new Byte(i);
           interpreter.addToAllBytes(b);
+          freeBlock.addToAllocatedBytes(b);
         }
+        interpreter.addToAllBlocks(freeBlock);
+        //interpreter.removeListFromAllBytes(freeBlock.getAllocatedBytes());
       }
       if (c.getCommandIdentifier().equals(CommandIdentifiers.ALLOCATE.getValue())) {
-        if (outputAlreadyPrinted) {
+        //if (outputAlreadyPrinted) {
             if (c.getAmountOfMemory() <= interpreter.getBiggestFreeBlock()) {
               var block = new Block(c.getBlockId());
               interpreter.addToAllBlocks(block);
               for (int i = 0; i < c.getAmountOfMemory(); i++) {
                 block.addToAllocatedBytes(interpreter.getAllBytes().get(i)); {
-
                   interpreter.getAllBytes().get(i).setAllocated(true);
                 }
+              }
+              for (Byte b : block.getAllocatedBytes()) {
+                if (b.isAllocated()) {
+                  interpreter.removeFromAllBytes(b);
                 }
-                for (Byte b : block.getAllocatedBytes()) {
-                   if (b.isAllocated()) {
-                    interpreter.removeFromAllBytes(b);
-                   }
+                for (Block free : interpreter.getAllBlocks()) {
+                  if (!free.isAllocated()) {
+                    if (free.getAllocatedBytes().contains(b)) {
+                      free.removeFromAllocatedBytes(b);
+                    }
+                  }
+                }
               }
             } else {
               Error error = new Error(c.getCommandIdentifier(), registryReader.getAllCommands().indexOf(c), (int)interpreter.getBiggestFreeBlock() + 1, c.getBlockId());
@@ -56,19 +66,7 @@ public class FirstFit extends EmptyBlocks implements FitStrategy{
               interpreter.addToAllErrors(error);
               continue;
             }
-        } else {
-          var block = new Block(c.getBlockId());
-          interpreter.addToAllBlocks(block);
-          for (int i = 0; i < c.getAmountOfMemory(); i++) {
-            block.addToAllocatedBytes(interpreter.getAllBytes().get(i));
-            interpreter.getAllBytes().get(i).setAllocated(true);
-          }
-          for (Byte b : block.getAllocatedBytes()) {
-            if (b.isAllocated()) {
-              interpreter.removeFromAllBytes(b);
-            }
-          }
-        }
+        //}
       }
       if (c.getCommandIdentifier().equals(CommandIdentifiers.DEALLOCATE.getValue())) {
           if (interpreter.getSpecificBlock(c.getBlockId()) != null) {

@@ -2,6 +2,7 @@ Allocated blocks:
 0;0;99
 3;700;899
 Free blocks:
+900;999
 100;699
 900;999
 Fragmentation:

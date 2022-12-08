@@ -20,6 +20,9 @@ public class Block {
     allocatedBytes = new ArrayList<>();
     this.allocated = false;
   }
+  public void removeFromAllocatedBytes(Byte b) {
+    allocatedBytes.remove(b);
+  }
 
   public void addToAllocatedBytes(Byte b) {
     allocatedBytes.add(b);
