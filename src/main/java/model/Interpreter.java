@@ -2,6 +2,7 @@ package model;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import strategy.AbstractStrategyFactory;
 import strategy.FitStrategy;
 
@@ -24,7 +25,14 @@ public class Interpreter {
   }
 
   public void go(AbstractStrategyFactory strategyFactory) throws IOException {
-    FitStrategy firstFit = strategyFactory.getFirstFitRule(this, registryReader);
+    strategyFactory.getFirstFitRule(this, registryReader);
+    strategyFactory.getBestFitRule(this,registryReader);
+  }
+
+  public void clearAllLists() {
+    allBytes.clear();
+    allBlocks.clear();
+    allErrors.clear();
   }
 
   public void addToAllBytes(Byte b) {
@@ -65,14 +73,15 @@ public class Interpreter {
     return allBlocks;
   }
 
-  public ArrayList<Block> getAllFreeBlocks() {
-    ArrayList<Block> freeBlocks = new ArrayList<>();
-    for (Block block : allBlocks) {
-      if (!block.isAllocated() && block.getAllocatedBytes().isEmpty()) {
-        freeBlocks.add(block);
+
+  public ArrayList<Block> getAllBlocksWithBytes() {
+    ArrayList<Block> blocksWithBytes = new ArrayList<>();
+    for (Block b : allBlocks) {
+      if (!b.getAllocatedBytes().isEmpty()) {
+        blocksWithBytes.add(b);
       }
     }
-    return freeBlocks;
+    return blocksWithBytes;
   }
 
   public ArrayList<Error> getAllErrors() {
@@ -140,8 +149,10 @@ public class Interpreter {
     allBytes.removeAll(bytes);
   }
 
-  public Block getFreeBlockWithEnoughMemory(int memory) {
-    for (Block b : allBlocks) {
+
+
+  public Block getFirstFreeBlockWithEnoughMemory(int memory) {
+    for (Block b : getAllBlocksWithBytes()) {
       if (!b.isAllocated()) {
         if (b.getAllocatedBytes().size() >= memory) {
           return b;
@@ -151,6 +162,17 @@ public class Interpreter {
     return null;
   }
 
+
+  public Block getBestFreeBlockWithEnoughMemory(int memory) {
+    ArrayList<Block> freeBlocks = new ArrayList<>();
+    for (Block block : allBlocks) {
+      if (!block.isAllocated() && !block.getAllocatedBytes().isEmpty() && block.getSize() >= memory) {
+        freeBlocks.add(block);
+      }
+    }
+    freeBlocks.sort(Block.freeBlockSizeComparator);
+    return freeBlocks.get(0);
+  }
 
 
   public ArrayList<Integer> getFreeByteAddresses() {

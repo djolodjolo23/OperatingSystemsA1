@@ -37,20 +37,22 @@ public class Controller {
     registryReader.loadFile();
     interpreter.go(strategyFactory);
     //addToEmptyBlocks();
-    printTest(interpreter);
+    //printTest(interpreter);
+    //interpreter.clearAllLists();
     //registryReader.saveFile(interpreter);
   }
 
   void printTest(Interpreter interpreter) {
+    ArrayList<Block> blocks = interpreter.getAllBlocksWithBytes();
+    Collections.sort(blocks);
     System.out.println("Allocated blocks:");
-    for (Block b : interpreter.getAllBlocks()) {
+    for (Block b : blocks) {
       if (b.isAllocated()) {
         System.out.println(b.getBlockId() + ";" + b.getAllocatedBytes().get(0).getAddress() + ";" + b.getAllocatedBytes().get(b.getAllocatedBytes().size()-1).getAddress());
       }
     }
     System.out.println("Free blocks: ");
-    Collections.sort(interpreter.getAllBlocks());
-    for (Block bl : interpreter.getAllBlocks()) {
+    for (Block bl : blocks) {
       if (!bl.isAllocated()) {
         if (!bl.getAllocatedBytes().isEmpty()) {
         System.out.println(bl.getAllocatedBytes().get(0).getAddress() + ";" + bl.getAllocatedBytes().get(bl.getAllocatedBytes().size()-1).getAddress());

@@ -1,5 +1,6 @@
 package model;
 
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -9,6 +10,7 @@ import java.nio.charset.Charset;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 import model.Command.CommandIdentifiers;
 
@@ -32,6 +34,16 @@ public class RegistryReader extends FragmentationCalculator {
 
   private String getOutputPath1() {
     Path path = Paths.get("Scenario1_out1.txt");
+    return path.toAbsolutePath().toString();
+  }
+
+  private String getOutputPath2() {
+    Path path = Paths.get("Scenario1_out2.txt");
+    return path.toAbsolutePath().toString();
+  }
+
+  private String getOutputPath3() {
+    Path path = Paths.get("Scenario1_out3.txt");
     return path.toAbsolutePath().toString();
   }
 
@@ -60,9 +72,21 @@ public class RegistryReader extends FragmentationCalculator {
     }
   }
 
-  public void saveFile(Interpreter interpreter) throws IOException {
+  public void saveFile1(Interpreter interpreter) throws IOException {
     new FileOutputStream(getOutputPath1()).close();
     PrintWriter printWriter = new PrintWriter(new FileWriter(getOutputPath1(), Charset.defaultCharset()));
+    printAndFormat(printWriter, interpreter);
+  }
+
+  public void saveFile2(Interpreter interpreter) throws IOException {
+    new FileOutputStream(getOutputPath2()).close();
+    PrintWriter printWriter = new PrintWriter(new FileWriter(getOutputPath2(), Charset.defaultCharset()));
+    printAndFormat(printWriter, interpreter);
+  }
+
+  public void saveFile3(Interpreter interpreter) throws IOException {
+    new FileOutputStream(getOutputPath3()).close();
+    PrintWriter printWriter = new PrintWriter(new FileWriter(getOutputPath3(), Charset.defaultCharset()));
     printAndFormat(printWriter, interpreter);
   }
 
@@ -73,8 +97,10 @@ public class RegistryReader extends FragmentationCalculator {
   }
 
   private void printAndFormat(PrintWriter printWriter, Interpreter interpreter) {
+    ArrayList<Block> blocks = interpreter.getAllBlocksWithBytes();
+    Collections.sort(blocks);
     printWriter.printf("Allocated blocks:");
-    for (Block b : interpreter.getAllBlocks()) {
+    for (Block b : blocks) {
       if (b.isAllocated()) {
         printWriter.printf("%n%s;%s;%s",
             b.getBlockId(),
@@ -83,7 +109,7 @@ public class RegistryReader extends FragmentationCalculator {
       }
     }
     printWriter.printf("%nFree blocks:");
-    for (Block fb : interpreter.getAllBlocks()) {
+    for (Block fb : blocks) {
       if (!fb.isAllocated()) {
         if (!fb.getAllocatedBytes().isEmpty()) {
           printWriter.printf("%n%s;%s",

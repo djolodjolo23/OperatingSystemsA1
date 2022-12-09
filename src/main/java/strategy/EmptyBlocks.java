@@ -36,6 +36,7 @@ public abstract class EmptyBlocks {
       }
       list.removeAll(updatedList);
       updatedList.clear();
+      b.setSize(b.getAllocatedBytes().size());
       while (!list.isEmpty()) {
         innerMethod(list, interpreter);
       }

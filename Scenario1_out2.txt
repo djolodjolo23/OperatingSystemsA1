@@ -2,12 +2,11 @@ Allocated blocks:
 0;0;149
 1;150;299
 2;300;399
+5;400;449
 4;450;599
-5;600;649
 Free blocks:
-400;449
-650;999
+600;999
 Fragmentation:
-0.125313
+0.0
 Errors
 None

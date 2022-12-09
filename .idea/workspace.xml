@@ -4,15 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9669cbba-49a3-4f69-9816-ed9873540e63" name="Changes" comment="update.">
+    <list default="true" id="9669cbba-49a3-4f69-9816-ed9873540e63" name="Changes" comment="First fit seems to be fully functional.">
+      <change afterPath="$PROJECT_DIR$/Scenario1_out2.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Scenario1_out3.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenario1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Scenario1.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scenario1_out.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Scenario1_out.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scenario1_out1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Scenario1_out1.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Block.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/Interpreter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Interpreter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/RegistryReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/RegistryReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/strategy/AbstractStrategyFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/strategy/AbstractStrategyFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/strategy/BestFit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/strategy/BestFit.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/strategy/EmptyBlocks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/strategy/EmptyBlocks.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/strategy/FirstFit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/strategy/FirstFit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/strategy/StrategyFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/strategy/StrategyFactory.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,7 +100,9 @@
       <workItem from="1670251263036" duration="5555000" />
       <workItem from="1670325178494" duration="7308000" />
       <workItem from="1670422487135" duration="16836000" />
-      <workItem from="1670487736945" duration="9505000" />
+      <workItem from="1670487736945" duration="10631000" />
+      <workItem from="1670578167670" duration="3075000" />
+      <workItem from="1670584788503" duration="6530000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit.">
       <created>1669915667848</created>
@@ -207,7 +216,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670496897044</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="First fit seems to be fully functional.">
+      <created>1670499077787</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1670499077787</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -242,7 +258,8 @@
     <MESSAGE value="First fit almost fully functional." />
     <MESSAGE value="First fit working but needs more tuning." />
     <MESSAGE value="update." />
-    <option name="LAST_COMMIT_MESSAGE" value="update." />
+    <MESSAGE value="First fit seems to be fully functional." />
+    <option name="LAST_COMMIT_MESSAGE" value="First fit seems to be fully functional." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -256,14 +273,20 @@
           <option name="timeStamp" value="19" />
         </breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/controller/Controller.java</url>
-          <line>51</line>
-          <option name="timeStamp" value="98" />
+          <url>file://$PROJECT_DIR$/src/main/java/strategy/BestFit.java</url>
+          <line>43</line>
+          <option name="timeStamp" value="27" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/strategy/FirstFit.java</url>
+          <line>40</line>
+          <option name="timeStamp" value="28" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
+        <PinnedItemInfo parentTag="model.Block" memberName="allocatedBytes" />
         <PinnedItemInfo parentTag="model.Interpreter" memberName="allBytes" />
         <PinnedItemInfo parentTag="model.Block" memberName="blockId" />
       </pinned-members>

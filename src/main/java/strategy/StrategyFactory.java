@@ -7,7 +7,7 @@ import model.RegistryReader;
 public class StrategyFactory implements AbstractStrategyFactory {
 
   @Override
-  public FitStrategy getBestFitRule(Interpreter interpreter, RegistryReader registryReader) {
+  public FitStrategy getBestFitRule(Interpreter interpreter, RegistryReader registryReader) throws IOException {
     return new BestFit(interpreter, registryReader);
   }
 
