@@ -1,12 +1,14 @@
 Worst Fit:
 Allocated blocks:
-0;0;99
-3;700;899
+1;100;299
+3;350;499
+4;500;549
 Free blocks:
-100;699
-900;999
+0;99
+300;349
+550;999
 Fragmentation:
-0.143062
+0.250417
 Errors
 None
 

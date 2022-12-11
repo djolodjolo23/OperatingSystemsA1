@@ -14,7 +14,7 @@ import java.util.Collections;
 import java.util.Scanner;
 import model.Command.CommandIdentifiers;
 
-public class RegistryReader extends FragmentationCalculator {
+public class RegistryReader implements FragmentationCalculator {
 
   private ArrayList<Command> allCommands;
 
@@ -31,9 +31,8 @@ public class RegistryReader extends FragmentationCalculator {
     return Paths.get("Scenario1.txt");
   }
 
-  private String getOutputPath() {
-    Path path = Paths.get("Scenario1_out.txt");
-    return path.toAbsolutePath().toString();
+  private Path getOutputPath() {
+    return Paths.get("Scenario1.out.txt");
   }
 
   public void createAndSaveIntermediateFile(int counter, Interpreter interpreter, char fitType) throws IOException {
@@ -74,7 +73,7 @@ public class RegistryReader extends FragmentationCalculator {
 
 
   public void saveFinalFile(Interpreter interpreter, char fitType) throws IOException {
-    try (PrintWriter pw = new PrintWriter(new FileWriter("Scenario1.out.txt", true))) {
+    try (PrintWriter pw = new PrintWriter(new FileWriter(getOutputPath().toString(), true))) {
       printAndFormat(pw, interpreter, fitType);
     }
 
@@ -113,7 +112,7 @@ public class RegistryReader extends FragmentationCalculator {
       }
     }
     printWriter.printf("%nFragmentation:%n");
-    printWriter.printf(String.valueOf(super.calculate(interpreter.getBiggestFreeBlock(), interpreter.getTotalFreeMemory())));
+    printWriter.printf(String.valueOf(calculate(interpreter.getBiggestFreeBlock(), interpreter.getTotalFreeMemory())));
     if (interpreter.getAllErrors().isEmpty()) {
       printWriter.printf("%nErrors%nNone%n");
       printWriter.printf("%n");

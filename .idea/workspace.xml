@@ -4,24 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9669cbba-49a3-4f69-9816-ed9873540e63" name="Changes" comment="Best fit works fine, needs more tuning.">
-      <change afterPath="$PROJECT_DIR$/Scenario1.out.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Scenario1.out2.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Scenario1.out3.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/FitType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="9669cbba-49a3-4f69-9816-ed9873540e63" name="Changes" comment="All 3 allocation methods implemented, still requires more testing.">
+      <change beforePath="$PROJECT_DIR$/Scenario1.out.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Scenario1.out.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenario1.out1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Scenario1.out1.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenario1.out2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Scenario1.out2.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenario1.out3.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Scenario1.out3.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scenario1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Scenario1.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scenario1_out.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scenario1_out1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scenario1_out2.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scenario1_out3.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Scenario1.out1.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Block.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Interpreter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Interpreter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/FragmentationCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/FragmentationCalculator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/RegistryReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/RegistryReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/strategy/BestFit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/strategy/BestFit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/strategy/EmptyBlocks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/strategy/EmptyBlocks.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/strategy/FirstFit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/strategy/FirstFit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/strategy/WorstFit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/strategy/WorstFit.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,9 +26,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Class" />
         <option value="Enum" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -107,7 +97,7 @@
       <workItem from="1670578167670" duration="3075000" />
       <workItem from="1670584788503" duration="10654000" />
       <workItem from="1670679462011" duration="8506000" />
-      <workItem from="1670762782005" duration="8344000" />
+      <workItem from="1670762782005" duration="8781000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit.">
       <created>1669915667848</created>
@@ -235,7 +225,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670591337787</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="All 3 allocation methods implemented, still requires more testing.">
+      <created>1670771517259</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1670771517259</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -272,7 +269,8 @@
     <MESSAGE value="update." />
     <MESSAGE value="First fit seems to be fully functional." />
     <MESSAGE value="Best fit works fine, needs more tuning." />
-    <option name="LAST_COMMIT_MESSAGE" value="Best fit works fine, needs more tuning." />
+    <MESSAGE value="All 3 allocation methods implemented, still requires more testing." />
+    <option name="LAST_COMMIT_MESSAGE" value="All 3 allocation methods implemented, still requires more testing." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
