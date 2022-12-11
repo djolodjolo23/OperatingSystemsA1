@@ -3,6 +3,7 @@ package model;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
+import javax.swing.plaf.PanelUI;
 import strategy.AbstractStrategyFactory;
 import strategy.FitStrategy;
 
@@ -16,6 +17,8 @@ public class Interpreter {
 
   private ArrayList<Error> allErrors;
 
+  private int intermediateOutputCounter;
+
 
   public Interpreter(RegistryReader registryReader) {
     this.registryReader = registryReader;
@@ -27,6 +30,7 @@ public class Interpreter {
   public void go(AbstractStrategyFactory strategyFactory) throws IOException {
     strategyFactory.getFirstFitRule(this, registryReader);
     strategyFactory.getBestFitRule(this,registryReader);
+    strategyFactory.getWorstFitRule(this, registryReader);
   }
 
   public void clearAllLists() {
@@ -73,6 +77,13 @@ public class Interpreter {
     return allBlocks;
   }
 
+  public int getIntermediateOutputCounter() {
+    return intermediateOutputCounter;
+  }
+
+  public void setIntermediateOutputCounter(int intermediateOutputCounter) {
+    this.intermediateOutputCounter = intermediateOutputCounter;
+  }
 
   public ArrayList<Block> getAllBlocksWithBytes() {
     ArrayList<Block> blocksWithBytes = new ArrayList<>();
@@ -83,6 +94,37 @@ public class Interpreter {
     }
     return blocksWithBytes;
   }
+
+  public void connectFreeBlocks() {
+    int counter = 0;
+    ArrayList<Block> freeBlocks = new ArrayList<>();
+    for (Block b : allBlocks) {
+      if (!b.isAllocated()) {
+        freeBlocks.add(b);
+      }
+    }
+    freeBlocks.sort(Block.byteAddressSort);
+    for (int i = 0; i < freeBlocks.size(); i++) {
+      Block theBlock = freeBlocks.get(counter);
+      ArrayList<Byte> allocatedBytes = theBlock.getAllocatedBytes();
+      counter++;
+      if (counter == freeBlocks.size()) {
+        break;
+      }
+      Block nextBlock = freeBlocks.get(counter);
+      if (allocatedBytes.get(allocatedBytes.size() -1).getAddress() + 1 == nextBlock.getAllocatedBytes().get(0).getAddress()) {
+        Block newBlock = new Block();
+        newBlock.addListToAllocatedBytes(theBlock.getAllocatedBytes());
+        newBlock.addListToAllocatedBytes(nextBlock.getAllocatedBytes());
+        allBlocks.remove(theBlock);
+        allBlocks.remove(nextBlock);
+        allBlocks.add(newBlock);
+        counter++;
+      }
+    }
+  }
+
+
 
   public ArrayList<Error> getAllErrors() {
     return allErrors;
@@ -124,6 +166,17 @@ public class Interpreter {
     return max;
   }
 
+  public Block getBiggestFreeBlockTest() {
+    ArrayList<Block> blocks = new ArrayList<>();
+    for (Block b : allBlocks) {
+      if (!b.isAllocated()) {
+        blocks.add(b);
+      }
+    }
+    blocks.sort(Block.freeBlockSizeComparatorDescending);
+    return blocks.get(0);
+  }
+
   public int getTotalFreeMemory() {
     ArrayList<Byte> bytes = new ArrayList<>();
     for (Block block : allBlocks) {
@@ -163,17 +216,32 @@ public class Interpreter {
   }
 
 
-  public Block getBestFreeBlockWithEnoughMemory(int memory) {
+  public Block getFirstBestOrWorstFreeBlockWithEnoughMemory(int memory, char fitType) {
     ArrayList<Block> freeBlocks = new ArrayList<>();
     for (Block block : allBlocks) {
-      if (!block.isAllocated() && !block.getAllocatedBytes().isEmpty() && block.getSize() >= memory) {
+      if (!block.isAllocated() && block.getAllocatedBytes().size() >= memory) {
         freeBlocks.add(block);
       }
     }
-    freeBlocks.sort(Block.freeBlockSizeComparator);
-    return freeBlocks.get(0);
+    switch (fitType) {
+      case 'F' -> freeBlocks.sort(Block.byteAddressSort);
+      case 'B' -> freeBlocks.sort(Block.freeBlockSizeComparatorAscending);
+      case 'W' -> freeBlocks.sort(Block.freeBlockSizeComparatorDescending);
+    }
+    if (freeBlocks.isEmpty()) {
+      return null;
+    } else {
+      return freeBlocks.get(0);
+    }
   }
 
+  public ArrayList<Integer> getCurrentBlockIds() {
+    ArrayList<Integer> blockIds = new ArrayList<>();
+    for (Block block : allBlocks) {
+      blockIds.add(block.getBlockId());
+    }
+    return blockIds;
+  }
 
   public ArrayList<Integer> getFreeByteAddresses() {
     ArrayList<Integer> freeAddresses = new ArrayList<>();

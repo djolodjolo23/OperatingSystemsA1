@@ -31,6 +31,10 @@ public class Block implements Comparable<Block>{
     allocatedBytes.add(b);
   }
 
+  public void addListToAllocatedBytes(ArrayList<Byte> bytes) {
+    allocatedBytes.addAll(bytes);
+  }
+
   public boolean isAllocated() {
     return allocated;
   }
@@ -55,6 +59,10 @@ public class Block implements Comparable<Block>{
     return size;
   }
 
+  public void setBlockId(int blockId) {
+    this.blockId = blockId;
+  }
+
   @Override
   public int compareTo(Block o) {
     int compareSize = o.getAllocatedBytes().get(0).getAddress();
@@ -63,6 +71,12 @@ public class Block implements Comparable<Block>{
 
 
 
-  public static Comparator<Block> freeBlockSizeComparator = Comparator.comparingInt(o -> o.getAllocatedBytes().size());
+  public static Comparator<Block> freeBlockSizeComparatorAscending = Comparator.comparingInt(o -> o.getAllocatedBytes().size());
+
+  public static Comparator<Block> freeBlockSizeComparatorDescending = (o1, o2) -> o2.getAllocatedBytes().size() - o1.getAllocatedBytes().size();
+
+  public static Comparator<Block> byteAddressSort = Comparator.comparingInt(
+      o -> o.getAllocatedBytes().get(0).getAddress());
+
 
 }

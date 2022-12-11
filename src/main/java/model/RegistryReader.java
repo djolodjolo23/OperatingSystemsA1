@@ -1,6 +1,6 @@
 package model;
 
-import java.io.FileNotFoundException;
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -27,25 +27,25 @@ public class RegistryReader extends FragmentationCalculator {
     return path.toAbsolutePath().toString();
   }
 
+  private Path getInputPathShort() {
+    return Paths.get("Scenario1.txt");
+  }
+
   private String getOutputPath() {
     Path path = Paths.get("Scenario1_out.txt");
     return path.toAbsolutePath().toString();
   }
 
-  private String getOutputPath1() {
-    Path path = Paths.get("Scenario1_out1.txt");
-    return path.toAbsolutePath().toString();
+  public void createAndSaveIntermediateFile(int counter, Interpreter interpreter, char fitType) throws IOException {
+    StringBuilder sb = new StringBuilder(getInputPathShort().toString());
+    sb.delete(sb.length()-3, sb.length());
+    File intermediateFile = new File(sb + "out" + counter + ".txt");
+    //intermediateFile.createNewFile();
+    new FileOutputStream(intermediateFile.getName()).close();
+    PrintWriter printWriter = new PrintWriter(new FileWriter(intermediateFile.getName(),false));
+    printAndFormat(printWriter, interpreter, fitType);
   }
 
-  private String getOutputPath2() {
-    Path path = Paths.get("Scenario1_out2.txt");
-    return path.toAbsolutePath().toString();
-  }
-
-  private String getOutputPath3() {
-    Path path = Paths.get("Scenario1_out3.txt");
-    return path.toAbsolutePath().toString();
-  }
 
   public ArrayList<Command> getAllCommands() {
     return allCommands;
@@ -72,31 +72,25 @@ public class RegistryReader extends FragmentationCalculator {
     }
   }
 
-  public void saveFile1(Interpreter interpreter) throws IOException {
-    new FileOutputStream(getOutputPath1()).close();
-    PrintWriter printWriter = new PrintWriter(new FileWriter(getOutputPath1(), Charset.defaultCharset()));
-    printAndFormat(printWriter, interpreter);
+
+  public void saveFinalFile(Interpreter interpreter, char fitType) throws IOException {
+    try (PrintWriter pw = new PrintWriter(new FileWriter("Scenario1.out.txt", true))) {
+      printAndFormat(pw, interpreter, fitType);
+    }
+
   }
 
-  public void saveFile2(Interpreter interpreter) throws IOException {
-    new FileOutputStream(getOutputPath2()).close();
-    PrintWriter printWriter = new PrintWriter(new FileWriter(getOutputPath2(), Charset.defaultCharset()));
-    printAndFormat(printWriter, interpreter);
-  }
 
-  public void saveFile3(Interpreter interpreter) throws IOException {
-    new FileOutputStream(getOutputPath3()).close();
-    PrintWriter printWriter = new PrintWriter(new FileWriter(getOutputPath3(), Charset.defaultCharset()));
-    printAndFormat(printWriter, interpreter);
-  }
-
-  public void saveFinalFile(Interpreter interpreter) throws IOException {
-    new FileOutputStream(getOutputPath()).close();
-    PrintWriter printWriter = new PrintWriter(new FileWriter(getOutputPath(), Charset.defaultCharset()));
-    printAndFormat(printWriter, interpreter);
-  }
-
-  private void printAndFormat(PrintWriter printWriter, Interpreter interpreter) {
+  private void printAndFormat(PrintWriter printWriter, Interpreter interpreter, char fitType) {
+    if (fitType == FitType.FIRST.getValue()) {
+      printWriter.printf("First Fit:%n");
+    }
+    if (fitType == FitType.BEST.getValue()) {
+      printWriter.printf("Best Fit:%n");
+    }
+    if (fitType == FitType.WORST.getValue()) {
+      printWriter.printf("Worst Fit:%n");
+    }
     ArrayList<Block> blocks = interpreter.getAllBlocksWithBytes();
     Collections.sort(blocks);
     printWriter.printf("Allocated blocks:");
@@ -121,7 +115,8 @@ public class RegistryReader extends FragmentationCalculator {
     printWriter.printf("%nFragmentation:%n");
     printWriter.printf(String.valueOf(super.calculate(interpreter.getBiggestFreeBlock(), interpreter.getTotalFreeMemory())));
     if (interpreter.getAllErrors().isEmpty()) {
-      printWriter.printf("%nErrors%nNone");
+      printWriter.printf("%nErrors%nNone%n");
+      printWriter.printf("%n");
     } else {
       printWriter.printf("%nErrors");
       for (Error e : interpreter.getAllErrors()) {
@@ -130,6 +125,7 @@ public class RegistryReader extends FragmentationCalculator {
             e.getInstructionNumber(),
             e.getThirdParameter());
       }
+      printWriter.printf("%n%n");
     }
     printWriter.close();
   }
