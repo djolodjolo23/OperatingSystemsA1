@@ -38,7 +38,6 @@ public class InterpreterAssistant {
         interpreter.removeFromAllBlocks(theBlock);
         interpreter.removeFromAllBlocks(nextBlock);
         interpreter.addToAllBlocks(newBlock);
-        counter++;
       }
     }
   }

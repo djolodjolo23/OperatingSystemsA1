@@ -1,5 +1,6 @@
 import java.io.IOException;
 import controller.Controller;
+import java.util.ArrayList;
 import model.Interpreter;
 import model.RegistryReader;
 import strategy.AbstractStrategyFactory;
@@ -20,6 +21,11 @@ public class Main {
     var controller = new Controller(regReader);
 
     controller.run(strategyFactory, interpreter);
+
+    ArrayList<Integer> integers = new ArrayList<>();
+    integers.add(1);
+    integers.add(2);
+    integers.get(0);
 
 
 }

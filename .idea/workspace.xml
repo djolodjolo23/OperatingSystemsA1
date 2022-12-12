@@ -5,8 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9669cbba-49a3-4f69-9816-ed9873540e63" name="Changes" comment="Small update inside the registry reader.">
-      <change afterPath="$PROJECT_DIR$/a1/.idea/google-java-format.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/a1/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenario1.out.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Scenario1.out.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/a1/.idea/google-java-format.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/a1/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/a2-1dv512/.idea/google-java-format.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/a2-1dv512/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/InterpreterAssistant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/InterpreterAssistant.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,7 +103,8 @@
       <workItem from="1670762782005" duration="8877000" />
       <workItem from="1670777792801" duration="1290000" />
       <workItem from="1670835357107" duration="1713000" />
-      <workItem from="1670837323024" duration="10000" />
+      <workItem from="1670837323024" duration="712000" />
+      <workItem from="1670843773957" duration="9095000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit.">
       <created>1669915667848</created>
@@ -238,7 +246,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670771945731</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Small update inside the registry reader.">
+      <created>1670837391161</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1670837391161</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
