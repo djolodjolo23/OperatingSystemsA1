@@ -4,14 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9669cbba-49a3-4f69-9816-ed9873540e63" name="Changes" comment="All 3 allocation methods implemented, still requires more testing.">
+    <list default="true" id="9669cbba-49a3-4f69-9816-ed9873540e63" name="Changes" comment="Small update inside the registry reader.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/InterpreterAssistant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scenario1.out.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Scenario1.out.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scenario1.out1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Scenario1.out1.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scenario1.out2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Scenario1.out2.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scenario1.out3.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Scenario1.out3.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scenario1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Scenario1.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/FragmentationCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/FragmentationCalculator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/RegistryReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/RegistryReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Block.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Interpreter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Interpreter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/strategy/AbstractStrategyFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/strategy/AbstractStrategyFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/strategy/BestFit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/strategy/BestFit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/strategy/EmptyBlocks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/strategy/SuperFit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/strategy/FirstFit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/strategy/FirstFit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/strategy/FitStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/strategy/FitStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/strategy/StrategyFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/strategy/StrategyFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/strategy/WorstFit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/strategy/WorstFit.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,9 +33,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Enum" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -97,7 +104,9 @@
       <workItem from="1670578167670" duration="3075000" />
       <workItem from="1670584788503" duration="10654000" />
       <workItem from="1670679462011" duration="8506000" />
-      <workItem from="1670762782005" duration="8781000" />
+      <workItem from="1670762782005" duration="8877000" />
+      <workItem from="1670777792801" duration="1290000" />
+      <workItem from="1670835357107" duration="1713000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit.">
       <created>1669915667848</created>
@@ -232,7 +241,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670771517259</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Small update inside the registry reader.">
+      <created>1670771945731</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1670771945731</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -270,7 +286,8 @@
     <MESSAGE value="First fit seems to be fully functional." />
     <MESSAGE value="Best fit works fine, needs more tuning." />
     <MESSAGE value="All 3 allocation methods implemented, still requires more testing." />
-    <option name="LAST_COMMIT_MESSAGE" value="All 3 allocation methods implemented, still requires more testing." />
+    <MESSAGE value="Small update inside the registry reader." />
+    <option name="LAST_COMMIT_MESSAGE" value="Small update inside the registry reader." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -283,11 +300,6 @@
           <properties class="java.lang.IndexOutOfBoundsException" package="java.lang" />
           <option name="timeStamp" value="19" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/strategy/EmptyBlocks.java</url>
-          <line>70</line>
-          <option name="timeStamp" value="35" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>

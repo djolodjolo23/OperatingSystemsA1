@@ -2,10 +2,7 @@ package model;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collections;
-import javax.swing.plaf.PanelUI;
 import strategy.AbstractStrategyFactory;
-import strategy.FitStrategy;
 
 public class Interpreter {
 
@@ -19,9 +16,12 @@ public class Interpreter {
 
   private int intermediateOutputCounter;
 
+  private InterpreterAssistant interpreterAssistant;
+
 
   public Interpreter(RegistryReader registryReader) {
     this.registryReader = registryReader;
+    this.interpreterAssistant = new InterpreterAssistant();
     allBytes = new ArrayList<>();
     allBlocks = new ArrayList<>();
     allErrors = new ArrayList<>();
@@ -49,6 +49,10 @@ public class Interpreter {
 
   public void addToAllBlocks(Block b) {
     allBlocks.add(b);
+  }
+
+  public void removeFromAllBlocks(Block block) {
+    allBlocks.remove(block);
   }
 
   public void addToAllErrors(Error e) {
@@ -86,169 +90,56 @@ public class Interpreter {
   }
 
   public ArrayList<Block> getAllBlocksWithBytes() {
-    ArrayList<Block> blocksWithBytes = new ArrayList<>();
-    for (Block b : allBlocks) {
-      if (!b.getAllocatedBytes().isEmpty()) {
-        blocksWithBytes.add(b);
-      }
-    }
-    return blocksWithBytes;
+    return interpreterAssistant.getAllBlocksWithBytes(this);
   }
 
   public void connectFreeBlocks() {
-    int counter = 0;
-    ArrayList<Block> freeBlocks = new ArrayList<>();
-    for (Block b : allBlocks) {
-      if (!b.isAllocated()) {
-        freeBlocks.add(b);
-      }
-    }
-    freeBlocks.sort(Block.byteAddressSort);
-    for (int i = 0; i < freeBlocks.size(); i++) {
-      Block theBlock = freeBlocks.get(counter);
-      ArrayList<Byte> allocatedBytes = theBlock.getAllocatedBytes();
-      counter++;
-      if (counter == freeBlocks.size()) {
-        break;
-      }
-      Block nextBlock = freeBlocks.get(counter);
-      if (allocatedBytes.get(allocatedBytes.size() -1).getAddress() + 1 == nextBlock.getAllocatedBytes().get(0).getAddress()) {
-        Block newBlock = new Block();
-        newBlock.addListToAllocatedBytes(theBlock.getAllocatedBytes());
-        newBlock.addListToAllocatedBytes(nextBlock.getAllocatedBytes());
-        allBlocks.remove(theBlock);
-        allBlocks.remove(nextBlock);
-        allBlocks.add(newBlock);
-        counter++;
-      }
-    }
+    interpreterAssistant.connectFreeBlocks(this);
   }
-
-
 
   public ArrayList<Error> getAllErrors() {
     return allErrors;
   }
 
   public ArrayList<Integer> getAllErrorsIds() {
-    ArrayList<Integer> errorIds = new ArrayList<>();
-    for (Error error : allErrors) {
-      errorIds.add(error.getBlockId());
-    }
-    return errorIds;
+    return interpreterAssistant.getAllErrorsIds(this);
   }
 
   public Byte getSpecificByte(int address) {
-    for (Byte b : allBytes) {
-      if (b.getAddress() == address) {
-        return b;
-      }
-    }
-    return null;
+    return interpreterAssistant.getSpecificByte(address, this);
   }
 
 
-  public double getBiggestFreeBlock() {
-    ArrayList<ArrayList<Byte>> listOfLists = new ArrayList<>();
-    for (Block b : allBlocks) {
-      if (!b.isAllocated()) {
-        if (!b.getAllocatedBytes().isEmpty()) {
-          listOfLists.add(b.getAllocatedBytes());
-        }
-      }
-    }
-    double max = listOfLists.get(0).size()-1;
-    for (ArrayList<Byte> list : listOfLists) {
-      if (list.size() >= max) {
-        max = list.size()-1;
-      }
-    }
-    return max;
+  public double getBiggestFreeBlockSize() {
+    return interpreterAssistant.getBiggestFreeBlockSize(this);
   }
 
-  public Block getBiggestFreeBlockTest() {
-    ArrayList<Block> blocks = new ArrayList<>();
-    for (Block b : allBlocks) {
-      if (!b.isAllocated()) {
-        blocks.add(b);
-      }
-    }
-    blocks.sort(Block.freeBlockSizeComparatorDescending);
-    return blocks.get(0);
+  public Block getBiggestFreeBlock() {
+    return interpreterAssistant.getBiggestFreeBlock(this);
   }
 
   public int getTotalFreeMemory() {
-    ArrayList<Byte> bytes = new ArrayList<>();
-    for (Block block : allBlocks) {
-      for (Byte b : block.getAllocatedBytes()) {
-        if (!b.isAllocated()) {
-          bytes.add(b);
-        }
-      }
-    }
-    return bytes.size()-1;
+    return interpreterAssistant.getTotalFreeMemory(this);
   }
 
   public Block getSpecificBlock(int blockId) {
-    for (Block b : allBlocks) {
-      if (b.getBlockId() == blockId) {
-        return b;
-      }
-    }
-    return null;
+    return interpreterAssistant.getSpecificBlock(blockId, this);
   }
 
   public void removeListFromAllBytes(ArrayList<Byte> bytes) {
     allBytes.removeAll(bytes);
   }
 
-
-
-  public Block getFirstFreeBlockWithEnoughMemory(int memory) {
-    for (Block b : getAllBlocksWithBytes()) {
-      if (!b.isAllocated()) {
-        if (b.getAllocatedBytes().size() >= memory) {
-          return b;
-        }
-      }
-    }
-    return null;
-  }
-
-
   public Block getFirstBestOrWorstFreeBlockWithEnoughMemory(int memory, char fitType) {
-    ArrayList<Block> freeBlocks = new ArrayList<>();
-    for (Block block : allBlocks) {
-      if (!block.isAllocated() && block.getAllocatedBytes().size() >= memory) {
-        freeBlocks.add(block);
-      }
-    }
-    switch (fitType) {
-      case 'F' -> freeBlocks.sort(Block.byteAddressSort);
-      case 'B' -> freeBlocks.sort(Block.freeBlockSizeComparatorAscending);
-      case 'W' -> freeBlocks.sort(Block.freeBlockSizeComparatorDescending);
-    }
-    if (freeBlocks.isEmpty()) {
-      return null;
-    } else {
-      return freeBlocks.get(0);
-    }
+    return interpreterAssistant.getFirstBestOrWorstFreeBlockWithEnoughMemory(memory, fitType, this);
   }
 
   public ArrayList<Integer> getCurrentBlockIds() {
-    ArrayList<Integer> blockIds = new ArrayList<>();
-    for (Block block : allBlocks) {
-      blockIds.add(block.getBlockId());
-    }
-    return blockIds;
+    return interpreterAssistant.getCurrentBlockIds(this);
   }
 
   public ArrayList<Integer> getFreeByteAddresses() {
-    ArrayList<Integer> freeAddresses = new ArrayList<>();
-    for (Byte b : allBytes) {
-      freeAddresses.add(b.getAddress());
-    }
-    return freeAddresses;
+    return interpreterAssistant.getFreeByteAddresses(this);
   }
 
 

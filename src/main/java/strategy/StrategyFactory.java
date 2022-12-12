@@ -7,17 +7,17 @@ import model.RegistryReader;
 public class StrategyFactory implements AbstractStrategyFactory {
 
   @Override
-  public FitStrategy getBestFitRule(Interpreter interpreter, RegistryReader registryReader) throws IOException {
-    return new BestFit(interpreter, registryReader);
+  public void getBestFitRule(Interpreter interpreter, RegistryReader registryReader) throws IOException {
+    new BestFit(interpreter, registryReader);
   }
 
   @Override
-  public FitStrategy getFirstFitRule(Interpreter interpreter, RegistryReader registryReader) throws IOException {
-    return new FirstFit(interpreter, registryReader);
+  public void getFirstFitRule(Interpreter interpreter, RegistryReader registryReader) throws IOException {
+    new FirstFit(interpreter, registryReader);
   }
 
   @Override
-  public FitStrategy getWorstFitRule(Interpreter interpreter, RegistryReader registryReader) throws IOException {
-    return new WorstFit(interpreter, registryReader);
+  public void getWorstFitRule(Interpreter interpreter, RegistryReader registryReader) throws IOException {
+    new WorstFit(interpreter, registryReader);
   }
 }

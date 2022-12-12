@@ -11,7 +11,7 @@ import model.Error;
 import model.Interpreter;
 import model.RegistryReader;
 
-public abstract class EmptyBlocks {
+public abstract class SuperFit {
 
 
 
@@ -31,7 +31,7 @@ public abstract class EmptyBlocks {
         interpreter.removeListFromAllBytes(freeBlock.getAllocatedBytes());
       }
       if (c.getCommandIdentifier().equals(CommandIdentifiers.ALLOCATE.getValue())) {
-        if (c.getAmountOfMemory() <= interpreter.getBiggestFreeBlockTest().getAllocatedBytes().size()) {
+        if (c.getAmountOfMemory() <= interpreter.getBiggestFreeBlock().getAllocatedBytes().size()) {
           var block = new Block(c.getBlockId());
           interpreter.addToAllBlocks(block);
           Block chosenBlock = interpreter.getFirstBestOrWorstFreeBlockWithEnoughMemory(c.getAmountOfMemory(), fitType);
@@ -53,7 +53,7 @@ public abstract class EmptyBlocks {
             }
           }
         } else {
-          Error error = new Error(c.getCommandIdentifier(), registryReader.getAllCommands().indexOf(c), (int)interpreter.getBiggestFreeBlock() + 1, c.getBlockId());
+          Error error = new Error(c.getCommandIdentifier(), registryReader.getAllCommands().indexOf(c), (int)interpreter.getBiggestFreeBlockSize() + 1, c.getBlockId());
           interpreter.addToAllErrors(error);
           continue;
         }
@@ -96,9 +96,9 @@ public abstract class EmptyBlocks {
   void addToEmptyBlocks(Interpreter interpreter) {
     ArrayList<Integer> listOfFreeByteAddresses = new ArrayList<>(interpreter.getFreeByteAddresses());
     Collections.sort(listOfFreeByteAddresses);
-    innerMethod(listOfFreeByteAddresses, interpreter);
+    emptyBlocksInnerMethod(listOfFreeByteAddresses, interpreter);
   }
-  private void innerMethod(ArrayList<Integer> list, Interpreter interpreter) {
+  private void emptyBlocksInnerMethod(ArrayList<Integer> list, Interpreter interpreter) {
     if (!list.isEmpty()) {
       int counter = list.get(0);
       int counter2 = list.get(0);
@@ -123,7 +123,7 @@ public abstract class EmptyBlocks {
       updatedList.clear();
       b.setSize(b.getAllocatedBytes().size());
       while (!list.isEmpty()) {
-        innerMethod(list, interpreter);
+        emptyBlocksInnerMethod(list, interpreter);
       }
     }
   }

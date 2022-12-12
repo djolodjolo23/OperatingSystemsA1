@@ -17,7 +17,7 @@ public class Main {
 
     Interpreter interpreter = new Interpreter(regReader);
 
-    var controller = new Controller(regReader, interpreter);
+    var controller = new Controller(regReader);
 
     controller.run(strategyFactory, interpreter);
 

@@ -7,9 +7,9 @@ import model.FitType;
 import model.Interpreter;
 import model.RegistryReader;
 
-public class WorstFit extends EmptyBlocks implements FitStrategy{
+public class WorstFit extends SuperFit implements FitStrategy{
 
-  private RegistryReader registryReader;
+  private final RegistryReader registryReader;
 
   private ArrayList<Error> tempErrorList;
 

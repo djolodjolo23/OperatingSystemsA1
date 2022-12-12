@@ -6,9 +6,9 @@ import model.RegistryReader;
 
 public interface AbstractStrategyFactory {
 
-  FitStrategy getBestFitRule(Interpreter interpreter, RegistryReader registryReader) throws IOException;
+  void getBestFitRule(Interpreter interpreter, RegistryReader registryReader) throws IOException;
 
-  FitStrategy getFirstFitRule(Interpreter interpreter, RegistryReader registryReader) throws IOException;
+  void getFirstFitRule(Interpreter interpreter, RegistryReader registryReader) throws IOException;
 
-  FitStrategy getWorstFitRule(Interpreter interpreter,RegistryReader registryReader) throws IOException;
+  void getWorstFitRule(Interpreter interpreter,RegistryReader registryReader) throws IOException;
 }
