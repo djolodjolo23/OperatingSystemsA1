@@ -97,8 +97,8 @@ public class RegistryReader implements FragmentationCalculator {
       if (b.isAllocated()) {
         printWriter.printf("%n%s;%s;%s",
             b.getBlockId(),
-            b.getAllocatedBytes().get(0).getAddress(),
-            b.getAllocatedBytes().get(b.getAllocatedBytes().size()-1).getAddress());
+            b.getAllocatedBytes().get(0),
+            b.getAllocatedBytes().get(b.getAllocatedBytes().size()-1));
       }
     }
     printWriter.printf("%nFree blocks:");
@@ -106,8 +106,8 @@ public class RegistryReader implements FragmentationCalculator {
       if (!fb.isAllocated()) {
         if (!fb.getAllocatedBytes().isEmpty()) {
           printWriter.printf("%n%s;%s",
-              fb.getAllocatedBytes().get(0).getAddress(),
-              fb.getAllocatedBytes().get(fb.getAllocatedBytes().size()-1).getAddress());
+              fb.getAllocatedBytes().get(0),
+              fb.getAllocatedBytes().get(fb.getAllocatedBytes().size()-1));
         }
       }
     }

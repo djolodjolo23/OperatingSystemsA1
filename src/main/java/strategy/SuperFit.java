@@ -4,54 +4,25 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import model.Block;
-import model.Byte;
 import model.Command;
 import model.Command.CommandIdentifiers;
 import model.Error;
+import model.FitType;
 import model.Interpreter;
 import model.RegistryReader;
 
 public abstract class SuperFit {
 
 
-
-  void run(Interpreter interpreter, RegistryReader registryReader, ArrayList<Error> tempErrorList, char fitType)
+  public void run(Interpreter interpreter, RegistryReader registryReader, ArrayList<Error> tempErrorList, char fitType)
       throws IOException {
     for (Command c : registryReader.getAllCommands()) {
       if (registryReader.checkIfInteger(c.getCommandIdentifier())) {
-        Block freeBlock = new Block();
-        freeBlock.setBlockId(Integer.parseInt(c.getCommandIdentifier()));
-        for (int i = 0; i < Integer.parseInt(c.getCommandIdentifier()); i++) {
-          var b = new Byte(i);
-          interpreter.addToAllBytes(b);
-          freeBlock.addToAllocatedBytes(b);
-        }
-        freeBlock.setSize(freeBlock.getAllocatedBytes().size());
-        interpreter.addToAllBlocks(freeBlock);
-        interpreter.removeListFromAllBytes(freeBlock.getAllocatedBytes());
+        begin(interpreter, c);
       }
       if (c.getCommandIdentifier().equals(CommandIdentifiers.ALLOCATE.getValue())) {
         if (c.getAmountOfMemory() <= interpreter.getBiggestFreeBlock().getAllocatedBytes().size()) {
-          var block = new Block(c.getBlockId());
-          interpreter.addToAllBlocks(block);
-          Block chosenBlock = interpreter.getFirstBestOrWorstFreeBlockWithEnoughMemory(c.getAmountOfMemory(), fitType);
-          for (int i = 0; i < c.getAmountOfMemory(); i++) {
-            block.addToAllocatedBytes(chosenBlock.getAllocatedBytes().get(i));
-            chosenBlock.getAllocatedBytes().get(i).setAllocated(true);
-          }
-          block.setSize(block.getAllocatedBytes().size());
-          for (Byte b : block.getAllocatedBytes()) {
-            if (b.isAllocated()) {
-              interpreter.removeFromAllBytes(b);
-            }
-            for (Block free : interpreter.getAllBlocks()) {
-              if (!free.isAllocated()) {
-                if (free.getAllocatedBytes().contains(b)) {
-                  free.removeFromAllocatedBytes(b);
-                }
-              }
-            }
-          }
+          allocate(interpreter, c, fitType);
         } else {
           Error error = new Error(c.getCommandIdentifier(), registryReader.getAllCommands().indexOf(c), (int)interpreter.getBiggestFreeBlockSize() + 1, c.getBlockId());
           interpreter.addToAllErrors(error);
@@ -60,15 +31,7 @@ public abstract class SuperFit {
       }
       if (c.getCommandIdentifier().equals(CommandIdentifiers.DEALLOCATE.getValue())) {
         if (interpreter.getSpecificBlock(c.getBlockId()) != null) {
-          Block b = interpreter.getSpecificBlock(c.getBlockId());
-          for (Byte bt : b.getAllocatedBytes()) {
-            bt.setAllocated(false);
-          }
-          //interpreter.addListToALlBytes(b.getAllocatedBytes());
-          //b.getAllocatedBytes().clear();
-          b.setAllocated(false);
-          //addToEmptyBlocks(interpreter);
-          interpreter.connectFreeBlocks();
+          deallocate(interpreter, c);
         } else {
           Error theError;
           if (interpreter.getAllErrorsIds().contains(c.getBlockId())) {
@@ -80,9 +43,7 @@ public abstract class SuperFit {
         }
       }
       if (c.getCommandIdentifier().equals(CommandIdentifiers.OUTPUT.getValue())) {
-        interpreter.setIntermediateOutputCounter(interpreter.getIntermediateOutputCounter() + 1);
-        addToEmptyBlocks(interpreter);
-        registryReader.createAndSaveIntermediateFile(interpreter.getIntermediateOutputCounter(), interpreter, fitType);
+        createIntermediateOutput(interpreter, registryReader, fitType);
       }
       interpreter.addListToAllErrors(tempErrorList);
       tempErrorList.clear();
@@ -92,8 +53,53 @@ public abstract class SuperFit {
     interpreter.clearAllLists();
   }
 
+  void begin(Interpreter interpreter, Command c) {
+    Block freeBlock = new Block();
+    freeBlock.setBlockId(Integer.parseInt(c.getCommandIdentifier()));
+    for (int i = 0; i < Integer.parseInt(c.getCommandIdentifier()); i++) {
+      interpreter.addToAllBytes(i);
+      freeBlock.addToAllocatedBytes(i);
+    }
+    freeBlock.setSize(freeBlock.getAllocatedBytes().size());
+    interpreter.addToAllBlocks(freeBlock);
+    interpreter.removeListFromAllBytes(freeBlock.getAllocatedBytes());
+  }
 
-  void addToEmptyBlocks(Interpreter interpreter) {
+  private void allocate(Interpreter interpreter, Command c, char fitType) {
+    var block = new Block(c.getBlockId());
+    interpreter.addToAllBlocks(block);
+    Block chosenBlock = interpreter.getFirstBestOrWorstFreeBlockWithEnoughMemory(c.getAmountOfMemory(), fitType);
+    for (int i = 0; i < c.getAmountOfMemory(); i++) {
+      block.addToAllocatedBytes(chosenBlock.getAllocatedBytes().get(i));
+    }
+    block.setSize(block.getAllocatedBytes().size());
+    for (Integer b : block.getAllocatedBytes()) {
+      interpreter.removeFromAllBytes(b);
+      for (Block free : interpreter.getAllBlocks()) {
+        if (!free.isAllocated()) {
+          if (free.getAllocatedBytes().contains(b)) {
+            free.removeFromAllocatedBytes(b);
+          }
+        }
+      }
+    }
+  }
+
+  private void deallocate(Interpreter interpreter, Command c) {
+    Block b = interpreter.getSpecificBlock(c.getBlockId());
+    b.setAllocated(false);
+    interpreter.connectFreeBlocks();
+  }
+
+  private void createIntermediateOutput(Interpreter interpreter, RegistryReader registryReader, char fitType)
+      throws IOException {
+    interpreter.setIntermediateOutputCounter(interpreter.getIntermediateOutputCounter() + 1);
+    addToEmptyBlocks(interpreter);
+    registryReader.createAndSaveIntermediateFile(interpreter.getIntermediateOutputCounter(), interpreter, fitType);
+  }
+
+
+  private void addToEmptyBlocks(Interpreter interpreter) {
     ArrayList<Integer> listOfFreeByteAddresses = new ArrayList<>(interpreter.getFreeByteAddresses());
     Collections.sort(listOfFreeByteAddresses);
     emptyBlocksInnerMethod(listOfFreeByteAddresses, interpreter);
@@ -115,10 +121,7 @@ public abstract class SuperFit {
           counter++;
         }
       }
-      ArrayList<Integer> updatedList = new ArrayList<>();
-      for (Byte byteInBlock : b.getAllocatedBytes()) {
-        updatedList.add(byteInBlock.getAddress());
-      }
+      ArrayList<Integer> updatedList = new ArrayList<>(b.getAllocatedBytes());
       list.removeAll(updatedList);
       updatedList.clear();
       b.setSize(b.getAllocatedBytes().size());

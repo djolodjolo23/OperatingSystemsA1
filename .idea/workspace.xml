@@ -4,16 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9669cbba-49a3-4f69-9816-ed9873540e63" name="Changes" comment="Small update inside the registry reader.">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="9669cbba-49a3-4f69-9816-ed9873540e63" name="Changes" comment="small update.">
+      <change afterPath="$PROJECT_DIR$/a1/src/main/java/org/example/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scenario1.out.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Scenario1.out.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/a1/.idea/google-java-format.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/a1/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/a2-1dv512/.idea/google-java-format.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/a2-1dv512/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Block.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Interpreter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Interpreter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/InterpreterAssistant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/InterpreterAssistant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/RegistryReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/RegistryReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/strategy/SuperFit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/strategy/SuperFit.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,20 +47,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/dimit/OneDrive/Documents/lnu courses/1DV512/a1",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/dimit/OneDrive/Documents/lnu courses/1DV512/a1&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />
@@ -104,7 +103,8 @@
       <workItem from="1670777792801" duration="1290000" />
       <workItem from="1670835357107" duration="1713000" />
       <workItem from="1670837323024" duration="712000" />
-      <workItem from="1670843773957" duration="9095000" />
+      <workItem from="1670843773957" duration="14555000" />
+      <workItem from="1670868668301" duration="606000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit.">
       <created>1669915667848</created>
@@ -253,7 +253,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670837391161</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="small update.">
+      <created>1670859882142</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1670859882142</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -292,7 +299,8 @@
     <MESSAGE value="Best fit works fine, needs more tuning." />
     <MESSAGE value="All 3 allocation methods implemented, still requires more testing." />
     <MESSAGE value="Small update inside the registry reader." />
-    <option name="LAST_COMMIT_MESSAGE" value="Small update inside the registry reader." />
+    <MESSAGE value="small update." />
+    <option name="LAST_COMMIT_MESSAGE" value="small update." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -305,6 +313,15 @@
           <properties class="java.lang.IndexOutOfBoundsException" package="java.lang" />
           <option name="timeStamp" value="19" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/model/FragmentationCalculator.java</url>
+          <line>4</line>
+          <properties class="model.FragmentationCalculator" method="calculate">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>

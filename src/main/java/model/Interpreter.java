@@ -8,7 +8,7 @@ public class Interpreter {
 
   private RegistryReader registryReader;
 
-  private ArrayList<Byte> allBytes;
+  private ArrayList<Integer> allBytes;
 
   private ArrayList<Block> allBlocks;
 
@@ -39,11 +39,11 @@ public class Interpreter {
     allErrors.clear();
   }
 
-  public void addToAllBytes(Byte b) {
+  public void addToAllBytes(Integer b) {
     allBytes.add(b);
   }
 
-  public void removeFromAllBytes(Byte b) {
+  public void removeFromAllBytes(Integer b) {
     allBytes.remove(b);
   }
 
@@ -59,9 +59,9 @@ public class Interpreter {
     allErrors.add(e);
   }
 
-  public void setByteToAllocated(int index) {
-    allBytes.get(index).setAllocated(true);
-  }
+  //public void setByteToAllocated(int index) {
+    //allBytes.get(index).setAllocated(true);
+  //}
 
   public void addListToAllBlocks(ArrayList<Block> blocks) {
     allBlocks.addAll(blocks);
@@ -69,11 +69,11 @@ public class Interpreter {
 
   public void addListToAllErrors(ArrayList<Error> errors) { allErrors.addAll(errors); }
 
-  public void addListToALlBytes(ArrayList<Byte> bytes) {
+  public void addListToALlBytes(ArrayList<Integer> bytes) {
     allBytes.addAll(bytes);
   }
 
-  public ArrayList<Byte> getAllBytes() {
+  public ArrayList<Integer> getAllBytes() {
     return allBytes;
   }
 
@@ -105,7 +105,7 @@ public class Interpreter {
     return interpreterAssistant.getAllErrorsIds(this);
   }
 
-  public Byte getSpecificByte(int address) {
+  public Integer getSpecificByte(int address) {
     return interpreterAssistant.getSpecificByte(address, this);
   }
 
@@ -126,7 +126,7 @@ public class Interpreter {
     return interpreterAssistant.getSpecificBlock(blockId, this);
   }
 
-  public void removeListFromAllBytes(ArrayList<Byte> bytes) {
+  public void removeListFromAllBytes(ArrayList<Integer> bytes) {
     allBytes.removeAll(bytes);
   }
 

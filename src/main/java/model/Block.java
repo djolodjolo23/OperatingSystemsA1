@@ -2,12 +2,11 @@ package model;
 
 import java.util.ArrayList;
 import java.util.Comparator;
-import model.Byte;
 
 public class Block implements Comparable<Block>{
 
   private int blockId;
-  private ArrayList<Byte> allocatedBytes;
+  private ArrayList<Integer> allocatedBytes;
 
   private int size;
 
@@ -23,15 +22,15 @@ public class Block implements Comparable<Block>{
     allocatedBytes = new ArrayList<>();
     this.allocated = false;
   }
-  public void removeFromAllocatedBytes(Byte b) {
+  public void removeFromAllocatedBytes(Integer b) {
     allocatedBytes.remove(b);
   }
 
-  public void addToAllocatedBytes(Byte b) {
+  public void addToAllocatedBytes(Integer b) {
     allocatedBytes.add(b);
   }
 
-  public void addListToAllocatedBytes(ArrayList<Byte> bytes) {
+  public void addListToAllocatedBytes(ArrayList<Integer> bytes) {
     allocatedBytes.addAll(bytes);
   }
 
@@ -47,7 +46,7 @@ public class Block implements Comparable<Block>{
     return blockId;
   }
 
-  public ArrayList<Byte> getAllocatedBytes() {
+  public ArrayList<Integer> getAllocatedBytes() {
     return allocatedBytes;
   }
 
@@ -65,8 +64,8 @@ public class Block implements Comparable<Block>{
 
   @Override
   public int compareTo(Block o) {
-    int compareSize = o.getAllocatedBytes().get(0).getAddress();
-    return this.getAllocatedBytes().get(0).getAddress() - compareSize ;
+    int compareSize = o.getAllocatedBytes().get(0);
+    return this.getAllocatedBytes().get(0) - compareSize ;
   }
 
   public static Comparator<Block> freeBlockSizeComparatorAscending = Comparator.comparingInt(o -> o.getAllocatedBytes().size());
@@ -74,7 +73,7 @@ public class Block implements Comparable<Block>{
   public static Comparator<Block> freeBlockSizeComparatorDescending = (o1, o2) -> o2.getAllocatedBytes().size() - o1.getAllocatedBytes().size();
 
   public static Comparator<Block> byteAddressSort = Comparator.comparingInt(
-      o -> o.getAllocatedBytes().get(0).getAddress());
+      o -> o.getAllocatedBytes().get(0));
 
 
 }

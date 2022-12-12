@@ -25,13 +25,13 @@ public class InterpreterAssistant {
     freeBlocks.sort(Block.byteAddressSort);
     for (int i = 0; i < freeBlocks.size(); i++) {
       Block theBlock = freeBlocks.get(counter);
-      ArrayList<Byte> allocatedBytes = theBlock.getAllocatedBytes();
+      ArrayList<Integer> allocatedBytes = theBlock.getAllocatedBytes();
       counter++;
       if (counter == freeBlocks.size()) {
         break;
       }
       Block nextBlock = freeBlocks.get(counter);
-      if (allocatedBytes.get(allocatedBytes.size() -1).getAddress() + 1 == nextBlock.getAllocatedBytes().get(0).getAddress()) {
+      if (allocatedBytes.get(allocatedBytes.size() -1) + 1 == nextBlock.getAllocatedBytes().get(0)) {
         Block newBlock = new Block();
         newBlock.addListToAllocatedBytes(theBlock.getAllocatedBytes());
         newBlock.addListToAllocatedBytes(nextBlock.getAllocatedBytes());
@@ -50,9 +50,9 @@ public class InterpreterAssistant {
     return errorIds;
   }
 
-  public Byte getSpecificByte(int address, Interpreter interpreter) {
-    for (Byte b : interpreter.getAllBytes()) {
-      if (b.getAddress() == address) {
+  public Integer getSpecificByte(int address, Interpreter interpreter) {
+    for (Integer b : interpreter.getAllBytes()) {
+      if (b == address) {
         return b;
       }
     }
@@ -61,7 +61,7 @@ public class InterpreterAssistant {
 
 
   public double getBiggestFreeBlockSize(Interpreter interpreter) {
-    ArrayList<ArrayList<Byte>> listOfLists = new ArrayList<>();
+    ArrayList<ArrayList<Integer>> listOfLists = new ArrayList<>();
     for (Block b : interpreter.getAllBlocks()) {
       if (!b.isAllocated()) {
         if (!b.getAllocatedBytes().isEmpty()) {
@@ -70,7 +70,7 @@ public class InterpreterAssistant {
       }
     }
     double max = listOfLists.get(0).size()-1;
-    for (ArrayList<Byte> list : listOfLists) {
+    for (ArrayList<Integer> list : listOfLists) {
       if (list.size() >= max) {
         max = list.size()-1;
       }
@@ -90,12 +90,10 @@ public class InterpreterAssistant {
   }
 
   public int getTotalFreeMemory(Interpreter interpreter) {
-    ArrayList<Byte> bytes = new ArrayList<>();
+    ArrayList<Integer> bytes = new ArrayList<>();
     for (Block block : interpreter.getAllBlocks()) {
-      for (Byte b : block.getAllocatedBytes()) {
-        if (!b.isAllocated()) {
-          bytes.add(b);
-        }
+      if (!block.isAllocated()) {
+        bytes.addAll(block.getAllocatedBytes());
       }
     }
     return bytes.size()-1;
@@ -138,11 +136,7 @@ public class InterpreterAssistant {
   }
 
   public ArrayList<Integer> getFreeByteAddresses(Interpreter interpreter) {
-    ArrayList<Integer> freeAddresses = new ArrayList<>();
-    for (Byte b : interpreter.getAllBytes()) {
-      freeAddresses.add(b.getAddress());
-    }
-    return freeAddresses;
+    return new ArrayList<>(interpreter.getAllBytes());
   }
 
 }
