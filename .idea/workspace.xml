@@ -5,20 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9669cbba-49a3-4f69-9816-ed9873540e63" name="Changes" comment="Small update inside the registry reader.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/InterpreterAssistant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scenario1.out.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Scenario1.out.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Block.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Interpreter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Interpreter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/strategy/AbstractStrategyFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/strategy/AbstractStrategyFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/strategy/BestFit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/strategy/BestFit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/strategy/EmptyBlocks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/strategy/SuperFit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/strategy/FirstFit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/strategy/FirstFit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/strategy/FitStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/strategy/FitStrategy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/strategy/StrategyFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/strategy/StrategyFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/strategy/WorstFit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/strategy/WorstFit.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/a1/.idea/google-java-format.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/a1/.idea/vcs.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,19 +41,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/dimit/OneDrive/Documents/lnu courses/1DV512/a1",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />
@@ -107,6 +96,7 @@
       <workItem from="1670762782005" duration="8877000" />
       <workItem from="1670777792801" duration="1290000" />
       <workItem from="1670835357107" duration="1713000" />
+      <workItem from="1670837323024" duration="10000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit.">
       <created>1669915667848</created>

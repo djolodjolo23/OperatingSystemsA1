@@ -112,7 +112,7 @@ public class RegistryReader implements FragmentationCalculator {
       }
     }
     printWriter.printf("%nFragmentation:%n");
-    printWriter.printf(String.valueOf(calculate(interpreter.getBiggestFreeBlock(), interpreter.getTotalFreeMemory())));
+    printWriter.printf(String.valueOf(calculate(interpreter.getBiggestFreeBlockSize(), interpreter.getTotalFreeMemory())));
     if (interpreter.getAllErrors().isEmpty()) {
       printWriter.printf("%nErrors%nNone%n");
       printWriter.printf("%n");
