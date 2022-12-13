@@ -115,10 +115,14 @@ public class InterpreterAssistant {
         freeBlocks.add(block);
       }
     }
-    switch (fitType) {
-      case 'F' -> freeBlocks.sort(Block.byteAddressSort);
-      case 'B' -> freeBlocks.sort(Block.freeBlockSizeComparatorAscending);
-      case 'W' -> freeBlocks.sort(Block.freeBlockSizeComparatorDescending);
+    if (fitType == FitType.FIRST.getValue()) {
+      freeBlocks.sort(Block.byteAddressSort);
+    }
+    if (fitType == FitType.BEST.getValue()) {
+      freeBlocks.sort(Block.freeBlockSizeComparatorAscending);
+    }
+    if (fitType == FitType.WORST.getValue()) {
+      freeBlocks.sort(Block.freeBlockSizeComparatorDescending);
     }
     if (freeBlocks.isEmpty()) {
       return null;

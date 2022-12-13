@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9669cbba-49a3-4f69-9816-ed9873540e63" name="Changes" comment="small update.">
-      <change afterPath="$PROJECT_DIR$/a1/src/main/java/org/example/Main.java" afterDir="false" />
+    <list default="true" id="9669cbba-49a3-4f69-9816-ed9873540e63" name="Changes" comment="Byte class removed.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/IntegerChecker.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scenario1.out.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Scenario1.out.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Block.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Interpreter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Interpreter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/InterpreterAssistant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/InterpreterAssistant.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/RegistryReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/RegistryReader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/strategy/SuperFit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/strategy/SuperFit.java" afterDir="false" />
@@ -47,20 +45,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/dimit/OneDrive/Documents/lnu courses/1DV512/a1&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/dimit/OneDrive/Documents/lnu courses/1DV512/Assignment2.Task1.Skeleton",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />
@@ -104,7 +102,8 @@
       <workItem from="1670835357107" duration="1713000" />
       <workItem from="1670837323024" duration="712000" />
       <workItem from="1670843773957" duration="14555000" />
-      <workItem from="1670868668301" duration="606000" />
+      <workItem from="1670868668301" duration="1294000" />
+      <workItem from="1670923746121" duration="832000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit.">
       <created>1669915667848</created>
@@ -260,7 +259,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670859882142</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Byte class removed.">
+      <created>1670882567292</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1670882567292</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -300,7 +306,8 @@
     <MESSAGE value="All 3 allocation methods implemented, still requires more testing." />
     <MESSAGE value="Small update inside the registry reader." />
     <MESSAGE value="small update." />
-    <option name="LAST_COMMIT_MESSAGE" value="small update." />
+    <MESSAGE value="Byte class removed." />
+    <option name="LAST_COMMIT_MESSAGE" value="Byte class removed." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

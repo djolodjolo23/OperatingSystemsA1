@@ -14,7 +14,7 @@ import java.util.Collections;
 import java.util.Scanner;
 import model.Command.CommandIdentifiers;
 
-public class RegistryReader implements FragmentationCalculator {
+public class RegistryReader implements FragmentationCalculator, IntegerChecker {
 
   private ArrayList<Command> allCommands;
 
@@ -35,11 +35,17 @@ public class RegistryReader implements FragmentationCalculator {
     return Paths.get("Scenario1.out.txt");
   }
 
+  public void saveFinalFile(Interpreter interpreter, char fitType) throws IOException {
+    try (PrintWriter pw = new PrintWriter(new FileWriter(getOutputPath().toString(), true))) {
+      printAndFormat(pw, interpreter, fitType);
+    }
+
+  }
+
   public void createAndSaveIntermediateFile(int counter, Interpreter interpreter, char fitType) throws IOException {
     StringBuilder sb = new StringBuilder(getInputPathShort().toString());
     sb.delete(sb.length()-3, sb.length());
     File intermediateFile = new File(sb + "out" + counter + ".txt");
-    //intermediateFile.createNewFile();
     new FileOutputStream(intermediateFile.getName()).close();
     PrintWriter printWriter = new PrintWriter(new FileWriter(intermediateFile.getName(),false));
     printAndFormat(printWriter, interpreter, fitType);
@@ -64,21 +70,12 @@ public class RegistryReader implements FragmentationCalculator {
       }
       if (line[0].equals(CommandIdentifiers.COMPACT.getValue()) ||
           line[0].equals(CommandIdentifiers.OUTPUT.getValue()) ||
-          checkIfInteger(line[0])) {
+          integerCheck(line[0])) {
         var command = new Command(line[0]);
         allCommands.add(command);
       }
     }
   }
-
-
-  public void saveFinalFile(Interpreter interpreter, char fitType) throws IOException {
-    try (PrintWriter pw = new PrintWriter(new FileWriter(getOutputPath().toString(), true))) {
-      printAndFormat(pw, interpreter, fitType);
-    }
-
-  }
-
 
   private void printAndFormat(PrintWriter printWriter, Interpreter interpreter, char fitType) {
     if (fitType == FitType.FIRST.getValue()) {
@@ -90,6 +87,8 @@ public class RegistryReader implements FragmentationCalculator {
     if (fitType == FitType.WORST.getValue()) {
       printWriter.printf("Worst Fit:%n");
     }
+    String fragmentation = String.valueOf(
+        calculate(interpreter.getBiggestFreeBlockSize(), interpreter.getTotalFreeMemory()));
     ArrayList<Block> blocks = interpreter.getAllBlocksWithBytes();
     Collections.sort(blocks);
     printWriter.printf("Allocated blocks:");
@@ -112,7 +111,7 @@ public class RegistryReader implements FragmentationCalculator {
       }
     }
     printWriter.printf("%nFragmentation:%n");
-    printWriter.printf(String.valueOf(calculate(interpreter.getBiggestFreeBlockSize(), interpreter.getTotalFreeMemory())));
+    printWriter.printf(fragmentation);
     if (interpreter.getAllErrors().isEmpty()) {
       printWriter.printf("%nErrors%nNone%n");
       printWriter.printf("%n");
@@ -127,16 +126,6 @@ public class RegistryReader implements FragmentationCalculator {
       printWriter.printf("%n%n");
     }
     printWriter.close();
-  }
-
-
-  public boolean checkIfInteger(String num) {
-    try {
-      Integer.parseInt(num);
-      return true;
-    } catch (NumberFormatException ex) {
-      return false;
-    }
   }
 
 }

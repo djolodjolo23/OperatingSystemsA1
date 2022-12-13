@@ -8,16 +8,17 @@ import model.Command;
 import model.Command.CommandIdentifiers;
 import model.Error;
 import model.FitType;
+import model.IntegerChecker;
 import model.Interpreter;
 import model.RegistryReader;
 
-public abstract class SuperFit {
+public abstract class SuperFit implements IntegerChecker {
 
 
   public void run(Interpreter interpreter, RegistryReader registryReader, ArrayList<Error> tempErrorList, char fitType)
       throws IOException {
     for (Command c : registryReader.getAllCommands()) {
-      if (registryReader.checkIfInteger(c.getCommandIdentifier())) {
+      if (integerCheck(c.getCommandIdentifier())) {
         begin(interpreter, c);
       }
       if (c.getCommandIdentifier().equals(CommandIdentifiers.ALLOCATE.getValue())) {
