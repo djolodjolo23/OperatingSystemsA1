@@ -6,6 +6,7 @@ import java.util.Collections;
 import model.Block;
 import model.Command;
 import model.Command.CommandIdentifiers;
+import model.Counter;
 import model.Error;
 import model.FitType;
 import model.IntegerChecker;
@@ -94,9 +95,9 @@ public abstract class SuperFit implements IntegerChecker {
 
   private void createIntermediateOutput(Interpreter interpreter, RegistryReader registryReader, char fitType)
       throws IOException {
-    interpreter.setIntermediateOutputCounter(interpreter.getIntermediateOutputCounter() + 1);
+    Counter.setCounter(Counter.getCounter() + 1);
     addToEmptyBlocks(interpreter);
-    registryReader.createAndSaveIntermediateFile(interpreter.getIntermediateOutputCounter(), interpreter, fitType);
+    registryReader.createAndSaveIntermediateFile(Counter.getCounter(), interpreter, fitType);
   }
 
 

@@ -14,8 +14,6 @@ public class Interpreter {
 
   private ArrayList<Error> allErrors;
 
-  private int intermediateOutputCounter;
-
   private InterpreterAssistant interpreterAssistant;
 
 
@@ -59,19 +57,12 @@ public class Interpreter {
     allErrors.add(e);
   }
 
-  //public void setByteToAllocated(int index) {
-    //allBytes.get(index).setAllocated(true);
-  //}
-
   public void addListToAllBlocks(ArrayList<Block> blocks) {
     allBlocks.addAll(blocks);
   }
 
   public void addListToAllErrors(ArrayList<Error> errors) { allErrors.addAll(errors); }
 
-  public void addListToALlBytes(ArrayList<Integer> bytes) {
-    allBytes.addAll(bytes);
-  }
 
   public ArrayList<Integer> getAllBytes() {
     return allBytes;
@@ -81,13 +72,6 @@ public class Interpreter {
     return allBlocks;
   }
 
-  public int getIntermediateOutputCounter() {
-    return intermediateOutputCounter;
-  }
-
-  public void setIntermediateOutputCounter(int intermediateOutputCounter) {
-    this.intermediateOutputCounter = intermediateOutputCounter;
-  }
 
   public ArrayList<Block> getAllBlocksWithBytes() {
     return interpreterAssistant.getAllBlocksWithBytes(this);
