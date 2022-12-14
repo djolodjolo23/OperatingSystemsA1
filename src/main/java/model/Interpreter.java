@@ -37,6 +37,10 @@ public class Interpreter {
     allErrors.clear();
   }
 
+  public void addListToAllBytes(ArrayList<Integer> listOfBytes) {
+    allBytes.addAll(listOfBytes);
+  }
+
   public void addToAllBytes(Integer b) {
     allBytes.add(b);
   }
@@ -60,6 +64,7 @@ public class Interpreter {
   public void addListToAllBlocks(ArrayList<Block> blocks) {
     allBlocks.addAll(blocks);
   }
+
 
   public void addListToAllErrors(ArrayList<Error> errors) { allErrors.addAll(errors); }
 
@@ -104,6 +109,10 @@ public class Interpreter {
 
   public int getTotalFreeMemory() {
     return interpreterAssistant.getTotalFreeMemory(this);
+  }
+
+  public void removeAllFreeBlocks() {
+    allBlocks.removeIf(b -> !b.isAllocated());
   }
 
   public Block getSpecificBlock(int blockId) {

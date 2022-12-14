@@ -47,6 +47,9 @@ public abstract class SuperFit implements IntegerChecker {
       if (c.getCommandIdentifier().equals(CommandIdentifiers.OUTPUT.getValue())) {
         createIntermediateOutput(interpreter, registryReader, fitType);
       }
+      if (c.getCommandIdentifier().equals(CommandIdentifiers.COMPACT.getValue())) {
+        compact(interpreter);
+      }
       interpreter.addListToAllErrors(tempErrorList);
       tempErrorList.clear();
     }
@@ -98,6 +101,30 @@ public abstract class SuperFit implements IntegerChecker {
     Counter.setCounter(Counter.getCounter() + 1);
     addToEmptyBlocks(interpreter);
     registryReader.createAndSaveIntermediateFile(Counter.getCounter(), interpreter, fitType);
+  }
+
+  private void compact(Interpreter interpreter) {
+    ArrayList<Block> allBlocks = interpreter.getAllBlocks();
+    for (Block b : allBlocks) {
+      interpreter.addListToAllBytes(b.getAllocatedBytes());
+      b.clearAllocatedBytesList();
+    }
+    ArrayList<Integer> allBytes = interpreter.getAllBytes();
+    Collections.sort(allBytes);
+    for (Block allocatedBlock : allBlocks) {
+      if (allocatedBlock.isAllocated()) {
+        for (int i = 0; i < allocatedBlock.getSize(); i++) {
+          allocatedBlock.addToAllocatedBytes(allBytes.get(i));
+        }
+        interpreter.removeListFromAllBytes(allocatedBlock.getAllocatedBytes());
+      }
+    }
+    interpreter.removeAllFreeBlocks();
+    var freeBlock = new Block();
+    interpreter.addToAllBlocks(freeBlock);
+    freeBlock.addListToAllocatedBytes(interpreter.getAllBytes());
+    freeBlock.setSize(freeBlock.getAllocatedBytes().size());
+    interpreter.removeListFromAllBytes(freeBlock.getAllocatedBytes());
   }
 
 

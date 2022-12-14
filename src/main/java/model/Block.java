@@ -26,6 +26,10 @@ public class Block implements Comparable<Block>{
     allocatedBytes.remove(b);
   }
 
+  public void clearAllocatedBytesList() {
+    allocatedBytes.clear();
+  }
+
   public void addToAllocatedBytes(Integer b) {
     allocatedBytes.add(b);
   }
