@@ -16,7 +16,7 @@ import model.Command.CommandIdentifiers;
 
 public class RegistryReader implements FragmentationCalculator, IntegerChecker {
 
-  private ArrayList<Command> allCommands;
+  private final ArrayList<Command> allCommands;
 
   public RegistryReader() {
     allCommands = new ArrayList<>();

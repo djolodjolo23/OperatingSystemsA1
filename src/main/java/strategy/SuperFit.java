@@ -8,12 +8,12 @@ import model.Command;
 import model.Command.CommandIdentifiers;
 import model.Counter;
 import model.Error;
-import model.FitType;
 import model.IntegerChecker;
 import model.Interpreter;
 import model.RegistryReader;
 
 public abstract class SuperFit implements IntegerChecker {
+
 
 
   public void run(Interpreter interpreter, RegistryReader registryReader, ArrayList<Error> tempErrorList, char fitType)
