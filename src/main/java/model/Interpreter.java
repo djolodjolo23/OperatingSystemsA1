@@ -2,11 +2,11 @@ package model;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Comparator;
 import strategy.AbstractStrategyFactory;
 
 public class Interpreter {
 
-  private RegistryReader registryReader;
 
   private ArrayList<Integer> allBytes;
 
@@ -17,19 +17,14 @@ public class Interpreter {
   private InterpreterAssistant interpreterAssistant;
 
 
-  public Interpreter(RegistryReader registryReader) {
-    this.registryReader = registryReader;
+  public Interpreter() {
     this.interpreterAssistant = new InterpreterAssistant();
     allBytes = new ArrayList<>();
     allBlocks = new ArrayList<>();
     allErrors = new ArrayList<>();
   }
 
-  public void go(AbstractStrategyFactory strategyFactory) throws IOException {
-    strategyFactory.getFirstFitRule(this, registryReader);
-    strategyFactory.getBestFitRule(this,registryReader);
-    strategyFactory.getWorstFitRule(this, registryReader);
-  }
+
 
   public void clearAllLists() {
     allBytes.clear();
@@ -134,6 +129,5 @@ public class Interpreter {
   public ArrayList<Integer> getFreeByteAddresses() {
     return interpreterAssistant.getFreeByteAddresses(this);
   }
-
 
 }

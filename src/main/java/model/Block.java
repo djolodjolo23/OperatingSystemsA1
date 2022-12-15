@@ -72,12 +72,4 @@ public class Block implements Comparable<Block>{
     return this.getAllocatedBytes().get(0) - compareSize ;
   }
 
-  public static Comparator<Block> freeBlockSizeComparatorAscending = Comparator.comparingInt(o -> o.getAllocatedBytes().size());
-
-  public static Comparator<Block> freeBlockSizeComparatorDescending = (o1, o2) -> o2.getAllocatedBytes().size() - o1.getAllocatedBytes().size();
-
-  public static Comparator<Block> byteAddressSort = Comparator.comparingInt(
-      o -> o.getAllocatedBytes().get(0));
-
-
 }

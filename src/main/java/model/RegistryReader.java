@@ -22,6 +22,10 @@ public class RegistryReader implements FragmentationCalculator, IntegerChecker {
     allCommands = new ArrayList<>();
   }
 
+  public ArrayList<Command> getAllCommands() {
+    return allCommands;
+  }
+
   private String getInputPath() {
     Path path = Paths.get("Scenario1.txt");
     return path.toAbsolutePath().toString();
@@ -35,12 +39,6 @@ public class RegistryReader implements FragmentationCalculator, IntegerChecker {
     return Paths.get("Scenario1.out.txt");
   }
 
-  public void saveFinalFile(Interpreter interpreter, char fitType) throws IOException {
-    try (PrintWriter pw = new PrintWriter(new FileWriter(getOutputPath().toString(), true))) {
-      printAndFormat(pw, interpreter, fitType);
-    }
-
-  }
 
   public void createAndSaveIntermediateFile(int counter, Interpreter interpreter, char fitType) throws IOException {
     StringBuilder sb = new StringBuilder(getInputPathShort().toString());
@@ -51,9 +49,10 @@ public class RegistryReader implements FragmentationCalculator, IntegerChecker {
     printAndFormat(printWriter, interpreter, fitType);
   }
 
-
-  public ArrayList<Command> getAllCommands() {
-    return allCommands;
+  public void saveFinalFile(Interpreter interpreter, char fitType) throws IOException {
+    try (PrintWriter pw = new PrintWriter(new FileWriter(getOutputPath().toString(), true))) {
+      printAndFormat(pw, interpreter, fitType);
+    }
   }
 
   public void loadFile() throws IOException {

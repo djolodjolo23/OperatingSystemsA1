@@ -4,9 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9669cbba-49a3-4f69-9816-ed9873540e63" name="Changes" comment="Added a compact command and the logic behind it.">
+    <list default="true" id="9669cbba-49a3-4f69-9816-ed9873540e63" name="Changes" comment="Small changes inside the SuperFit.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/Comparator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scenario1.out.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Scenario1.out.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenario1.out1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Scenario1.out1.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenario1.out2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Scenario1.out2.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenario1.out3.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Scenario1.out3.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scenario1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Scenario1.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Block.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Interpreter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Interpreter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/InterpreterAssistant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/InterpreterAssistant.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/RegistryReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/RegistryReader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/strategy/SuperFit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/strategy/SuperFit.java" afterDir="false" />
     </list>
@@ -19,6 +29,23 @@
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="a1" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -103,7 +130,8 @@
       <workItem from="1670868668301" duration="1294000" />
       <workItem from="1670923746121" duration="1266000" />
       <workItem from="1670944916410" duration="206000" />
-      <workItem from="1671009157607" duration="7298000" />
+      <workItem from="1671009157607" duration="8569000" />
+      <workItem from="1671141634692" duration="3741000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit.">
       <created>1669915667848</created>
@@ -287,7 +315,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671016949950</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Small changes inside the SuperFit.">
+      <created>1671017363090</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1671017363090</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -306,7 +341,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="initial commit." />
     <MESSAGE value="Added couple of classes to support the assignment requirements, added a command class that reads the txt. file." />
     <MESSAGE value="A controller class added." />
     <MESSAGE value="more updates inside the controller." />
@@ -331,7 +365,8 @@
     <MESSAGE value="Added a new interface for checking integers." />
     <MESSAGE value="Counter moved to a static class." />
     <MESSAGE value="Added a compact command and the logic behind it." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added a compact command and the logic behind it." />
+    <MESSAGE value="Small changes inside the SuperFit." />
+    <option name="LAST_COMMIT_MESSAGE" value="Small changes inside the SuperFit." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -344,6 +379,11 @@
           <properties class="java.lang.IndexOutOfBoundsException" package="java.lang" />
           <option name="timeStamp" value="19" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/strategy/SuperFit.java</url>
+          <line>21</line>
+          <option name="timeStamp" value="36" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>

@@ -26,8 +26,8 @@ public abstract class SuperFit implements IntegerChecker {
         if (c.getAmountOfMemory() <= interpreter.getBiggestFreeBlock().getAllocatedBytes().size()) {
           allocate(interpreter, c, fitType);
         } else {
-          Error error = new Error(c.getCommandIdentifier(), registryReader.getAllCommands().indexOf(c), (int)interpreter.getBiggestFreeBlockSize() + 1, c.getBlockId());
-          interpreter.addToAllErrors(error);
+          Error newError = new Error(c.getCommandIdentifier(), registryReader.getAllCommands().indexOf(c), (int)interpreter.getBiggestFreeBlockSize() + 1, c.getBlockId());
+          interpreter.addToAllErrors(newError);
           continue;
         }
       }
@@ -35,13 +35,13 @@ public abstract class SuperFit implements IntegerChecker {
         if (interpreter.getSpecificBlock(c.getBlockId()) != null) {
           deallocate(interpreter, c);
         } else {
-          Error theError;
+          Error newError;
           if (interpreter.getAllErrorsIds().contains(c.getBlockId())) {
-            theError = new Error(c.getCommandIdentifier(), registryReader.getAllCommands().indexOf(c), 1);
+            newError = new Error(c.getCommandIdentifier(), registryReader.getAllCommands().indexOf(c), 1);
           } else {
-            theError = new Error(c.getCommandIdentifier(), registryReader.getAllCommands().indexOf(c), 0);
+            newError = new Error(c.getCommandIdentifier(), registryReader.getAllCommands().indexOf(c), 0);
           }
-          tempErrorList.add(theError);
+          tempErrorList.add(newError);
         }
       }
       if (c.getCommandIdentifier().equals(CommandIdentifiers.OUTPUT.getValue())) {

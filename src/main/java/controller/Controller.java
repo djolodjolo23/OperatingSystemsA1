@@ -16,7 +16,8 @@ public class Controller {
 
   public void run(AbstractStrategyFactory strategyFactory, Interpreter interpreter) throws IOException {
     registryReader.loadFile();
-    interpreter.go(strategyFactory);
+    strategyFactory.getFirstFitRule(interpreter, registryReader);
+    strategyFactory.getBestFitRule(interpreter,registryReader);
+    strategyFactory.getWorstFitRule(interpreter, registryReader);
   }
-
 }

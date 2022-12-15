@@ -18,11 +18,11 @@ public class InterpreterAssistant {
     int counter = 0;
     ArrayList<Block> freeBlocks = new ArrayList<>();
     for (Block b : interpreter.getAllBlocks()) {
-      if (!b.isAllocated()) {
+      if (!b.isAllocated() && !b.getAllocatedBytes().isEmpty()) {
         freeBlocks.add(b);
       }
     }
-    freeBlocks.sort(Block.byteAddressSort);
+    freeBlocks.sort(Comparator.byteAddressSort);
     for (int i = 0; i < freeBlocks.size(); i++) {
       Block theBlock = freeBlocks.get(counter);
       ArrayList<Integer> allocatedBytes = theBlock.getAllocatedBytes();
@@ -85,7 +85,7 @@ public class InterpreterAssistant {
         blocks.add(b);
       }
     }
-    blocks.sort(Block.freeBlockSizeComparatorDescending);
+    blocks.sort(Comparator.freeBlockSizeComparatorDescending);
     return blocks.get(0);
   }
 
@@ -116,13 +116,13 @@ public class InterpreterAssistant {
       }
     }
     if (fitType == FitType.FIRST.getValue()) {
-      freeBlocks.sort(Block.byteAddressSort);
+      freeBlocks.sort(Comparator.byteAddressSort);
     }
     if (fitType == FitType.BEST.getValue()) {
-      freeBlocks.sort(Block.freeBlockSizeComparatorAscending);
+      freeBlocks.sort(Comparator.freeBlockSizeComparatorAscending);
     }
     if (fitType == FitType.WORST.getValue()) {
-      freeBlocks.sort(Block.freeBlockSizeComparatorDescending);
+      freeBlocks.sort(Comparator.freeBlockSizeComparatorDescending);
     }
     if (freeBlocks.isEmpty()) {
       return null;

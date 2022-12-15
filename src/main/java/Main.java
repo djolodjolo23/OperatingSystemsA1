@@ -16,17 +16,11 @@ public class Main {
 
     AbstractStrategyFactory strategyFactory = new StrategyFactory();
 
-    Interpreter interpreter = new Interpreter(regReader);
+    Interpreter interpreter = new Interpreter();
 
     var controller = new Controller(regReader);
 
     controller.run(strategyFactory, interpreter);
 
-    ArrayList<Integer> integers = new ArrayList<>();
-    integers.add(1);
-    integers.add(2);
-    integers.get(0);
-
-
-}
+  }
 }
