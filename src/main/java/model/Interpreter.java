@@ -36,14 +36,6 @@ public class Interpreter {
     allBytes.addAll(listOfBytes);
   }
 
-  public void addToAllBytes(Integer b) {
-    allBytes.add(b);
-  }
-
-  public void removeFromAllBytes(Integer b) {
-    allBytes.remove(b);
-  }
-
   public void addToAllBlocks(Block b) {
     allBlocks.add(b);
   }
@@ -55,11 +47,6 @@ public class Interpreter {
   public void addToAllErrors(Error e) {
     allErrors.add(e);
   }
-
-  public void addListToAllBlocks(ArrayList<Block> blocks) {
-    allBlocks.addAll(blocks);
-  }
-
 
   public void addListToAllErrors(ArrayList<Error> errors) { allErrors.addAll(errors); }
 
@@ -89,11 +76,6 @@ public class Interpreter {
     return interpreterAssistant.getAllErrorsIds(this);
   }
 
-  public Integer getSpecificByte(int address) {
-    return interpreterAssistant.getSpecificByte(address, this);
-  }
-
-
   public double getBiggestFreeBlockSize() {
     return interpreterAssistant.getBiggestFreeBlockSize(this);
   }
@@ -120,14 +102,6 @@ public class Interpreter {
 
   public Block getFirstBestOrWorstFreeBlockWithEnoughMemory(int memory, char fitType) {
     return interpreterAssistant.getFirstBestOrWorstFreeBlockWithEnoughMemory(memory, fitType, this);
-  }
-
-  public ArrayList<Integer> getCurrentBlockIds() {
-    return interpreterAssistant.getCurrentBlockIds(this);
-  }
-
-  public ArrayList<Integer> getFreeByteAddresses() {
-    return interpreterAssistant.getFreeByteAddresses(this);
   }
 
 }

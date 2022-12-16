@@ -12,8 +12,12 @@ import model.IntegerChecker;
 import model.Interpreter;
 import model.RegistryReader;
 
+/**
+ * The super class containing the method for running defragmentation.
+ * All types of fragmentation extend this class since the difference between the methods
+ * is only in the 'allocate' method, and that is handled with fitType parameter.
+ */
 public abstract class SuperFit implements IntegerChecker {
-
 
 
   public void run(Interpreter interpreter, RegistryReader registryReader, ArrayList<Error> tempErrorList, char fitType)
@@ -53,21 +57,18 @@ public abstract class SuperFit implements IntegerChecker {
       interpreter.addListToAllErrors(tempErrorList);
       tempErrorList.clear();
     }
-    addToEmptyBlocks(interpreter);
     registryReader.saveFinalFile(interpreter, fitType);
     interpreter.clearAllLists();
   }
 
   void begin(Interpreter interpreter, Command c) {
-    Block freeBlock = new Block();
+    var freeBlock = new Block();
     freeBlock.setBlockId(Integer.parseInt(c.getCommandIdentifier()));
     for (int i = 0; i < Integer.parseInt(c.getCommandIdentifier()); i++) {
-      interpreter.addToAllBytes(i);
       freeBlock.addToAllocatedBytes(i);
     }
     freeBlock.setSize(freeBlock.getAllocatedBytes().size());
     interpreter.addToAllBlocks(freeBlock);
-    interpreter.removeListFromAllBytes(freeBlock.getAllocatedBytes());
   }
 
   private void allocate(Interpreter interpreter, Command c, char fitType) {
@@ -79,7 +80,6 @@ public abstract class SuperFit implements IntegerChecker {
     }
     block.setSize(block.getAllocatedBytes().size());
     for (Integer b : block.getAllocatedBytes()) {
-      interpreter.removeFromAllBytes(b);
       for (Block free : interpreter.getAllBlocks()) {
         if (!free.isAllocated()) {
           if (free.getAllocatedBytes().contains(b)) {
@@ -99,7 +99,6 @@ public abstract class SuperFit implements IntegerChecker {
   private void createIntermediateOutput(Interpreter interpreter, RegistryReader registryReader, char fitType)
       throws IOException {
     Counter.setCounter(Counter.getCounter() + 1);
-    addToEmptyBlocks(interpreter);
     registryReader.createAndSaveIntermediateFile(Counter.getCounter(), interpreter, fitType);
   }
 
@@ -126,39 +125,5 @@ public abstract class SuperFit implements IntegerChecker {
     freeBlock.setSize(freeBlock.getAllocatedBytes().size());
     interpreter.removeListFromAllBytes(freeBlock.getAllocatedBytes());
   }
-
-
-  private void addToEmptyBlocks(Interpreter interpreter) {
-    ArrayList<Integer> listOfFreeByteAddresses = new ArrayList<>(interpreter.getFreeByteAddresses());
-    Collections.sort(listOfFreeByteAddresses);
-    emptyBlocksInnerMethod(listOfFreeByteAddresses, interpreter);
-  }
-  private void emptyBlocksInnerMethod(ArrayList<Integer> list, Interpreter interpreter) {
-    if (!list.isEmpty()) {
-      int counter = list.get(0);
-      int counter2 = list.get(0);
-      Block b = new Block();
-      b.setAllocated(false);
-      interpreter.addToAllBlocks(b);
-      while (list.contains(counter2)) {
-      counter2++;
-      }
-      int finalValue = counter2;
-      for (int i = list.get(0); i < finalValue; i++) {
-        while (counter == i) {
-          b.addToAllocatedBytes(interpreter.getSpecificByte(i));
-          counter++;
-        }
-      }
-      ArrayList<Integer> updatedList = new ArrayList<>(b.getAllocatedBytes());
-      list.removeAll(updatedList);
-      updatedList.clear();
-      b.setSize(b.getAllocatedBytes().size());
-      while (!list.isEmpty()) {
-        emptyBlocksInnerMethod(list, interpreter);
-      }
-    }
-  }
-
 
 }

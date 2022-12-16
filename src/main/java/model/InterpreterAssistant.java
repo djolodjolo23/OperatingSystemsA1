@@ -50,15 +50,6 @@ public class InterpreterAssistant {
     return errorIds;
   }
 
-  public Integer getSpecificByte(int address, Interpreter interpreter) {
-    for (Integer b : interpreter.getAllBytes()) {
-      if (b == address) {
-        return b;
-      }
-    }
-    return null;
-  }
-
 
   public double getBiggestFreeBlockSize(Interpreter interpreter) {
     ArrayList<ArrayList<Integer>> listOfLists = new ArrayList<>();
@@ -129,18 +120,6 @@ public class InterpreterAssistant {
     } else {
       return freeBlocks.get(0);
     }
-  }
-
-  public ArrayList<Integer> getCurrentBlockIds(Interpreter interpreter) {
-    ArrayList<Integer> blockIds = new ArrayList<>();
-    for (Block block : interpreter.getAllBlocks()) {
-      blockIds.add(block.getBlockId());
-    }
-    return blockIds;
-  }
-
-  public ArrayList<Integer> getFreeByteAddresses(Interpreter interpreter) {
-    return new ArrayList<>(interpreter.getAllBytes());
   }
 
 }

@@ -1,14 +1,15 @@
-First Fit:
+Best Fit:
 Allocated blocks:
 4;0;49
 1;100;299
+6;300;399
+1;400;499
 4;500;799
 Free blocks:
 50;99
-300;499
 800;999
 Fragmentation:
-0.556793
+0.200803
 Errors
 None
 
