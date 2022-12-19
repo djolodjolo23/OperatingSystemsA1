@@ -1,5 +1,8 @@
 package model;
 
+/**
+ * The interface with a default method for calculating the fragmentation.
+ */
 public interface FragmentationCalculator {
 
   default double calculate(double biggestFreeBlock, int totalFreeMemory) {

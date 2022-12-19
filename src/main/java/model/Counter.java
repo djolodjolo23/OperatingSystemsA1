@@ -1,5 +1,8 @@
 package model;
 
+/**
+ * Counter for the intermediate output.
+ */
 public class Counter {
 
   public static int counter = 0;

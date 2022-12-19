@@ -1,6 +1,9 @@
 package model;
 
 
+/**
+ * Command class created when loading the Scenario text file.
+ */
 public class Command {
 
   public enum CommandIdentifiers {

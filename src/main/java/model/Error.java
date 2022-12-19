@@ -1,5 +1,9 @@
 package model;
 
+/**
+ * The error class.
+ * The error objects are created when something goes wrong with reading the commands.
+ */
 public class Error {
 
   private String commandIdentifier;

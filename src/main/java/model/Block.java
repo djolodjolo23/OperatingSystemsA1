@@ -3,6 +3,10 @@ package model;
 import java.util.ArrayList;
 import java.util.Comparator;
 
+/**
+ * The memory block class.
+ */
+
 public class Block implements Comparable<Block>{
 
   private int blockId;
@@ -12,6 +16,11 @@ public class Block implements Comparable<Block>{
 
   private boolean allocated;
 
+  /**
+   * Block object holding the list of bytes.
+   *
+   * @param blockId depends on command.
+   */
   public Block(int blockId) {
     allocatedBytes = new ArrayList<>();
     this.blockId = blockId;

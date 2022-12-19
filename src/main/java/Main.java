@@ -6,11 +6,17 @@ import model.RegistryReader;
 import strategy.AbstractStrategyFactory;
 import strategy.StrategyFactory;
 
+/**
+ * The main class.
+ */
 public class Main {
 
+  /**
+   * Main method.
+   * TODO: RUN!
+   */
+
   public static void main(String[] args) throws IOException {
-
-
 
     var regReader = new RegistryReader();
 

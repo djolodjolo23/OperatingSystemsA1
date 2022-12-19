@@ -1,5 +1,8 @@
 package model;
 
+/**
+ * A class created for sorting the Blocks in a various way.
+ */
 public class Comparator {
 
   public static java.util.Comparator<Block> freeBlockSizeComparatorAscending = java.util.Comparator.comparingInt(o -> o.getAllocatedBytes().size());

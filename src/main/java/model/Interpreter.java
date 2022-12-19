@@ -1,10 +1,11 @@
 package model;
 
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Comparator;
-import strategy.AbstractStrategyFactory;
 
+
+/**
+ * The interpreter class, can be considered as a "Memory" class.
+ */
 public class Interpreter {
 
 
@@ -17,6 +18,9 @@ public class Interpreter {
   private InterpreterAssistant interpreterAssistant;
 
 
+  /**
+   * The object interpreter is the holder of all bytes, blocks and errors in the memory.
+   */
   public Interpreter() {
     this.interpreterAssistant = new InterpreterAssistant();
     allBytes = new ArrayList<>();
@@ -24,8 +28,10 @@ public class Interpreter {
     allErrors = new ArrayList<>();
   }
 
-
-
+  /**
+   * Clears all the lists.
+   * Used between the Fit switching.
+   */
   public void clearAllLists() {
     allBytes.clear();
     allBlocks.clear();

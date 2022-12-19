@@ -61,7 +61,7 @@ public abstract class SuperFit implements IntegerChecker {
     interpreter.clearAllLists();
   }
 
-  void begin(Interpreter interpreter, Command c) {
+  private void begin(Interpreter interpreter, Command c) {
     var freeBlock = new Block();
     freeBlock.setBlockId(Integer.parseInt(c.getCommandIdentifier()));
     for (int i = 0; i < Integer.parseInt(c.getCommandIdentifier()); i++) {

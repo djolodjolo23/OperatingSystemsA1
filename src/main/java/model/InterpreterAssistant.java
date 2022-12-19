@@ -2,8 +2,16 @@ package model;
 
 import java.util.ArrayList;
 
+/**
+ * The assistant class holding the method logic.
+ */
 public class InterpreterAssistant {
 
+  /**
+   * Gets the blocks that has bytes.
+   *
+   * @return is the new array lists with blocks with bytes.
+   */
   public ArrayList<Block> getAllBlocksWithBytes(Interpreter interpreter) {
     ArrayList<Block> blocksWithBytes = new ArrayList<>();
     for (Block b : interpreter.getAllBlocks()) {
@@ -14,14 +22,27 @@ public class InterpreterAssistant {
     return blocksWithBytes;
   }
 
-  public void connectFreeBlocks(Interpreter interpreter) {
-    int counter = 0;
+  /**
+   * Gets the blocks that are free and has bytes.
+   *
+   * @return is the new array lists with free blocks with bytes.
+   */
+  public ArrayList<Block> getAllFreeBlocksWithBytes(Interpreter interpreter) {
     ArrayList<Block> freeBlocks = new ArrayList<>();
     for (Block b : interpreter.getAllBlocks()) {
       if (!b.isAllocated() && !b.getAllocatedBytes().isEmpty()) {
         freeBlocks.add(b);
       }
     }
+    return freeBlocks;
+  }
+
+  /**
+   * Connect free blocks with connected bytes into one block.
+   */
+  public void connectFreeBlocks(Interpreter interpreter) {
+    int counter = 0;
+    ArrayList<Block> freeBlocks = getAllFreeBlocksWithBytes(interpreter);
     freeBlocks.sort(Comparator.byteAddressSort);
     for (int i = 0; i < freeBlocks.size(); i++) {
       Block theBlock = freeBlocks.get(counter);
@@ -42,6 +63,11 @@ public class InterpreterAssistant {
     }
   }
 
+  /**
+   * Gets all errors Ids.
+   *
+   * @return is the new array list with error Ids.
+   */
   public ArrayList<Integer> getAllErrorsIds(Interpreter interpreter) {
     ArrayList<Integer> errorIds = new ArrayList<>();
     for (Error error : interpreter.getAllErrors()) {
@@ -51,13 +77,16 @@ public class InterpreterAssistant {
   }
 
 
+  /**
+   * Gets the size of the biggest free block in double value.
+   *
+   * @return is the biggest free block in double.
+   */
   public double getBiggestFreeBlockSize(Interpreter interpreter) {
     ArrayList<ArrayList<Integer>> listOfLists = new ArrayList<>();
     for (Block b : interpreter.getAllBlocks()) {
-      if (!b.isAllocated()) {
-        if (!b.getAllocatedBytes().isEmpty()) {
-          listOfLists.add(b.getAllocatedBytes());
-        }
+      if (!b.isAllocated() && !b.getAllocatedBytes().isEmpty()) {
+        listOfLists.add(b.getAllocatedBytes());
       }
     }
     double max = listOfLists.get(0).size()-1;
@@ -69,6 +98,11 @@ public class InterpreterAssistant {
     return max;
   }
 
+  /**
+   * Gets the biggest free block.
+   *
+   * @return is the biggest block object.
+   */
   public Block getBiggestFreeBlock(Interpreter interpreter) {
     ArrayList<Block> blocks = new ArrayList<>();
     for (Block b : interpreter.getAllBlocks()) {
@@ -80,6 +114,11 @@ public class InterpreterAssistant {
     return blocks.get(0);
   }
 
+  /**
+   * Gets the total free memory in bytes.
+   *
+   * @return is the amount of free bytes as integer.
+   */
   public int getTotalFreeMemory(Interpreter interpreter) {
     ArrayList<Integer> bytes = new ArrayList<>();
     for (Block block : interpreter.getAllBlocks()) {
@@ -90,6 +129,11 @@ public class InterpreterAssistant {
     return bytes.size()-1;
   }
 
+  /**
+   * Get the block object by providing the block ID.
+   *
+   * @return block if exists, null if not.
+   */
   public Block getSpecificBlock(int blockId, Interpreter interpreter) {
     for (Block b : interpreter.getAllBlocks()) {
       if (b.getBlockId() == blockId) {
@@ -99,6 +143,13 @@ public class InterpreterAssistant {
     return null;
   }
 
+  /**
+   * Get the free block depending on the Fit algorithm.
+   *
+   * @param fitType is the fit algorithm, can be either 'F', 'B' or 'W'
+   *
+   * @return is the free block.
+   */
   public Block getFirstBestOrWorstFreeBlockWithEnoughMemory(int memory, char fitType, Interpreter interpreter) {
     ArrayList<Block> freeBlocks = new ArrayList<>();
     for (Block block : interpreter.getAllBlocks()) {

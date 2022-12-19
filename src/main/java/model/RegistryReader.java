@@ -14,6 +14,9 @@ import java.util.Collections;
 import java.util.Scanner;
 import model.Command.CommandIdentifiers;
 
+/**
+ * Class responsible for reading and writing from/to the text file.
+ */
 public class RegistryReader implements FragmentationCalculator, IntegerChecker {
 
   private final ArrayList<Command> allCommands;

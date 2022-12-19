@@ -1,5 +1,8 @@
 package model;
 
+/**
+ * The interface with a default method for checking if the input value is integer or not.
+ */
 public interface IntegerChecker {
 
   default boolean integerCheck(String numberAsString) {
