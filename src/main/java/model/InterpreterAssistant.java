@@ -5,16 +5,16 @@ import java.util.ArrayList;
 /**
  * The assistant class holding the method logic.
  */
-public class MemoryAssistant {
+public class InterpreterAssistant {
 
   /**
    * Gets the blocks that has bytes.
    *
    * @return is the new array lists with blocks with bytes.
    */
-  public ArrayList<Block> getAllBlocksWithBytes(Memory memory) {
+  public ArrayList<Block> getAllBlocksWithBytes(Interpreter interpreter) {
     ArrayList<Block> blocksWithBytes = new ArrayList<>();
-    for (Block b : memory.getAllBlocks()) {
+    for (Block b : interpreter.getAllBlocks()) {
       if (!b.getAllocatedBytes().isEmpty()) {
         blocksWithBytes.add(b);
       }
@@ -27,9 +27,9 @@ public class MemoryAssistant {
    *
    * @return is the new array lists with free blocks with bytes.
    */
-  public ArrayList<Block> getAllFreeBlocksWithBytes(Memory memory) {
+  public ArrayList<Block> getAllFreeBlocksWithBytes(Interpreter interpreter) {
     ArrayList<Block> freeBlocks = new ArrayList<>();
-    for (Block b : memory.getAllBlocks()) {
+    for (Block b : interpreter.getAllBlocks()) {
       if (!b.isAllocated() && !b.getAllocatedBytes().isEmpty()) {
         freeBlocks.add(b);
       }
@@ -40,9 +40,9 @@ public class MemoryAssistant {
   /**
    * Connect free blocks with connected bytes into one block.
    */
-  public void connectFreeBlocks(Memory memory) {
+  public void connectFreeBlocks(Interpreter interpreter) {
     int counter = 0;
-    ArrayList<Block> freeBlocks = getAllFreeBlocksWithBytes(memory);
+    ArrayList<Block> freeBlocks = getAllFreeBlocksWithBytes(interpreter);
     freeBlocks.sort(Comparator.byteAddressSort);
     for (int i = 0; i < freeBlocks.size(); i++) {
       Block theBlock = freeBlocks.get(counter);
@@ -56,9 +56,9 @@ public class MemoryAssistant {
         Block newBlock = new Block();
         newBlock.addListToAllocatedBytes(theBlock.getAllocatedBytes());
         newBlock.addListToAllocatedBytes(nextBlock.getAllocatedBytes());
-        memory.removeFromAllBlocks(theBlock);
-        memory.removeFromAllBlocks(nextBlock);
-        memory.addToAllBlocks(newBlock);
+        interpreter.removeFromAllBlocks(theBlock);
+        interpreter.removeFromAllBlocks(nextBlock);
+        interpreter.addToAllBlocks(newBlock);
       }
     }
   }
@@ -68,9 +68,9 @@ public class MemoryAssistant {
    *
    * @return is the new array list with error Ids.
    */
-  public ArrayList<Integer> getAllErrorsIds(Memory memory) {
+  public ArrayList<Integer> getAllErrorsIds(Interpreter interpreter) {
     ArrayList<Integer> errorIds = new ArrayList<>();
-    for (Error error : memory.getAllErrors()) {
+    for (Error error : interpreter.getAllErrors()) {
       errorIds.add(error.getBlockId());
     }
     return errorIds;
@@ -82,9 +82,9 @@ public class MemoryAssistant {
    *
    * @return is the biggest free block in double.
    */
-  public double getBiggestFreeBlockSize(Memory memory) {
+  public double getBiggestFreeBlockSize(Interpreter interpreter) {
     ArrayList<ArrayList<Integer>> listOfLists = new ArrayList<>();
-    for (Block b : memory.getAllBlocks()) {
+    for (Block b : interpreter.getAllBlocks()) {
       if (!b.isAllocated() && !b.getAllocatedBytes().isEmpty()) {
         listOfLists.add(b.getAllocatedBytes());
       }
@@ -103,9 +103,9 @@ public class MemoryAssistant {
    *
    * @return is the biggest block object.
    */
-  public Block getBiggestFreeBlock(Memory memory) {
+  public Block getBiggestFreeBlock(Interpreter interpreter) {
     ArrayList<Block> blocks = new ArrayList<>();
-    for (Block b : memory.getAllBlocks()) {
+    for (Block b : interpreter.getAllBlocks()) {
       if (!b.isAllocated()) {
         blocks.add(b);
       }
@@ -119,9 +119,9 @@ public class MemoryAssistant {
    *
    * @return is the amount of free bytes as integer.
    */
-  public int getTotalFreeMemory(Memory memory) {
+  public int getTotalFreeMemory(Interpreter interpreter) {
     ArrayList<Integer> bytes = new ArrayList<>();
-    for (Block block : memory.getAllBlocks()) {
+    for (Block block : interpreter.getAllBlocks()) {
       if (!block.isAllocated()) {
         bytes.addAll(block.getAllocatedBytes());
       }
@@ -134,8 +134,8 @@ public class MemoryAssistant {
    *
    * @return block if exists, null if not.
    */
-  public Block getSpecificBlock(int blockId, Memory memory) {
-    for (Block b : memory.getAllBlocks()) {
+  public Block getSpecificBlock(int blockId, Interpreter interpreter) {
+    for (Block b : interpreter.getAllBlocks()) {
       if (b.getBlockId() == blockId) {
         return b;
       }
@@ -150,7 +150,7 @@ public class MemoryAssistant {
    *
    * @return is the free block.
    */
-  public Block getFirstBestOrWorstFreeBlockWithEnoughMemory(int memory, char fitType, Memory interpreter) {
+  public Block getFirstBestOrWorstFreeBlockWithEnoughMemory(int memory, char fitType, Interpreter interpreter) {
     ArrayList<Block> freeBlocks = new ArrayList<>();
     for (Block block : interpreter.getAllBlocks()) {
       if (!block.isAllocated() && block.getAllocatedBytes().size() >= memory) {

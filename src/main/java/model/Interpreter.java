@@ -6,7 +6,7 @@ import java.util.ArrayList;
 /**
  * The interpreter class, can be considered as a "Memory" class.
  */
-public class Memory {
+public class Interpreter {
 
 
   private ArrayList<Integer> allBytes;
@@ -15,14 +15,14 @@ public class Memory {
 
   private ArrayList<Error> allErrors;
 
-  private MemoryAssistant memoryAssistant;
+  private InterpreterAssistant interpreterAssistant;
 
 
   /**
    * The object interpreter is the holder of all bytes, blocks and errors in the memory.
    */
-  public Memory() {
-    this.memoryAssistant = new MemoryAssistant();
+  public Interpreter() {
+    this.interpreterAssistant = new InterpreterAssistant();
     allBytes = new ArrayList<>();
     allBlocks = new ArrayList<>();
     allErrors = new ArrayList<>();
@@ -67,11 +67,11 @@ public class Memory {
 
 
   public ArrayList<Block> getAllBlocksWithBytes() {
-    return memoryAssistant.getAllBlocksWithBytes(this);
+    return interpreterAssistant.getAllBlocksWithBytes(this);
   }
 
   public void connectFreeBlocks() {
-    memoryAssistant.connectFreeBlocks(this);
+    interpreterAssistant.connectFreeBlocks(this);
   }
 
   public ArrayList<Error> getAllErrors() {
@@ -79,19 +79,19 @@ public class Memory {
   }
 
   public ArrayList<Integer> getAllErrorsIds() {
-    return memoryAssistant.getAllErrorsIds(this);
+    return interpreterAssistant.getAllErrorsIds(this);
   }
 
   public double getBiggestFreeBlockSize() {
-    return memoryAssistant.getBiggestFreeBlockSize(this);
+    return interpreterAssistant.getBiggestFreeBlockSize(this);
   }
 
   public Block getBiggestFreeBlock() {
-    return memoryAssistant.getBiggestFreeBlock(this);
+    return interpreterAssistant.getBiggestFreeBlock(this);
   }
 
   public int getTotalFreeMemory() {
-    return memoryAssistant.getTotalFreeMemory(this);
+    return interpreterAssistant.getTotalFreeMemory(this);
   }
 
   public void removeAllFreeBlocks() {
@@ -99,7 +99,7 @@ public class Memory {
   }
 
   public Block getSpecificBlock(int blockId) {
-    return memoryAssistant.getSpecificBlock(blockId, this);
+    return interpreterAssistant.getSpecificBlock(blockId, this);
   }
 
   public void removeListFromAllBytes(ArrayList<Integer> bytes) {
@@ -107,7 +107,7 @@ public class Memory {
   }
 
   public Block getFirstBestOrWorstFreeBlockWithEnoughMemory(int memory, char fitType) {
-    return memoryAssistant.getFirstBestOrWorstFreeBlockWithEnoughMemory(memory, fitType, this);
+    return interpreterAssistant.getFirstBestOrWorstFreeBlockWithEnoughMemory(memory, fitType, this);
   }
 
 }

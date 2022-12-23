@@ -1,6 +1,6 @@
 import java.io.IOException;
 import controller.Controller;
-import model.Memory;
+import model.Interpreter;
 import model.RegistryReader;
 import strategy.AbstractStrategyFactory;
 import strategy.StrategyFactory;
@@ -21,11 +21,11 @@ public class Main {
 
     AbstractStrategyFactory strategyFactory = new StrategyFactory();
 
-    Memory memory = new Memory();
+    Interpreter interpreter = new Interpreter();
 
     var controller = new Controller(regReader);
 
-    controller.run(strategyFactory, memory);
+    controller.run(strategyFactory, interpreter);
 
   }
 }
