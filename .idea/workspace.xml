@@ -4,26 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9669cbba-49a3-4f69-9816-ed9873540e63" name="Changes" comment="some minor changes.">
+    <list default="true" id="9669cbba-49a3-4f69-9816-ed9873540e63" name="Changes" comment="Adding javadoc comments.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scenario1.out.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Scenario1.out.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/a1/src/main/java/org/example/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Block.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Command.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Comparator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Comparator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Counter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Counter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Error.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Error.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/FragmentationCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/FragmentationCalculator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/IntegerChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/IntegerChecker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Interpreter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Interpreter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/InterpreterAssistant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/InterpreterAssistant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/RegistryReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/RegistryReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/strategy/BestFit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/strategy/BestFit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/strategy/FirstFit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/strategy/FirstFit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/strategy/SuperFit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/strategy/SuperFit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/strategy/WorstFit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/strategy/WorstFit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenario1.out.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenario1.out1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenario1.out2.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenario1.out3.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenario1.out4.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenario1.out5.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenario1.out6.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -144,7 +133,8 @@
       <workItem from="1671371723213" duration="2415000" />
       <workItem from="1671374224150" duration="1316000" />
       <workItem from="1671378944984" duration="1442000" />
-      <workItem from="1671438847228" duration="631000" />
+      <workItem from="1671438847228" duration="831000" />
+      <workItem from="1671440269543" duration="35000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit.">
       <created>1669915667848</created>
@@ -349,7 +339,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671183093508</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="Adding javadoc comments.">
+      <created>1671439489014</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1671439489014</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -368,7 +365,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="more updates inside the controller." />
     <MESSAGE value="first fit working fine." />
     <MESSAGE value="Added interfaces for the code refactoring." />
     <MESSAGE value="Added new strategy factory interface, added a new class so defragmentation logic can be moved to a model class." />
@@ -393,7 +389,8 @@
     <MESSAGE value="Small changes inside the SuperFit." />
     <MESSAGE value="bug fix, updates inside the methods, Comparator class added." />
     <MESSAGE value="some minor changes." />
-    <option name="LAST_COMMIT_MESSAGE" value="some minor changes." />
+    <MESSAGE value="Adding javadoc comments." />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding javadoc comments." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

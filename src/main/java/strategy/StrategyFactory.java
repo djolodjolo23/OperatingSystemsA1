@@ -1,23 +1,23 @@
 package strategy;
 
 import java.io.IOException;
-import model.Interpreter;
+import model.Memory;
 import model.RegistryReader;
 
 public class StrategyFactory implements AbstractStrategyFactory {
 
   @Override
-  public void getBestFitRule(Interpreter interpreter, RegistryReader registryReader) throws IOException {
-    new BestFit(interpreter, registryReader);
+  public void getBestFitRule(Memory memory, RegistryReader registryReader) throws IOException {
+    new BestFit(memory, registryReader);
   }
 
   @Override
-  public void getFirstFitRule(Interpreter interpreter, RegistryReader registryReader) throws IOException {
-    new FirstFit(interpreter, registryReader);
+  public void getFirstFitRule(Memory memory, RegistryReader registryReader) throws IOException {
+    new FirstFit(memory, registryReader);
   }
 
   @Override
-  public void getWorstFitRule(Interpreter interpreter, RegistryReader registryReader) throws IOException {
-    new WorstFit(interpreter, registryReader);
+  public void getWorstFitRule(Memory memory, RegistryReader registryReader) throws IOException {
+    new WorstFit(memory, registryReader);
   }
 }

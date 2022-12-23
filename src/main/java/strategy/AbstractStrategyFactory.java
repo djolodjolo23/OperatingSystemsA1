@@ -1,14 +1,14 @@
 package strategy;
 
 import java.io.IOException;
-import model.Interpreter;
+import model.Memory;
 import model.RegistryReader;
 
 public interface AbstractStrategyFactory {
 
-  void getBestFitRule(Interpreter interpreter, RegistryReader registryReader) throws IOException;
+  void getBestFitRule(Memory memory, RegistryReader registryReader) throws IOException;
 
-  void getFirstFitRule(Interpreter interpreter, RegistryReader registryReader) throws IOException;
+  void getFirstFitRule(Memory memory, RegistryReader registryReader) throws IOException;
 
-  void getWorstFitRule(Interpreter interpreter,RegistryReader registryReader) throws IOException;
+  void getWorstFitRule(Memory memory,RegistryReader registryReader) throws IOException;
 }

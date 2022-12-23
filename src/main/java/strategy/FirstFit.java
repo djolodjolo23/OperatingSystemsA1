@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import model.Error;
 import model.FitType;
-import model.Interpreter;
+import model.Memory;
 import model.RegistryReader;
 
 /**
@@ -19,10 +19,10 @@ public class FirstFit extends SuperFit implements FitStrategy{
   private final char fitType = FitType.FIRST.getValue();
 
 
-  public FirstFit(Interpreter interpreter, RegistryReader registryReader) throws IOException {
+  public FirstFit(Memory memory, RegistryReader registryReader) throws IOException {
     this.registryReader = registryReader;
     tempErrorList = new ArrayList<>();
-    run(interpreter);
+    run(memory);
   }
 
   public char getFitType() {
@@ -31,7 +31,7 @@ public class FirstFit extends SuperFit implements FitStrategy{
 
 
   @Override
-  public void run(Interpreter interpreter) throws IOException {
-    super.run(interpreter, registryReader, tempErrorList, fitType);
+  public void run(Memory memory) throws IOException {
+    super.run(memory, registryReader, tempErrorList, fitType);
   }
 }

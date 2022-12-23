@@ -1,10 +1,10 @@
 package strategy;
 
 import java.io.IOException;
-import model.Interpreter;
+import model.Memory;
 
 public interface FitStrategy {
 
-  void run(Interpreter interpreter) throws IOException;
+  void run(Memory memory) throws IOException;
 
 }

@@ -1,7 +1,6 @@
 import java.io.IOException;
 import controller.Controller;
-import java.util.ArrayList;
-import model.Interpreter;
+import model.Memory;
 import model.RegistryReader;
 import strategy.AbstractStrategyFactory;
 import strategy.StrategyFactory;
@@ -22,11 +21,11 @@ public class Main {
 
     AbstractStrategyFactory strategyFactory = new StrategyFactory();
 
-    Interpreter interpreter = new Interpreter();
+    Memory memory = new Memory();
 
     var controller = new Controller(regReader);
 
-    controller.run(strategyFactory, interpreter);
+    controller.run(strategyFactory, memory);
 
   }
 }

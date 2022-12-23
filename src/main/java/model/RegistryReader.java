@@ -43,18 +43,18 @@ public class RegistryReader implements FragmentationCalculator, IntegerChecker {
   }
 
 
-  public void createAndSaveIntermediateFile(int counter, Interpreter interpreter, char fitType) throws IOException {
+  public void createAndSaveIntermediateFile(int counter, Memory memory, char fitType) throws IOException {
     StringBuilder sb = new StringBuilder(getInputPathShort().toString());
     sb.delete(sb.length()-3, sb.length());
     File intermediateFile = new File(sb + "out" + counter + ".txt");
     new FileOutputStream(intermediateFile.getName()).close();
     PrintWriter printWriter = new PrintWriter(new FileWriter(intermediateFile.getName(),false));
-    printAndFormat(printWriter, interpreter, fitType);
+    printAndFormat(printWriter, memory, fitType);
   }
 
-  public void saveFinalFile(Interpreter interpreter, char fitType) throws IOException {
+  public void saveFinalFile(Memory memory, char fitType) throws IOException {
     try (PrintWriter pw = new PrintWriter(new FileWriter(getOutputPath().toString(), true))) {
-      printAndFormat(pw, interpreter, fitType);
+      printAndFormat(pw, memory, fitType);
     }
   }
 
@@ -79,7 +79,7 @@ public class RegistryReader implements FragmentationCalculator, IntegerChecker {
     }
   }
 
-  private void printAndFormat(PrintWriter printWriter, Interpreter interpreter, char fitType) {
+  private void printAndFormat(PrintWriter printWriter, Memory memory, char fitType) {
     if (fitType == FitType.FIRST.getValue()) {
       printWriter.printf("First Fit:%n");
     }
@@ -90,8 +90,8 @@ public class RegistryReader implements FragmentationCalculator, IntegerChecker {
       printWriter.printf("Worst Fit:%n");
     }
     String fragmentation = String.valueOf(
-        calculate(interpreter.getBiggestFreeBlockSize(), interpreter.getTotalFreeMemory()));
-    ArrayList<Block> blocks = interpreter.getAllBlocksWithBytes();
+        calculate(memory.getBiggestFreeBlockSize(), memory.getTotalFreeMemory()));
+    ArrayList<Block> blocks = memory.getAllBlocksWithBytes();
     Collections.sort(blocks);
     printWriter.printf("Allocated blocks:");
     for (Block b : blocks) {
@@ -114,12 +114,12 @@ public class RegistryReader implements FragmentationCalculator, IntegerChecker {
     }
     printWriter.printf("%nFragmentation:%n");
     printWriter.printf(fragmentation);
-    if (interpreter.getAllErrors().isEmpty()) {
+    if (memory.getAllErrors().isEmpty()) {
       printWriter.printf("%nErrors%nNone%n");
       printWriter.printf("%n");
     } else {
       printWriter.printf("%nErrors");
-      for (Error e : interpreter.getAllErrors()) {
+      for (Error e : memory.getAllErrors()) {
         printWriter.printf("%n%s;%s;%s",
             e.getCommandIdentifier(),
             e.getInstructionNumber(),

@@ -1,7 +1,7 @@
 package controller;
 
 import java.io.IOException;
-import model.Interpreter;
+import model.Memory;
 import model.RegistryReader;
 import strategy.AbstractStrategyFactory;
 
@@ -21,10 +21,10 @@ public class Controller {
   /**
    * A method for running 3 different fit types.
    */
-  public void run(AbstractStrategyFactory strategyFactory, Interpreter interpreter) throws IOException {
+  public void run(AbstractStrategyFactory strategyFactory, Memory memory) throws IOException {
     registryReader.loadFile();
-    strategyFactory.getFirstFitRule(interpreter, registryReader);
-    strategyFactory.getBestFitRule(interpreter,registryReader);
-    strategyFactory.getWorstFitRule(interpreter, registryReader);
+    strategyFactory.getFirstFitRule(memory, registryReader);
+    strategyFactory.getBestFitRule(memory,registryReader);
+    strategyFactory.getWorstFitRule(memory, registryReader);
   }
 }
