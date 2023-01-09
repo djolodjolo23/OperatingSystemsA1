@@ -4,8 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9669cbba-49a3-4f69-9816-ed9873540e63" name="Changes" comment="Adding javadoc comments.">
+    <list default="true" id="9669cbba-49a3-4f69-9816-ed9873540e63" name="Changes" comment="Refactoring the name back to original.">
+      <change afterPath="$PROJECT_DIR$/Scenario1.out.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Scenario1.out1.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Scenario1.out2.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Scenario1.out3.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenario1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Scenario1.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/RegistryReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/RegistryReader.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,6 +136,8 @@
       <workItem from="1671440269543" duration="35000" />
       <workItem from="1671809028297" duration="131000" />
       <workItem from="1671809320461" duration="21000" />
+      <workItem from="1671809657505" duration="268000" />
+      <workItem from="1673280733939" duration="2313000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit.">
       <created>1669915667848</created>
@@ -348,7 +356,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671809125335</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Refactoring the name back to original.">
+      <created>1671809918371</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1671809918371</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -367,7 +382,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="first fit working fine." />
     <MESSAGE value="Added interfaces for the code refactoring." />
     <MESSAGE value="Added new strategy factory interface, added a new class so defragmentation logic can be moved to a model class." />
     <MESSAGE value="Code refactoring with interfaces." />
@@ -392,7 +406,8 @@
     <MESSAGE value="bug fix, updates inside the methods, Comparator class added." />
     <MESSAGE value="some minor changes." />
     <MESSAGE value="Adding javadoc comments." />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding javadoc comments." />
+    <MESSAGE value="Refactoring the name back to original." />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactoring the name back to original." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -405,6 +420,11 @@
           <properties class="java.lang.IndexOutOfBoundsException" package="java.lang" />
           <option name="timeStamp" value="19" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/model/RegistryReader.java</url>
+          <line>134</line>
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>

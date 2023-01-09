@@ -42,14 +42,19 @@ public class RegistryReader implements FragmentationCalculator, IntegerChecker {
     return Paths.get("Scenario1.out.txt");
   }
 
+  private Path getIntermediateOutputPath() {
+    return Paths.get("Scenario1.out1.txt");
+  }
+
 
   public void createAndSaveIntermediateFile(int counter, Interpreter interpreter, char fitType) throws IOException {
     StringBuilder sb = new StringBuilder(getInputPathShort().toString());
     sb.delete(sb.length()-3, sb.length());
     File intermediateFile = new File(sb + "out" + counter + ".txt");
     new FileOutputStream(intermediateFile.getName()).close();
-    PrintWriter printWriter = new PrintWriter(new FileWriter(intermediateFile.getName(),false));
-    printAndFormat(printWriter, interpreter, fitType);
+    try (PrintWriter pw = new PrintWriter(new FileWriter(getIntermediateOutputPath().toString(), true))) {
+      printAndFormat(pw, interpreter, fitType);
+    }
   }
 
   public void saveFinalFile(Interpreter interpreter, char fitType) throws IOException {
