@@ -24,6 +24,7 @@ public class Command {
   private String commandIdentifier;
   private int blockId;
   private int amountOfMemory;
+  private int oCounter;
 
   public Command(String command, String blockId, String amountOfMemory) {
     this.commandIdentifier = command;
@@ -41,12 +42,21 @@ public class Command {
     this.commandIdentifier = command;
   }
 
+  public Command(String command, int counter) {
+    this.commandIdentifier = command;
+    this.oCounter = counter;
+  }
+
   public String getCommandIdentifier() {
     return commandIdentifier;
   }
 
   public int getBlockId() {
     return blockId;
+  }
+
+  public int getOCounter() {
+    return oCounter;
   }
 
   public int getAmountOfMemory() {

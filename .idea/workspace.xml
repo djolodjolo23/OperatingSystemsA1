@@ -4,14 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9669cbba-49a3-4f69-9816-ed9873540e63" name="Changes" comment="Refactoring the name back to original.">
-      <change afterPath="$PROJECT_DIR$/Scenario1.out.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Scenario1.out1.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Scenario1.out2.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Scenario1.out3.txt" afterDir="false" />
+    <list default="true" id="9669cbba-49a3-4f69-9816-ed9873540e63" name="Changes" comment="Some changes inside registry readed. Intermediate output O command should produce only one text file.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenario1.out2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Scenario1.out2.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenario1.out3.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Scenario1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Scenario1.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Command.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Interpreter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Interpreter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/RegistryReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/RegistryReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/strategy/SuperFit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/strategy/SuperFit.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -137,7 +138,7 @@
       <workItem from="1671809028297" duration="131000" />
       <workItem from="1671809320461" duration="21000" />
       <workItem from="1671809657505" duration="268000" />
-      <workItem from="1673280733939" duration="2313000" />
+      <workItem from="1673280733939" duration="6079000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit.">
       <created>1669915667848</created>
@@ -363,7 +364,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671809918371</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="Some changes inside registry readed. Intermediate output O command should produce only one text file.">
+      <created>1673283076519</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1673283076519</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -382,7 +390,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Added interfaces for the code refactoring." />
     <MESSAGE value="Added new strategy factory interface, added a new class so defragmentation logic can be moved to a model class." />
     <MESSAGE value="Code refactoring with interfaces." />
     <MESSAGE value="Added a view package and class." />
@@ -407,7 +414,8 @@
     <MESSAGE value="some minor changes." />
     <MESSAGE value="Adding javadoc comments." />
     <MESSAGE value="Refactoring the name back to original." />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactoring the name back to original." />
+    <MESSAGE value="Some changes inside registry readed. Intermediate output O command should produce only one text file." />
+    <option name="LAST_COMMIT_MESSAGE" value="Some changes inside registry readed. Intermediate output O command should produce only one text file." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -420,11 +428,6 @@
           <properties class="java.lang.IndexOutOfBoundsException" package="java.lang" />
           <option name="timeStamp" value="19" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/model/RegistryReader.java</url>
-          <line>134</line>
-          <option name="timeStamp" value="23" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>

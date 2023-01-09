@@ -42,17 +42,13 @@ public class RegistryReader implements FragmentationCalculator, IntegerChecker {
     return Paths.get("Scenario1.out.txt");
   }
 
-  private Path getIntermediateOutputPath() {
-    return Paths.get("Scenario1.out1.txt");
-  }
-
 
   public void createAndSaveIntermediateFile(int counter, Interpreter interpreter, char fitType) throws IOException {
     StringBuilder sb = new StringBuilder(getInputPathShort().toString());
     sb.delete(sb.length()-3, sb.length());
     File intermediateFile = new File(sb + "out" + counter + ".txt");
-    new FileOutputStream(intermediateFile.getName()).close();
-    try (PrintWriter pw = new PrintWriter(new FileWriter(getIntermediateOutputPath().toString(), true))) {
+    //new FileOutputStream(intermediateFile.getName()).close();
+    try (PrintWriter pw = new PrintWriter(new FileWriter(intermediateFile.getName(), true))) {
       printAndFormat(pw, interpreter, fitType);
     }
   }
@@ -76,9 +72,13 @@ public class RegistryReader implements FragmentationCalculator, IntegerChecker {
         allCommands.add(command);
       }
       if (line[0].equals(CommandIdentifiers.COMPACT.getValue()) ||
-          line[0].equals(CommandIdentifiers.OUTPUT.getValue()) ||
           integerCheck(line[0])) {
         var command = new Command(line[0]);
+        allCommands.add(command);
+      }
+      if (line[0].equals(CommandIdentifiers.OUTPUT.getValue())) {
+        Counter.setCounter(Counter.getCounter() + 1);
+        var command = new Command(line[0], Counter.getCounter());
         allCommands.add(command);
       }
     }

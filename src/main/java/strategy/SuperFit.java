@@ -49,7 +49,7 @@ public abstract class SuperFit implements IntegerChecker {
         }
       }
       if (c.getCommandIdentifier().equals(CommandIdentifiers.OUTPUT.getValue())) {
-        createIntermediateOutput(interpreter, registryReader, fitType);
+        createIntermediateOutput(interpreter, registryReader, fitType, c.getOCounter());
       }
       if (c.getCommandIdentifier().equals(CommandIdentifiers.COMPACT.getValue())) {
         compact(interpreter);
@@ -96,10 +96,9 @@ public abstract class SuperFit implements IntegerChecker {
     interpreter.connectFreeBlocks();
   }
 
-  private void createIntermediateOutput(Interpreter interpreter, RegistryReader registryReader, char fitType)
+  private void createIntermediateOutput(Interpreter interpreter, RegistryReader registryReader, char fitType, int oCounter)
       throws IOException {
-    Counter.setCounter(Counter.getCounter() + 1);
-    registryReader.createAndSaveIntermediateFile(Counter.getCounter(), interpreter, fitType);
+    registryReader.createAndSaveIntermediateFile(oCounter, interpreter, fitType);
   }
 
   private void compact(Interpreter interpreter) {
