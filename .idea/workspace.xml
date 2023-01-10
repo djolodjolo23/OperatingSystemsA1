@@ -4,17 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9669cbba-49a3-4f69-9816-ed9873540e63" name="Changes" comment="Changes seem to be working as it should.">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="9669cbba-49a3-4f69-9816-ed9873540e63" name="Changes" comment="Adding javadoc comments.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scenario1.out.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scenario1.out1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scenario1.out2.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scenario1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Scenario1.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/strategy/BestFit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/strategy/BestFit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/strategy/FirstFit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/strategy/FirstFit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/strategy/SuperFit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/strategy/SuperFit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/strategy/WorstFit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/strategy/WorstFit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenario1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Scenario1.in.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/RegistryReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/RegistryReader.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -141,7 +134,9 @@
       <workItem from="1671809320461" duration="21000" />
       <workItem from="1671809657505" duration="268000" />
       <workItem from="1673280733939" duration="6700000" />
-      <workItem from="1673337695629" duration="1070000" />
+      <workItem from="1673337695629" duration="1108000" />
+      <workItem from="1673358202408" duration="2732000" />
+      <workItem from="1673361517243" duration="310000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit.">
       <created>1669915667848</created>
@@ -381,7 +376,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673287353380</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="Adding javadoc comments.">
+      <created>1673338784491</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1673338784491</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -424,11 +426,11 @@
     <MESSAGE value="Small changes inside the SuperFit." />
     <MESSAGE value="bug fix, updates inside the methods, Comparator class added." />
     <MESSAGE value="some minor changes." />
-    <MESSAGE value="Adding javadoc comments." />
     <MESSAGE value="Refactoring the name back to original." />
     <MESSAGE value="Some changes inside registry readed. Intermediate output O command should produce only one text file." />
     <MESSAGE value="Changes seem to be working as it should." />
-    <option name="LAST_COMMIT_MESSAGE" value="Changes seem to be working as it should." />
+    <MESSAGE value="Adding javadoc comments." />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding javadoc comments." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
