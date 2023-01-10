@@ -8,7 +8,7 @@ import model.Interpreter;
 import model.RegistryReader;
 
 /**
- * First fit allocation technique.
+ * First fit allocation technique, extends SuperFit.
  */
 public class FirstFit extends SuperFit implements FitStrategy{
 

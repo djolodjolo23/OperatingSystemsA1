@@ -8,7 +8,7 @@ import model.Interpreter;
 import model.RegistryReader;
 
 /**
- * Worst fit allocation technique.
+ * Worst fit allocation technique, extends SuperFit.
  */
 public class WorstFit extends SuperFit implements FitStrategy{
 

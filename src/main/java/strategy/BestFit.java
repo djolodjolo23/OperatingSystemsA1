@@ -8,7 +8,7 @@ import model.Interpreter;
 import model.RegistryReader;
 
 /**
- * Best fit allocation technique.
+ * Best fit allocation technique, extends SuperFit.
  */
 public class BestFit extends SuperFit implements FitStrategy{
 

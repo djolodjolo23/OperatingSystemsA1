@@ -6,7 +6,6 @@ import java.util.Collections;
 import model.Block;
 import model.Command;
 import model.Command.CommandIdentifiers;
-import model.Counter;
 import model.Error;
 import model.IntegerChecker;
 import model.Interpreter;
@@ -61,6 +60,9 @@ public abstract class SuperFit implements IntegerChecker {
     interpreter.clearAllLists();
   }
 
+  /**
+   * Create the first chunk of memory, size depends on the input file.
+   */
   private void begin(Interpreter interpreter, Command c) {
     var freeBlock = new Block();
     freeBlock.setBlockId(Integer.parseInt(c.getCommandIdentifier()));
@@ -71,6 +73,11 @@ public abstract class SuperFit implements IntegerChecker {
     interpreter.addToAllBlocks(freeBlock);
   }
 
+  /**
+   * Method for allocating the blocks and shifting bytes.
+   *
+   * @param fitType is the type of 'fit' algorithm.
+   */
   private void allocate(Interpreter interpreter, Command c, char fitType) {
     var block = new Block(c.getBlockId());
     interpreter.addToAllBlocks(block);
@@ -90,17 +97,27 @@ public abstract class SuperFit implements IntegerChecker {
     }
   }
 
+  /**
+   * A method for deallocating blocks.
+   *
+   */
   private void deallocate(Interpreter interpreter, Command c) {
     Block b = interpreter.getSpecificBlock(c.getBlockId());
     b.setAllocated(false);
     interpreter.connectFreeBlocks();
   }
 
+  /**
+   * A method for creating the Intermediate Output.
+   */
   private void createIntermediateOutput(Interpreter interpreter, RegistryReader registryReader, char fitType, int oCounter)
       throws IOException {
     registryReader.createAndSaveIntermediateFile(oCounter, interpreter, fitType);
   }
 
+  /**
+   * A method for compacting the memory.
+   */
   private void compact(Interpreter interpreter) {
     ArrayList<Block> allBlocks = interpreter.getAllBlocks();
     for (Block b : allBlocks) {
