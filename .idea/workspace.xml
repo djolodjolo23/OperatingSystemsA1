@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9669cbba-49a3-4f69-9816-ed9873540e63" name="Changes" comment="Adding javadoc comments.">
+    <list default="true" id="9669cbba-49a3-4f69-9816-ed9873540e63" name="Changes" comment="Small change inside input text file name.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scenario1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Scenario1.in.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenario1.in.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Scenario1.in" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/RegistryReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/RegistryReader.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -136,7 +136,11 @@
       <workItem from="1673280733939" duration="6700000" />
       <workItem from="1673337695629" duration="1108000" />
       <workItem from="1673358202408" duration="2732000" />
-      <workItem from="1673361517243" duration="310000" />
+      <workItem from="1673361517243" duration="567000" />
+      <workItem from="1673367733983" duration="27000" />
+      <workItem from="1673371301366" duration="982000" />
+      <workItem from="1673452558679" duration="33000" />
+      <workItem from="1673512885799" duration="8936000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit.">
       <created>1669915667848</created>
@@ -383,7 +387,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673338784491</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="Small change inside input text file name.">
+      <created>1673361840240</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1673361840240</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -405,7 +416,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/ahmad_a1_1dv512" />
     </ignored-roots>
-    <MESSAGE value="Code refactoring with interfaces." />
     <MESSAGE value="Added a view package and class." />
     <MESSAGE value="Updates inside the Interpreter, added an abstract class to calculate the fragmentation." />
     <MESSAGE value="Added a new Error class, added enums so the hard-coded strings can be removed." />
@@ -430,7 +440,8 @@
     <MESSAGE value="Some changes inside registry readed. Intermediate output O command should produce only one text file." />
     <MESSAGE value="Changes seem to be working as it should." />
     <MESSAGE value="Adding javadoc comments." />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding javadoc comments." />
+    <MESSAGE value="Small change inside input text file name." />
+    <option name="LAST_COMMIT_MESSAGE" value="Small change inside input text file name." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

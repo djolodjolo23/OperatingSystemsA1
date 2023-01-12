@@ -30,23 +30,23 @@ public class RegistryReader implements FragmentationCalculator, IntegerChecker {
   }
 
   private String getInputPath() {
-    Path path = Paths.get("Scenario1.in.txt");
+    Path path = Paths.get("Scenario1.in");
     return path.toAbsolutePath().toString();
   }
 
   private Path getInputPathShort() {
-    return Paths.get("Scenario1.in.txt");
+    return Paths.get("Scenario1.in");
   }
 
   private Path getOutputPath() {
-    return Paths.get("Scenario1.out.txt");
+    return Paths.get("Scenario1.out");
   }
 
 
   public void createAndSaveIntermediateFile(int counter, Interpreter interpreter, char fitType) throws IOException {
     StringBuilder sb = new StringBuilder(getInputPathShort().toString());
-    sb.delete(sb.length()-6, sb.length());
-    File intermediateFile = new File(sb + "out" + counter + ".txt");
+    sb.delete(sb.length()-3, sb.length());
+    File intermediateFile = new File(sb + "out" + counter);
     //new FileOutputStream(intermediateFile.getName()).close();
     try (PrintWriter pw = new PrintWriter(new FileWriter(intermediateFile.getName(), true))) {
       printAndFormat(pw, interpreter, fitType);
