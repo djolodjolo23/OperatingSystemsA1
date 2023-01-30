@@ -46,7 +46,7 @@ public class RegistryReader implements FragmentationCalculator, IntegerChecker {
   public void createAndSaveIntermediateFile(int counter, Interpreter interpreter, char fitType) throws IOException {
     StringBuilder sb = new StringBuilder(getInputPathShort().toString());
     sb.delete(sb.length()-3, sb.length());
-    File intermediateFile = new File(sb + "out" + counter);
+    File intermediateFile = new File(sb + ".out" + counter);
     //new FileOutputStream(intermediateFile.getName()).close();
     try (PrintWriter pw = new PrintWriter(new FileWriter(intermediateFile.getName(), true))) {
       printAndFormat(pw, interpreter, fitType);

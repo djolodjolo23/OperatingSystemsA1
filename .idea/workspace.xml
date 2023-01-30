@@ -4,10 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9669cbba-49a3-4f69-9816-ed9873540e63" name="Changes" comment="Small change inside input text file name.">
+    <list default="true" id="9669cbba-49a3-4f69-9816-ed9873540e63" name="Changes" comment="Scenario txt extension removed.">
+      <change afterPath="$PROJECT_DIR$/Scenario1.out" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Scenario1.out1" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scenario1.in.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Scenario1.in" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenario1.in" beforeDir="false" afterPath="$PROJECT_DIR$/Scenario1.in" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Counter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Counter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Interpreter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Interpreter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/InterpreterAssistant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/InterpreterAssistant.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/RegistryReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/RegistryReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/strategy/SuperFit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/strategy/SuperFit.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +73,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/dimit/OneDrive/Documents/lnu courses/1DV512/Assignment2.Task1.Skeleton&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/dimit/OneDrive/Documents/lnu courses/1DV512/a1&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -140,7 +147,10 @@
       <workItem from="1673367733983" duration="27000" />
       <workItem from="1673371301366" duration="982000" />
       <workItem from="1673452558679" duration="33000" />
-      <workItem from="1673512885799" duration="8936000" />
+      <workItem from="1673512885799" duration="11418000" />
+      <workItem from="1673793248991" duration="75000" />
+      <workItem from="1674059977231" duration="1577000" />
+      <workItem from="1674827586780" duration="5223000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit.">
       <created>1669915667848</created>
@@ -394,7 +404,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673361840240</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="Scenario txt extension removed.">
+      <created>1673543072941</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1673543072941</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -416,7 +433,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/ahmad_a1_1dv512" />
     </ignored-roots>
-    <MESSAGE value="Added a view package and class." />
     <MESSAGE value="Updates inside the Interpreter, added an abstract class to calculate the fragmentation." />
     <MESSAGE value="Added a new Error class, added enums so the hard-coded strings can be removed." />
     <MESSAGE value="Some more work inside the classes." />
@@ -441,7 +457,8 @@
     <MESSAGE value="Changes seem to be working as it should." />
     <MESSAGE value="Adding javadoc comments." />
     <MESSAGE value="Small change inside input text file name." />
-    <option name="LAST_COMMIT_MESSAGE" value="Small change inside input text file name." />
+    <MESSAGE value="Scenario txt extension removed." />
+    <option name="LAST_COMMIT_MESSAGE" value="Scenario txt extension removed." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
