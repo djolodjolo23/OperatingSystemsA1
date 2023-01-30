@@ -89,10 +89,10 @@ public class InterpreterAssistant {
         listOfLists.add(b.getAllocatedBytes());
       }
     }
-    double max = listOfLists.get(0).size()-1;
+    double max = listOfLists.get(0).size();
     for (ArrayList<Integer> list : listOfLists) {
       if (list.size() >= max) {
-        max = list.size()-1;
+        max = list.size();
       }
     }
     return max;
@@ -126,7 +126,7 @@ public class InterpreterAssistant {
         bytes.addAll(block.getAllocatedBytes());
       }
     }
-    return bytes.size()-1;
+    return bytes.size();
   }
 
   /**

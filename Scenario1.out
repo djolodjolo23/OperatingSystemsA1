@@ -1,42 +1,42 @@
 First Fit:
 Allocated blocks:
-1;100;299
-2;300;349
-3;350;499
-4;500;799
+0;0;99
+3;700;899
 Free blocks:
-0;99
-800;999
+100;699
+900;999
 Fragmentation:
-0.334448
+0.142857
 Errors
-None
+A;8;600
+D;9;1
+D;10;0
 
 Best Fit:
 Allocated blocks:
-1;100;299
-2;300;349
-3;350;499
-4;500;799
+0;0;99
+3;700;899
 Free blocks:
-0;99
-800;999
+100;699
+900;999
 Fragmentation:
-0.334448
+0.142857
 Errors
-None
+A;8;600
+D;9;1
+D;10;0
 
 Worst Fit:
 Allocated blocks:
-1;100;299
-2;300;349
-3;350;499
-4;500;799
+0;0;99
+3;700;899
 Free blocks:
-0;99
-800;999
+100;699
+900;999
 Fragmentation:
-0.334448
+0.142857
 Errors
-None
+A;8;600
+D;9;1
+D;10;0
 

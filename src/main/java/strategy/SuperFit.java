@@ -29,7 +29,7 @@ public abstract class SuperFit implements IntegerChecker {
         if (c.getAmountOfMemory() <= interpreter.getBiggestFreeBlock().getAllocatedBytes().size()) {
           allocate(interpreter, c, fitType);
         } else {
-          Error newError = new Error(c.getCommandIdentifier(), registryReader.getAllCommands().indexOf(c), (int) interpreter.getBiggestFreeBlockSize() + 1, c.getBlockId());
+          Error newError = new Error(c.getCommandIdentifier(), registryReader.getAllCommands().indexOf(c), (int) interpreter.getBiggestFreeBlockSize(), c.getBlockId());
           interpreter.addToAllErrors(newError);
           continue;
         }

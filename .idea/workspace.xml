@@ -4,17 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9669cbba-49a3-4f69-9816-ed9873540e63" name="Changes" comment="Scenario txt extension removed.">
-      <change afterPath="$PROJECT_DIR$/Scenario1.out" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Scenario1.out1" afterDir="false" />
+    <list default="true" id="9669cbba-49a3-4f69-9816-ed9873540e63" name="Changes" comment="Small update inside the registry reader class.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scenario1.in" beforeDir="false" afterPath="$PROJECT_DIR$/Scenario1.in" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Counter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Counter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Interpreter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Interpreter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenario1.out" beforeDir="false" afterPath="$PROJECT_DIR$/Scenario1.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenario1.out1" beforeDir="false" afterPath="$PROJECT_DIR$/Scenario1.out1" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/InterpreterAssistant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/InterpreterAssistant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/RegistryReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/RegistryReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/strategy/SuperFit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/strategy/SuperFit.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -151,6 +146,7 @@
       <workItem from="1673793248991" duration="75000" />
       <workItem from="1674059977231" duration="1577000" />
       <workItem from="1674827586780" duration="5223000" />
+      <workItem from="1675079806460" duration="1041000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit.">
       <created>1669915667848</created>
@@ -411,7 +407,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673543072941</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="Small update inside the registry reader class.">
+      <created>1675080089372</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1675080089372</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -433,7 +436,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/ahmad_a1_1dv512" />
     </ignored-roots>
-    <MESSAGE value="Updates inside the Interpreter, added an abstract class to calculate the fragmentation." />
     <MESSAGE value="Added a new Error class, added enums so the hard-coded strings can be removed." />
     <MESSAGE value="Some more work inside the classes." />
     <MESSAGE value="Update inside the first fit logic." />
@@ -458,7 +460,8 @@
     <MESSAGE value="Adding javadoc comments." />
     <MESSAGE value="Small change inside input text file name." />
     <MESSAGE value="Scenario txt extension removed." />
-    <option name="LAST_COMMIT_MESSAGE" value="Scenario txt extension removed." />
+    <MESSAGE value="Small update inside the registry reader class." />
+    <option name="LAST_COMMIT_MESSAGE" value="Small update inside the registry reader class." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -471,6 +474,21 @@
           <properties class="java.lang.IndexOutOfBoundsException" package="java.lang" />
           <option name="timeStamp" value="19" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/model/FragmentationCalculator.java</url>
+          <line>8</line>
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/model/InterpreterAssistant.java</url>
+          <line>91</line>
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/model/InterpreterAssistant.java</url>
+          <line>94</line>
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>
