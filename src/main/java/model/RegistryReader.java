@@ -96,8 +96,11 @@ public class RegistryReader implements FragmentationCalculator, IntegerChecker {
     }
     String fragmentation = String.valueOf(
         calculate(interpreter.getBiggestFreeBlockSize(), interpreter.getTotalFreeMemory()));
+    if (fragmentation.length() == 3) {
+      fragmentation = fragmentation + "00000";
+    }
     ArrayList<Block> blocks = interpreter.getAllBlocksWithBytes();
-    Collections.sort(blocks);
+    blocks.sort(Comparator.idSort);
     printWriter.printf("Allocated blocks:");
     for (Block b : blocks) {
       if (b.isAllocated()) {
@@ -107,6 +110,7 @@ public class RegistryReader implements FragmentationCalculator, IntegerChecker {
             b.getAllocatedBytes().get(b.getAllocatedBytes().size()-1));
       }
     }
+    blocks.sort(Comparator.byteAddressSort);
     printWriter.printf("%nFree blocks:");
     for (Block fb : blocks) {
       if (!fb.isAllocated()) {

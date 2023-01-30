@@ -6,7 +6,9 @@ import java.util.Collections;
 import model.Block;
 import model.Command;
 import model.Command.CommandIdentifiers;
+import model.Comparator;
 import model.Error;
+import model.FitType;
 import model.IntegerChecker;
 import model.Interpreter;
 import model.RegistryReader;
@@ -51,7 +53,7 @@ public abstract class SuperFit implements IntegerChecker {
         createIntermediateOutput(interpreter, registryReader, fitType, c.getOCounter());
       }
       if (c.getCommandIdentifier().equals(CommandIdentifiers.COMPACT.getValue())) {
-        compact(interpreter);
+        compact(interpreter, fitType);
       }
       interpreter.addListToAllErrors(tempErrorList);
       tempErrorList.clear();
@@ -118,7 +120,7 @@ public abstract class SuperFit implements IntegerChecker {
   /**
    * A method for compacting the memory.
    */
-  private void compact(Interpreter interpreter) {
+  private void compact(Interpreter interpreter, char fitType) {
     ArrayList<Block> allBlocks = interpreter.getAllBlocks();
     for (Block b : allBlocks) {
       interpreter.addListToAllBytes(b.getAllocatedBytes());
@@ -126,6 +128,11 @@ public abstract class SuperFit implements IntegerChecker {
     }
     ArrayList<Integer> allBytes = interpreter.getAllBytes();
     Collections.sort(allBytes);
+    if (fitType == (FitType.WORST.getValue())) {
+      allBlocks.sort(Comparator.sizeSortDescending);
+    } else {
+      allBlocks.sort(Comparator.sizeSort);
+    }
     for (Block allocatedBlock : allBlocks) {
       if (allocatedBlock.isAllocated()) {
         for (int i = 0; i < allocatedBlock.getSize(); i++) {
@@ -134,6 +141,8 @@ public abstract class SuperFit implements IntegerChecker {
         interpreter.removeListFromAllBytes(allocatedBlock.getAllocatedBytes());
       }
     }
+
+    //allBlocks.sort(Comparator.freeBlockSizeComparatorAscending);
     interpreter.removeAllFreeBlocks();
     var freeBlock = new Block();
     interpreter.addToAllBlocks(freeBlock);

@@ -12,4 +12,10 @@ public class Comparator {
   public static java.util.Comparator<Block> byteAddressSort = java.util.Comparator.comparingInt(
       o -> o.getAllocatedBytes().get(0));
 
+  public static java.util.Comparator<Block> sizeSort = java.util.Comparator.comparingInt(Block::getSize);
+
+  public static java.util.Comparator<Block> sizeSortDescending = (o1, o2) -> o2.getSize() - o1.getSize();
+
+  public static java.util.Comparator<Block> idSort = java.util.Comparator.comparingInt(Block::getBlockId);
+
 }

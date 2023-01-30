@@ -4,12 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9669cbba-49a3-4f69-9816-ed9873540e63" name="Changes" comment="Small update inside the registry reader class.">
+    <list default="true" id="9669cbba-49a3-4f69-9816-ed9873540e63" name="Changes" comment="Small update inside the Interpreter Assistant class.">
+      <change afterPath="$PROJECT_DIR$/1-warmup.out" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/1-warmup.out1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/1-warmup.out2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Scenario1.out2" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scenario1.in" beforeDir="false" afterPath="$PROJECT_DIR$/Scenario1.in" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scenario1.out" beforeDir="false" afterPath="$PROJECT_DIR$/Scenario1.out" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scenario1.out1" beforeDir="false" afterPath="$PROJECT_DIR$/Scenario1.out1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/InterpreterAssistant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/InterpreterAssistant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Comparator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Comparator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/RegistryReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/RegistryReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/strategy/SuperFit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/strategy/SuperFit.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -146,7 +152,9 @@
       <workItem from="1673793248991" duration="75000" />
       <workItem from="1674059977231" duration="1577000" />
       <workItem from="1674827586780" duration="5223000" />
-      <workItem from="1675079806460" duration="1041000" />
+      <workItem from="1675079806460" duration="3680000" />
+      <workItem from="1675085582726" duration="134000" />
+      <workItem from="1675085959105" duration="10952000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit.">
       <created>1669915667848</created>
@@ -414,7 +422,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675080089372</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="Small update inside the Interpreter Assistant class.">
+      <created>1675080994096</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1675080994096</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -436,7 +451,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/ahmad_a1_1dv512" />
     </ignored-roots>
-    <MESSAGE value="Added a new Error class, added enums so the hard-coded strings can be removed." />
     <MESSAGE value="Some more work inside the classes." />
     <MESSAGE value="Update inside the first fit logic." />
     <MESSAGE value="First fit almost fully functional." />
@@ -461,7 +475,8 @@
     <MESSAGE value="Small change inside input text file name." />
     <MESSAGE value="Scenario txt extension removed." />
     <MESSAGE value="Small update inside the registry reader class." />
-    <option name="LAST_COMMIT_MESSAGE" value="Small update inside the registry reader class." />
+    <MESSAGE value="Small update inside the Interpreter Assistant class." />
+    <option name="LAST_COMMIT_MESSAGE" value="Small update inside the Interpreter Assistant class." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -474,27 +489,13 @@
           <properties class="java.lang.IndexOutOfBoundsException" package="java.lang" />
           <option name="timeStamp" value="19" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/model/FragmentationCalculator.java</url>
-          <line>8</line>
-          <option name="timeStamp" value="21" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/model/InterpreterAssistant.java</url>
-          <line>91</line>
-          <option name="timeStamp" value="22" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/model/InterpreterAssistant.java</url>
-          <line>94</line>
-          <option name="timeStamp" value="23" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="model.Block" memberName="allocatedBytes" />
         <PinnedItemInfo parentTag="model.Interpreter" memberName="allBytes" />
+        <PinnedItemInfo parentTag="model.Interpreter" memberName="allBlocks" />
         <PinnedItemInfo parentTag="model.Block" memberName="blockId" />
       </pinned-members>
     </pin-to-top-manager>
