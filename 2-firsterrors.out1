@@ -1,34 +1,38 @@
 First fit
 Allocated blocks
-1;200;699
-3;700;1199
+2;200;399
+3;0;99
+4;100;199
 Free blocks
-0;199
-1200;1999
-Fragmentation
-0.200000
-Errors
-None
-
-Best fit
-Allocated blocks
-1;0;499
-3;500;999
-Free blocks
-1000;1999
+400;499
 Fragmentation
 0.000000
 Errors
-None
+A;1;500
+D;5;0
+
+Best fit
+Allocated blocks
+2;100;299
+3;300;399
+4;0;99
+Free blocks
+400;499
+Fragmentation
+0.000000
+Errors
+A;1;500
+D;5;0
 
 Worst fit
 Allocated blocks
-1;200;699
-3;700;1199
+2;200;399
+3;0;99
+4;100;199
 Free blocks
-0;199
-1200;1999
+400;499
 Fragmentation
-0.200000
+0.000000
 Errors
-None
+A;1;500
+D;5;0

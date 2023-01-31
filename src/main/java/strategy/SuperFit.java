@@ -123,8 +123,10 @@ public abstract class SuperFit implements IntegerChecker {
   private void compact(Interpreter interpreter, char fitType) {
     ArrayList<Block> allBlocks = interpreter.getAllBlocks();
     for (Block b : allBlocks) {
-      b.setBeginningAddress(b.getAllocatedBytes().get(0));
-      b.setEndingAddress(b.getAllocatedBytes().get(b.getAllocatedBytes().size() - 1));
+      if (!b.getAllocatedBytes().isEmpty()){
+        b.setBeginningAddress(b.getAllocatedBytes().get(0));
+        b.setEndingAddress(b.getAllocatedBytes().get(b.getAllocatedBytes().size() - 1));
+      }
       interpreter.addListToAllBytes(b.getAllocatedBytes());
       b.clearAllocatedBytesList();
     }

@@ -165,6 +165,19 @@ public class InterpreterAssistant {
     }
     if (fitType == FitType.WORST.getValue()) {
       freeBlocks.sort(Comparator.freeBlockSizeComparatorDescending);
+      if (freeBlocks.size() > 1) {
+        for (int i = 0; i < freeBlocks.size(); i++) {
+          if (i == freeBlocks.size() - 1) {
+            break;
+          }
+          Block one = freeBlocks.get(i);
+          Block two = freeBlocks.get(i+1);
+          if (one.getAllocatedBytes().size() == two.getAllocatedBytes().size()) {
+            freeBlocks.set(i+1, one);
+            freeBlocks.set(i, two);
+          }
+        }
+      }
     }
     if (freeBlocks.isEmpty()) {
       return null;
