@@ -16,6 +16,11 @@ public class Comparator {
 
   public static java.util.Comparator<Block> sizeSortDescending = (o1, o2) -> o2.getSize() - o1.getSize();
 
+  public static java.util.Comparator<Block> sizeSortAscending = (o1, o2) -> o1.getSize() - o2.getSize();
+
+  public static java.util.Comparator<Block> beginningAddressSortAscending = (o1, o2) -> o1.getBeginningAddress() - o2.getBeginningAddress();
+
+
   public static java.util.Comparator<Block> idSort = java.util.Comparator.comparingInt(Block::getBlockId);
 
 }

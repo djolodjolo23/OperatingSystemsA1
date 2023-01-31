@@ -123,16 +123,18 @@ public abstract class SuperFit implements IntegerChecker {
   private void compact(Interpreter interpreter, char fitType) {
     ArrayList<Block> allBlocks = interpreter.getAllBlocks();
     for (Block b : allBlocks) {
+      b.setBeginningAddress(b.getAllocatedBytes().get(0));
+      b.setEndingAddress(b.getAllocatedBytes().get(b.getAllocatedBytes().size() - 1));
       interpreter.addListToAllBytes(b.getAllocatedBytes());
       b.clearAllocatedBytesList();
     }
     ArrayList<Integer> allBytes = interpreter.getAllBytes();
     Collections.sort(allBytes);
-    if (fitType == (FitType.WORST.getValue())) {
-      allBlocks.sort(Comparator.sizeSortDescending);
-    } else {
-      allBlocks.sort(Comparator.sizeSort);
-    }
+    //if (fitType == (FitType.FIRST.getValue()) || fitType == (FitType.WORST.getValue())) {
+      //allBlocks.sort(Comparator.sizeSort);
+    //} else {
+      allBlocks.sort(Comparator.beginningAddressSortAscending);
+    //}
     for (Block allocatedBlock : allBlocks) {
       if (allocatedBlock.isAllocated()) {
         for (int i = 0; i < allocatedBlock.getSize(); i++) {

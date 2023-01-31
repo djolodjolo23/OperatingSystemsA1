@@ -4,17 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9669cbba-49a3-4f69-9816-ed9873540e63" name="Changes" comment="Small update inside the Interpreter Assistant class.">
-      <change afterPath="$PROJECT_DIR$/1-warmup.out" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/1-warmup.out1" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/1-warmup.out2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Scenario1.out2" afterDir="false" />
+    <list default="true" id="9669cbba-49a3-4f69-9816-ed9873540e63" name="Changes" comment="Updates in the code, testing the application with the new input file.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scenario1.in" beforeDir="false" afterPath="$PROJECT_DIR$/Scenario1.in" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scenario1.out" beforeDir="false" afterPath="$PROJECT_DIR$/Scenario1.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scenario1.out1" beforeDir="false" afterPath="$PROJECT_DIR$/Scenario1.out1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenario1.out2" beforeDir="false" afterPath="$PROJECT_DIR$/Scenario1.out2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Block.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/Comparator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Comparator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/RegistryReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/RegistryReader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/strategy/SuperFit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/strategy/SuperFit.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -154,7 +148,7 @@
       <workItem from="1674827586780" duration="5223000" />
       <workItem from="1675079806460" duration="3680000" />
       <workItem from="1675085582726" duration="134000" />
-      <workItem from="1675085959105" duration="10952000" />
+      <workItem from="1675085959105" duration="15815000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit.">
       <created>1669915667848</created>
@@ -429,7 +423,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675080994096</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="Updates in the code, testing the application with the new input file.">
+      <created>1675099287283</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1675099287283</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -451,7 +452,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/ahmad_a1_1dv512" />
     </ignored-roots>
-    <MESSAGE value="Some more work inside the classes." />
     <MESSAGE value="Update inside the first fit logic." />
     <MESSAGE value="First fit almost fully functional." />
     <MESSAGE value="First fit working but needs more tuning." />
@@ -476,7 +476,8 @@
     <MESSAGE value="Scenario txt extension removed." />
     <MESSAGE value="Small update inside the registry reader class." />
     <MESSAGE value="Small update inside the Interpreter Assistant class." />
-    <option name="LAST_COMMIT_MESSAGE" value="Small update inside the Interpreter Assistant class." />
+    <MESSAGE value="Updates in the code, testing the application with the new input file." />
+    <option name="LAST_COMMIT_MESSAGE" value="Updates in the code, testing the application with the new input file." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -489,12 +490,17 @@
           <properties class="java.lang.IndexOutOfBoundsException" package="java.lang" />
           <option name="timeStamp" value="19" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/strategy/SuperFit.java</url>
+          <line>130</line>
+          <option name="timeStamp" value="57" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="model.Block" memberName="allocatedBytes" />
-        <PinnedItemInfo parentTag="model.Interpreter" memberName="allBytes" />
+        <PinnedItemInfo parentTag="model.Interpreter" memberName="allErrors" />
         <PinnedItemInfo parentTag="model.Interpreter" memberName="allBlocks" />
         <PinnedItemInfo parentTag="model.Block" memberName="blockId" />
       </pinned-members>

@@ -12,6 +12,10 @@ public class Block implements Comparable<Block>{
   private int blockId;
   private ArrayList<Integer> allocatedBytes;
 
+  private int beginningAddress;
+
+  private int endingAddress;
+
   private int size;
 
   private boolean allocated;
@@ -25,12 +29,31 @@ public class Block implements Comparable<Block>{
     allocatedBytes = new ArrayList<>();
     this.blockId = blockId;
     this.allocated = true;
+    this.beginningAddress = 0;
+    this.endingAddress = 0;
   }
 
   public Block() {
     allocatedBytes = new ArrayList<>();
     this.allocated = false;
   }
+
+  public int getBeginningAddress() {
+    return beginningAddress;
+  }
+
+  public void setBeginningAddress(int beginningAddress) {
+    this.beginningAddress = beginningAddress;
+  }
+
+  public int getEndingAddress() {
+    return endingAddress;
+  }
+
+  public void setEndingAddress(int endingAddress) {
+    this.endingAddress = endingAddress;
+  }
+
   public void removeFromAllocatedBytes(Integer b) {
     allocatedBytes.remove(b);
   }
