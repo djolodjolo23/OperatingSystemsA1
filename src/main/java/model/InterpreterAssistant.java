@@ -56,6 +56,8 @@ public class InterpreterAssistant {
         Block newBlock = new Block();
         newBlock.addListToAllocatedBytes(theBlock.getAllocatedBytes());
         newBlock.addListToAllocatedBytes(nextBlock.getAllocatedBytes());
+        newBlock.setBeginningAddress(newBlock.getAllocatedBytes().get(0));
+        newBlock.setEndingAddress(newBlock.getAllocatedBytes().get(newBlock.getAllocatedBytes().size() - 1));
         interpreter.removeFromAllBlocks(theBlock);
         interpreter.removeFromAllBlocks(nextBlock);
         interpreter.addToAllBlocks(newBlock);

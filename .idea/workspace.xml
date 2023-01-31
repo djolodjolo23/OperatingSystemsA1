@@ -4,18 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9669cbba-49a3-4f69-9816-ed9873540e63" name="Changes" comment="The output produced is the same as the warmup output files.">
-      <change afterPath="$PROJECT_DIR$/2-firsterrors.in" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/2-firsterrors.out2" afterDir="false" />
+    <list default="true" id="9669cbba-49a3-4f69-9816-ed9873540e63" name="Changes" comment="The output produced is the same as the firsterrors output files.">
+      <change afterPath="$PROJECT_DIR$/3-madoutputter.in" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/3-madoutputter.out" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/3-madoutputter.out1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/3-madoutputter.out2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/3-madoutputter.out3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/3-madoutputter.out4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/3-madoutputter.out5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Scenario1.out3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Scenario1.out4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Scenario1.out5" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/1-warmup.out" beforeDir="false" afterPath="$PROJECT_DIR$/2-firsterrors.out1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/1-warmup.out1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/1-warmup.out2" beforeDir="false" afterPath="$PROJECT_DIR$/2-firsterrors.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2-firsterrors.in" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/2-firsterrors.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/2-firsterrors.out1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/2-firsterrors.out2" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Scenario1.in" beforeDir="false" afterPath="$PROJECT_DIR$/Scenario1.in" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scenario1.out" beforeDir="false" afterPath="$PROJECT_DIR$/Scenario1.out" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scenario1.out1" beforeDir="false" afterPath="$PROJECT_DIR$/Scenario1.out1" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scenario1.out2" beforeDir="false" afterPath="$PROJECT_DIR$/Scenario1.out2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Comparator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Comparator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/InterpreterAssistant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/InterpreterAssistant.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/strategy/SuperFit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/strategy/SuperFit.java" afterDir="false" />
     </list>
@@ -156,7 +164,7 @@
       <workItem from="1674827586780" duration="5223000" />
       <workItem from="1675079806460" duration="3680000" />
       <workItem from="1675085582726" duration="134000" />
-      <workItem from="1675085959105" duration="20239000" />
+      <workItem from="1675085959105" duration="25193000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit.">
       <created>1669915667848</created>
@@ -445,7 +453,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675152383369</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="The output produced is the same as the firsterrors output files.">
+      <created>1675156795423</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1675156795423</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -467,7 +482,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/ahmad_a1_1dv512" />
     </ignored-roots>
-    <MESSAGE value="First fit almost fully functional." />
     <MESSAGE value="First fit working but needs more tuning." />
     <MESSAGE value="update." />
     <MESSAGE value="First fit seems to be fully functional." />
@@ -492,7 +506,8 @@
     <MESSAGE value="Small update inside the Interpreter Assistant class." />
     <MESSAGE value="Updates in the code, testing the application with the new input file." />
     <MESSAGE value="The output produced is the same as the warmup output files." />
-    <option name="LAST_COMMIT_MESSAGE" value="The output produced is the same as the warmup output files." />
+    <MESSAGE value="The output produced is the same as the firsterrors output files." />
+    <option name="LAST_COMMIT_MESSAGE" value="The output produced is the same as the firsterrors output files." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -505,12 +520,16 @@
           <properties class="java.lang.IndexOutOfBoundsException" package="java.lang" />
           <option name="timeStamp" value="19" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/model/InterpreterAssistant.java</url>
+          <line>56</line>
+          <option name="timeStamp" value="101" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="model.Block" memberName="allocatedBytes" />
-        <PinnedItemInfo parentTag="model.Interpreter" memberName="allErrors" />
         <PinnedItemInfo parentTag="model.Interpreter" memberName="allBlocks" />
         <PinnedItemInfo parentTag="model.Block" memberName="blockId" />
       </pinned-members>

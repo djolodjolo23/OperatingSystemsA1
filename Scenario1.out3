@@ -5,12 +5,13 @@ Allocated blocks:
 5;0;9
 6;110;149
 7;10;29
+8;60;89
 Free blocks:
-60;109
+90;109
 Fragmentation:
 0.000000
 Errors
-None
+A;15;20
 
 Best Fit:
 Allocated blocks:
@@ -19,13 +20,14 @@ Allocated blocks:
 5;60;69
 6;110;149
 7;0;19
+8;70;99
 Free blocks:
 20;29
-70;109
+100;109
 Fragmentation:
-0.200000
+0.500000
 Errors
-None
+A;15;10
 
 Worst Fit:
 Allocated blocks:
@@ -33,12 +35,12 @@ Allocated blocks:
 2;50;59
 5;110;119
 7;60;79
+8;0;29
+9;80;109
 Free blocks:
-0;29
-80;109
 120;149
 Fragmentation:
-0.666667
+0.000000
 Errors
 A;10;30
 

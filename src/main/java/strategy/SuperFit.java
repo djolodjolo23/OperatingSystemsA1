@@ -88,6 +88,8 @@ public abstract class SuperFit implements IntegerChecker {
       block.addToAllocatedBytes(chosenBlock.getAllocatedBytes().get(i));
     }
     block.setSize(block.getAllocatedBytes().size());
+    block.setBeginningAddress(block.getAllocatedBytes().get(0));
+    block.setEndingAddress(block.getAllocatedBytes().get(block.getAllocatedBytes().size() - 1));
     for (Integer b : block.getAllocatedBytes()) {
       for (Block free : interpreter.getAllBlocks()) {
         if (!free.isAllocated()) {
@@ -151,6 +153,8 @@ public abstract class SuperFit implements IntegerChecker {
     var freeBlock = new Block();
     interpreter.addToAllBlocks(freeBlock);
     freeBlock.addListToAllocatedBytes(interpreter.getAllBytes());
+    freeBlock.setBeginningAddress(freeBlock.getAllocatedBytes().get(0));
+    freeBlock.setEndingAddress(freeBlock.getAllocatedBytes().get(freeBlock.getAllocatedBytes().size() - 1));
     freeBlock.setSize(freeBlock.getAllocatedBytes().size());
     interpreter.removeListFromAllBytes(freeBlock.getAllocatedBytes());
   }
