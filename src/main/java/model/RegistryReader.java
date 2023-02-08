@@ -21,8 +21,17 @@ public class RegistryReader implements FragmentationCalculator, IntegerChecker {
 
   private final ArrayList<Command> allCommands;
 
+  private String inputPath;
+
   public RegistryReader() {
+    setInputPath();
     allCommands = new ArrayList<>();
+  }
+
+  private void setInputPath() {
+    Scanner scanner = new Scanner(System.in);
+    System.out.println("Provide the name of the input file without the .in extension:" );
+    inputPath = scanner.nextLine() + ".in";
   }
 
   public ArrayList<Command> getAllCommands() {
@@ -30,16 +39,18 @@ public class RegistryReader implements FragmentationCalculator, IntegerChecker {
   }
 
   private String getInputPath() {
-    Path path = Paths.get("Scenario1.in");
+    Path path = Paths.get(inputPath);
     return path.toAbsolutePath().toString();
   }
 
   private Path getInputPathShort() {
-    return Paths.get("Scenario1.in");
+    return Paths.get(inputPath);
   }
 
   private Path getOutputPath() {
-    return Paths.get("Scenario1.out");
+    StringBuilder sb = new StringBuilder(inputPath);
+    sb.delete(sb.length()-3, sb.length());
+    return Paths.get(sb + ".out");
   }
 
 

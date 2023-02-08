@@ -8,7 +8,6 @@ import model.Command;
 import model.Command.CommandIdentifiers;
 import model.Comparator;
 import model.Error;
-import model.FitType;
 import model.IntegerChecker;
 import model.Interpreter;
 import model.RegistryReader;
@@ -108,6 +107,8 @@ public abstract class SuperFit implements IntegerChecker {
   private void deallocate(Interpreter interpreter, Command c) {
     Block b = interpreter.getSpecificBlock(c.getBlockId());
     b.setAllocated(false);
+    b.setBeginningAddress(b.getAllocatedBytes().get(0));
+    b.setEndingAddress(b.getAllocatedBytes().get(b.getAllocatedBytes().size() - 1));
     interpreter.connectFreeBlocks();
   }
 
@@ -134,11 +135,7 @@ public abstract class SuperFit implements IntegerChecker {
     }
     ArrayList<Integer> allBytes = interpreter.getAllBytes();
     Collections.sort(allBytes);
-    //if (fitType == (FitType.FIRST.getValue()) || fitType == (FitType.WORST.getValue())) {
-      //allBlocks.sort(Comparator.sizeSort);
-    //} else {
-      allBlocks.sort(Comparator.beginningAddressSortAscending);
-    //}
+    allBlocks.sort(Comparator.beginningAddressSortAscending);
     for (Block allocatedBlock : allBlocks) {
       if (allocatedBlock.isAllocated()) {
         for (int i = 0; i < allocatedBlock.getSize(); i++) {
@@ -147,7 +144,6 @@ public abstract class SuperFit implements IntegerChecker {
         interpreter.removeListFromAllBytes(allocatedBlock.getAllocatedBytes());
       }
     }
-
     //allBlocks.sort(Comparator.freeBlockSizeComparatorAscending);
     interpreter.removeAllFreeBlocks();
     var freeBlock = new Block();

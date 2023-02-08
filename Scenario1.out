@@ -6,10 +6,9 @@ Allocated blocks:
 7;10;29
 10;60;79
 Free blocks:
-80;129
-90;149
+80;149
 Fragmentation:
-0.454545
+0.000000
 Errors
 A;15;20
 D;23;1

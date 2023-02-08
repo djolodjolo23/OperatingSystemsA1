@@ -4,27 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9669cbba-49a3-4f69-9816-ed9873540e63" name="Changes" comment="The output produced is the same as the firsterrors output files.">
-      <change afterPath="$PROJECT_DIR$/3-madoutputter.in" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/3-madoutputter.out" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/3-madoutputter.out1" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/3-madoutputter.out2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/3-madoutputter.out3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/3-madoutputter.out4" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/3-madoutputter.out5" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Scenario1.out3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Scenario1.out4" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Scenario1.out5" afterDir="false" />
+    <list default="true" id="9669cbba-49a3-4f69-9816-ed9873540e63" name="Changes" comment="Work almost done, needs some tiny modifications for connecting blocks.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2-firsterrors.in" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/2-firsterrors.out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/2-firsterrors.out1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/2-firsterrors.out2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scenario1.in" beforeDir="false" afterPath="$PROJECT_DIR$/Scenario1.in" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/3-madoutputter.out" beforeDir="false" afterPath="$PROJECT_DIR$/3-madoutputter.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/3-madoutputter.out1" beforeDir="false" afterPath="$PROJECT_DIR$/3-madoutputter.out1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/3-madoutputter.out2" beforeDir="false" afterPath="$PROJECT_DIR$/3-madoutputter.out2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/3-madoutputter.out3" beforeDir="false" afterPath="$PROJECT_DIR$/3-madoutputter.out3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/3-madoutputter.out4" beforeDir="false" afterPath="$PROJECT_DIR$/3-madoutputter.out4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/3-madoutputter.out5" beforeDir="false" afterPath="$PROJECT_DIR$/3-madoutputter.out5" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scenario1.out" beforeDir="false" afterPath="$PROJECT_DIR$/Scenario1.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scenario1.out1" beforeDir="false" afterPath="$PROJECT_DIR$/Scenario1.out1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scenario1.out2" beforeDir="false" afterPath="$PROJECT_DIR$/Scenario1.out2" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/InterpreterAssistant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/InterpreterAssistant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/RegistryReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/RegistryReader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/strategy/SuperFit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/strategy/SuperFit.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -84,7 +74,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/dimit/OneDrive/Documents/lnu courses/1DV512/a1&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/dimit/Downloads/2_Assignment&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -164,7 +154,18 @@
       <workItem from="1674827586780" duration="5223000" />
       <workItem from="1675079806460" duration="3680000" />
       <workItem from="1675085582726" duration="134000" />
-      <workItem from="1675085959105" duration="25193000" />
+      <workItem from="1675085959105" duration="26326000" />
+      <workItem from="1675174592955" duration="14000" />
+      <workItem from="1675185081675" duration="705000" />
+      <workItem from="1675237629953" duration="1618000" />
+      <workItem from="1675261783954" duration="409000" />
+      <workItem from="1675267496463" duration="3307000" />
+      <workItem from="1675271018617" duration="26000" />
+      <workItem from="1675339672303" duration="2309000" />
+      <workItem from="1675430723331" duration="74000" />
+      <workItem from="1675431417180" duration="1796000" />
+      <workItem from="1675776093031" duration="3242000" />
+      <workItem from="1675869225339" duration="3190000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit.">
       <created>1669915667848</created>
@@ -460,7 +461,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675156795423</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="Work almost done, needs some tiny modifications for connecting blocks.">
+      <created>1675166637460</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1675166637461</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -482,7 +490,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/ahmad_a1_1dv512" />
     </ignored-roots>
-    <MESSAGE value="First fit working but needs more tuning." />
     <MESSAGE value="update." />
     <MESSAGE value="First fit seems to be fully functional." />
     <MESSAGE value="Best fit works fine, needs more tuning." />
@@ -507,7 +514,8 @@
     <MESSAGE value="Updates in the code, testing the application with the new input file." />
     <MESSAGE value="The output produced is the same as the warmup output files." />
     <MESSAGE value="The output produced is the same as the firsterrors output files." />
-    <option name="LAST_COMMIT_MESSAGE" value="The output produced is the same as the firsterrors output files." />
+    <MESSAGE value="Work almost done, needs some tiny modifications for connecting blocks." />
+    <option name="LAST_COMMIT_MESSAGE" value="Work almost done, needs some tiny modifications for connecting blocks." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -520,11 +528,6 @@
           <properties class="java.lang.IndexOutOfBoundsException" package="java.lang" />
           <option name="timeStamp" value="19" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/model/InterpreterAssistant.java</url>
-          <line>56</line>
-          <option name="timeStamp" value="101" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>
@@ -534,6 +537,11 @@
         <PinnedItemInfo parentTag="model.Block" memberName="blockId" />
       </pinned-members>
     </pin-to-top-manager>
+    <watches-manager>
+      <configuration name="GradleRunConfiguration">
+        <watch expression="fb" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/a1$Main.ic" NAME="Main Coverage Results" MODIFIED="1670600765113" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />

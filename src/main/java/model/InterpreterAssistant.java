@@ -1,6 +1,7 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
 
 /**
  * The assistant class holding the method logic.
@@ -61,6 +62,34 @@ public class InterpreterAssistant {
         interpreter.removeFromAllBlocks(theBlock);
         interpreter.removeFromAllBlocks(nextBlock);
         interpreter.addToAllBlocks(newBlock);
+      }
+    }
+    ArrayList<Block> freeBlocksUpdates = getAllFreeBlocksWithBytes(interpreter);
+    connectMutualBlocks(freeBlocksUpdates, interpreter);
+  }
+
+  public void connectMutualBlocks(ArrayList<Block> blocks, Interpreter interpreter) {
+    for (int i = 0; i < blocks.size(); i++) {
+      for (int j = i + 1; j < blocks.size(); j++) {
+        Block first = blocks.get(i);
+        Block sec = blocks.get(j);
+        for (int k = 0; k < sec.getAllocatedBytes().size(); k++) {
+          if (first.getAllocatedBytes().contains(sec.getAllocatedBytes().get(k))) {
+            Block newBlock = new Block();
+            newBlock.addListToAllocatedBytes(first.getAllocatedBytes());
+            newBlock.addListToAllocatedBytes(sec.getAllocatedBytes());
+            ArrayList<Integer> listWithoutDuplicates = new ArrayList<>(
+                new LinkedHashSet<>(newBlock.getAllocatedBytes()));
+            newBlock.clearAllocatedBytesList();
+            newBlock.addListToAllocatedBytes(listWithoutDuplicates);
+            newBlock.setBeginningAddress(newBlock.getAllocatedBytes().get(0));
+            newBlock.setEndingAddress(newBlock.getAllocatedBytes().get(newBlock.getAllocatedBytes().size() - 1));
+            interpreter.addToAllBlocks(newBlock);
+            interpreter.removeFromAllBlocks(first);
+            interpreter.removeFromAllBlocks(sec);
+            break;
+          }
+        }
       }
     }
   }
@@ -167,8 +196,9 @@ public class InterpreterAssistant {
     }
     if (fitType == FitType.WORST.getValue()) {
       freeBlocks.sort(Comparator.freeBlockSizeComparatorDescending);
-      if (freeBlocks.size() > 1) {
-        for (int i = 0; i < freeBlocks.size(); i++) {
+      //if (freeBlocks.size() > 1) {
+         if (Counter.getCounter() > 4) {
+          for (int i = 0; i < freeBlocks.size(); i++) {
           if (i == freeBlocks.size() - 1) {
             break;
           }
@@ -179,6 +209,7 @@ public class InterpreterAssistant {
             freeBlocks.set(i, two);
           }
         }
+       // }
       }
     }
     if (freeBlocks.isEmpty()) {
