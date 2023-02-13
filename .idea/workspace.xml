@@ -4,18 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9669cbba-49a3-4f69-9816-ed9873540e63" name="Changes" comment="Work almost done, needs some tiny modifications for connecting blocks.">
+    <list default="true" id="9669cbba-49a3-4f69-9816-ed9873540e63" name="Changes" comment="File name is now added as input on start. Added a feature for connecting the mutual blocks.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/3-madoutputter.out" beforeDir="false" afterPath="$PROJECT_DIR$/3-madoutputter.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/3-madoutputter.out1" beforeDir="false" afterPath="$PROJECT_DIR$/3-madoutputter.out1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/3-madoutputter.out2" beforeDir="false" afterPath="$PROJECT_DIR$/3-madoutputter.out2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/3-madoutputter.out3" beforeDir="false" afterPath="$PROJECT_DIR$/3-madoutputter.out3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/3-madoutputter.out4" beforeDir="false" afterPath="$PROJECT_DIR$/3-madoutputter.out4" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/3-madoutputter.out5" beforeDir="false" afterPath="$PROJECT_DIR$/3-madoutputter.out5" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scenario1.out" beforeDir="false" afterPath="$PROJECT_DIR$/Scenario1.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/InterpreterAssistant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/InterpreterAssistant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/RegistryReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/RegistryReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/strategy/SuperFit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/strategy/SuperFit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/3-madoutputter.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/3-madoutputter.out1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/3-madoutputter.out2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/3-madoutputter.out3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/3-madoutputter.out4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/3-madoutputter.out5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenario1.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenario1.out1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenario1.out2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenario1.out3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenario1.out4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenario1.out5" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -165,7 +167,7 @@
       <workItem from="1675430723331" duration="74000" />
       <workItem from="1675431417180" duration="1796000" />
       <workItem from="1675776093031" duration="3242000" />
-      <workItem from="1675869225339" duration="3190000" />
+      <workItem from="1675869225339" duration="4772000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit.">
       <created>1669915667848</created>
@@ -468,7 +470,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675166637461</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="File name is now added as input on start. Added a feature for connecting the mutual blocks.">
+      <created>1675874929306</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1675874929306</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -490,7 +499,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/ahmad_a1_1dv512" />
     </ignored-roots>
-    <MESSAGE value="update." />
     <MESSAGE value="First fit seems to be fully functional." />
     <MESSAGE value="Best fit works fine, needs more tuning." />
     <MESSAGE value="All 3 allocation methods implemented, still requires more testing." />
@@ -515,7 +523,8 @@
     <MESSAGE value="The output produced is the same as the warmup output files." />
     <MESSAGE value="The output produced is the same as the firsterrors output files." />
     <MESSAGE value="Work almost done, needs some tiny modifications for connecting blocks." />
-    <option name="LAST_COMMIT_MESSAGE" value="Work almost done, needs some tiny modifications for connecting blocks." />
+    <MESSAGE value="File name is now added as input on start. Added a feature for connecting the mutual blocks." />
+    <option name="LAST_COMMIT_MESSAGE" value="File name is now added as input on start. Added a feature for connecting the mutual blocks." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
